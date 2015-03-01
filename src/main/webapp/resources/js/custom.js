@@ -155,3 +155,4 @@ function toggleCrudButtons(id) {
 		$('#reloadBtn').attr('disabled', 'disabled');
 	}
 }
+

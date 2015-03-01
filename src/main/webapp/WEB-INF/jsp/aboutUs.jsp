@@ -88,15 +88,11 @@
                 <div class="sidebar-nav">
                   <div class="nav-header" data-toggle="collapse" data-target="#dashboard-menu"><i class="icon-dashboard"></i>Dashboard</div>
                     <ul id="dashboard-menu" class="nav nav-list collapse in">
-						<li class="active"><a href="about-us.html">About Us</a></li>
+						<li class="active"><a href="aboutUs">About Us</a></li>
                         <li><a href="index.html">View Reviews</a></li>
-                        <!-- <li ><a href="users.html">Sample List</a></li> -->
-                        <li ><a href="user.html">Search/Write Reviews</a></li>
-                        <li ><a href="gallery.html">Gallery</a></li>
-                        <!-- <li ><a href="calendar.html">Calendar</a></li> -->
+                        <li ><a href="user.html">Search Reviews</a></li>
+                        <li ><a href="writeReview">Write Reviews</a></li>
                         <li ><a href="faq.html">Faq</a></li>
-                        <!-- <li ><a href="help.html">Help</a></li>-->
-
                     </ul>
                 <div class="nav-header" data-toggle="collapse" data-target="#accounts-menu"><i class="icon-briefcase"></i>Account<span class="label label-info">+10</span></div>
                 <ul id="accounts-menu" class="nav nav-list collapse in">
