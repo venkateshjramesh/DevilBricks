@@ -129,8 +129,8 @@
 <div class="well">
     <div id="myTabContent" class="tab-content">
       <div class="tab-pane active in" id="home">
-    <form id="tab" method="post" action="${pageContext.request.contextPath}/writeReview/create">
-
+    <form id="tab" method="post" action="${pageContext.request.contextPath}/saveReview">
+        <h5><font color="red">${statusMessage}</font></h5>
 		<h3>Contact Details </h3>
         <label>Username</label>
         <input type="text" class="input-xlarge">
@@ -163,37 +163,37 @@
 
 		<h3>Tenant comments</h3>
         <label>Land Lords Behaviour</label>
-        <textarea value="Smith" rows="5" class="input-xlarge">
+        <textarea name="behaviour" value="Smith" rows="5" class="input-xlarge">
         </textarea>
 		<label>Land Lords Attitude</label>
-        <textarea value="Smith" rows="5" class="input-xlarge">
+        <textarea name="attitude" value="Smith" rows="5" class="input-xlarge">
         </textarea>
 		<label>Electricity Bill</label>
-        <textarea value="Smith" rows="5" class="input-xlarge">
+        <textarea name="ebBill" value="Smith" rows="5" class="input-xlarge">
         </textarea>
 		<label>Maintainance Cost</label>
-        <textarea value="Smith" rows="5" class="input-xlarge">
+        <textarea name="maintainance" value="Smith" rows="5" class="input-xlarge">
         </textarea>
 		<label>Wrt Guest and Visitors</label>
-        <textarea value="Smith" rows="5" class="input-xlarge">
+        <textarea name="guest" value="Smith" rows="5" class="input-xlarge">
         </textarea>
-		<label>Rent Payment</label>
-        <textarea value="Smith" rows="5" class="input-xlarge">
+		<label>Hidden Costs</label>
+        <textarea name="hiddenCost" value="Smith" rows="5" class="input-xlarge">
         </textarea>
 		<label>Water Facility</label>
-        <textarea value="Smith" rows="5" class="input-xlarge">
+        <textarea name="water" value="Smith" rows="5" class="input-xlarge">
         </textarea>
 		<label>Parking Facility</label>
-        <textarea value="Smith" rows="5" class="input-xlarge">
+        <textarea name="parking" value="Smith" rows="5" class="input-xlarge">
         </textarea>
 		<label>Other Facilities</label>
-        <textarea value="Smith" rows="5" class="input-xlarge">
+        <textarea name="facilities" value="Smith" rows="5" class="input-xlarge">
         </textarea>
 		<label>Other Comments</label>
-        <textarea value="Smith" rows="5" class="input-xlarge">
+        <textarea name="otherComments" value="Smith" rows="5" class="input-xlarge">
         </textarea>
 		<label>Suggestion for Other Tenants</label>
-        <textarea value="Smith" rows="5" class="input-xlarge">
+        <textarea name="suggestion" value="Smith" rows="5" class="input-xlarge">
         </textarea>
 
         <label>Time Zone</label>

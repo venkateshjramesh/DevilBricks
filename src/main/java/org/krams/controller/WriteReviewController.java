@@ -1,6 +1,7 @@
 package org.krams.controller;
 
 import org.krams.domain.Owner;
+import org.krams.domain.Review;
 import org.krams.domain.Role;
 import org.krams.domain.User;
 import org.krams.service.DevilBrickService;
@@ -11,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/writeReview")
@@ -20,26 +26,8 @@ public class WriteReviewController {
     private DevilBrickService service;
 
 	@RequestMapping
-	public String getUsersPage() {
-		return "writeReview";
+	public ModelAndView Owner() {
+        return new ModelAndView("writeReview");
 	}
-
-    @RequestMapping(value="/create", method=RequestMethod.POST)
-    public @ResponseBody Owner create(
-            @RequestParam String email,
-            @RequestParam String mobile,
-            @RequestParam String firstName,
-            @RequestParam String lastName) {
-
-
-        Owner owner = new Owner();
-        owner.setEmail(email);
-        owner.setFirstName(firstName);
-        owner.setLastName(lastName);
-        owner.setMobile(mobile);
-
-        return service.create(owner);
-
-    }
 
 }

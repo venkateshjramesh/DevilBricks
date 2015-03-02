@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document
 public class Owner {
 
@@ -15,6 +17,17 @@ public class Owner {
 
     private String email;
     private String mobile;
+
+    @DBRef
+    private Review review;
+
+    public Review getReview() {
+        return review;
+    }
+
+    public void setReview(Review review) {
+        this.review = review;
+    }
 
     public String getMobile() {
         return mobile;
