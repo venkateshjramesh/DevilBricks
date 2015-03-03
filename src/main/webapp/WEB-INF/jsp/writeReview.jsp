@@ -131,9 +131,8 @@
       <div class="tab-pane active in" id="home">
     <form id="tab" method="post" action="${pageContext.request.contextPath}/saveReview">
         <h5><font color="red">${statusMessage}</font></h5>
-		<h3>Contact Details </h3>
-        <label>Username</label>
-        <input type="text" class="input-xlarge">
+		<h3>Land Lord Identification Details </h3>
+        <input name="id" type="hidden">
         <label>First Name</label>
         <input name="firstName" type="text" class="input-xlarge">
         <label>Last Name</label>

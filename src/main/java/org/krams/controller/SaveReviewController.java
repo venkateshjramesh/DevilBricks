@@ -13,6 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -27,6 +29,7 @@ public class SaveReviewController {
     public @ResponseBody ModelAndView create(
             HttpServletRequest request,
             HttpServletResponse response,
+            @RequestParam String id,
             @RequestParam String email,
             @RequestParam String mobile,
             @RequestParam String firstName,
@@ -37,18 +40,32 @@ public class SaveReviewController {
 
 
         Owner owner = new Owner();
-        owner.setEmail(email);
-        owner.setFirstName(firstName);
-        owner.setLastName(lastName);
-        owner.setMobile(mobile);
-
-        Review review = new Review();
+          System.out.print("-------------------------------");
+        Review review  = new Review();
         review.setId(UUID.randomUUID().toString());
         review.setAttitudeDesc(attitude);
         review.setBehaviourDesc(behaviour);
         review.setEbBillDesc(ebBill);
 
-        owner.setReview(review);
+        if(id != null && id.equals("")){
+            owner.setEmail(email);
+            owner.setFirstName(firstName);
+            owner.setLastName(lastName);
+            owner.setMobile(mobile);
+
+            List<Review> reviewList = new ArrayList<Review>();
+
+            reviewList.add(review);
+            owner.setReview(reviewList);
+        }else{
+            owner = service.findOne(id);
+            System.out.print("******************************************"+owner.getFirstName()+" " + owner.getId());
+            List<Review> reviewList = owner.getReview();
+            reviewList.add(review);
+            owner.setReview(reviewList);
+
+        }
+
 
         service.createReview(review);
         service.create(owner);

@@ -19,6 +19,7 @@ public class DevilBrickService {
     private ReviewRepository reviewRepository;
 
     public Owner create(Owner owner) {
+        if(owner.getId()!=null && owner.getId().equals(""))
         owner.setId(UUID.randomUUID().toString());
         return repository.save(owner);
     }
@@ -27,6 +28,8 @@ public class DevilBrickService {
         review.setId(UUID.randomUUID().toString());
         return reviewRepository.save(review);
     }
-	
+    public Owner findOne(String id) {
+        return repository.findOne(id);
+    }
 
 }

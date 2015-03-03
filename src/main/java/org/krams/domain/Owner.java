@@ -19,13 +19,13 @@ public class Owner {
     private String mobile;
 
     @DBRef
-    private Review review;
+    private List<Review> review;
 
-    public Review getReview() {
+    public List<Review> getReview() {
         return review;
     }
 
-    public void setReview(Review review) {
+    public void setReview(List<Review> review) {
         this.review = review;
     }
 
