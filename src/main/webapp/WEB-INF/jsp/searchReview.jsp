@@ -130,18 +130,18 @@
     <div id="myTabContent" class="tab-content">
 
 
-    <form id="tab2">
+    <form id="tab2" method="get" action="${pageContext.request.contextPath}/searchOwner">
         <h3>Contact Details </h3>
-        <label>Username</label>
-        <input type="text"  class="input-xlarge">
+
+        <input name="id" type="hidden">
         <label>First Name</label>
-        <input type="text" class="input-xlarge">
+        <input name="firstName" type="text" class="input-xlarge">
         <label>Last Name</label>
-        <input type="text" class="input-xlarge">
+        <input name="lastName" type="text" class="input-xlarge">
         <label>Email</label>
-        <input type="text" class="input-xlarge">
-		<label>Mobile</label>
-        <input type="text" class="input-xlarge">
+        <input name="email" type="text" class="input-xlarge">
+        <label>Mobile</label>
+        <input name="mobile" type="text" class="input-xlarge">
 
 		<h3>Address</h3>
 		<label>Plot Number</label>
