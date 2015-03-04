@@ -40,7 +40,6 @@ public class SaveReviewController {
 
 
         Owner owner = new Owner();
-          System.out.print("-------------------------------");
         Review review  = new Review();
         review.setId(UUID.randomUUID().toString());
         review.setAttitudeDesc(attitude);
@@ -59,7 +58,6 @@ public class SaveReviewController {
             owner.setReview(reviewList);
         }else{
             owner = service.findOne(id);
-            System.out.print("******************************************"+owner.getFirstName()+" " + owner.getId());
             List<Review> reviewList = owner.getReview();
             reviewList.add(review);
             owner.setReview(reviewList);

@@ -1,4 +1,3 @@
-<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +6,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="venkatesh" >
 
     <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap-responsive.css">
@@ -15,7 +14,6 @@
     <link rel="stylesheet" href="resources/lib/font-awesome/css/font-awesome.css">
 
     <script src="resources/lib/jquery-1.8.1.min.js" type="text/javascript"></script>
-	<script src="resources/javascripts/DevilBrick.js" type="text/javascript"></script>
 
     <!-- Demo page code -->
 
@@ -91,9 +89,9 @@
                   <div class="nav-header" data-toggle="collapse" data-target="#dashboard-menu"><i class="icon-dashboard"></i>Dashboard</div>
                     <ul id="dashboard-menu" class="nav nav-list collapse in">
 						<li ><a href="aboutUs">About Us</a></li>
-                        <li><a href="viewReview">View Reviews</a></li>
-                        <li ><a href="user.html">Search Reviews</a></li>
-                        <li class="active"><a href="writeReview">Write Reviews</a></li>
+                        <li ><a href="viewReview">View Reviews</a></li>
+                        <li class="active"><a href="searchReview">Search Reviews</a></li>
+                        <li ><a href="writeReview">Write Reviews</a></li>
                         <li ><a href="faq.html">Faq</a></li>
 
                     </ul>
@@ -120,27 +118,30 @@
             </div>
         </div>
         <div class="span9">
-            <h1 class="page-title">Write Reviews</h1>
+            <h1 class="page-title">Search Reviews</h1>
 <div class="btn-toolbar">
-
+    <!-- <button class="btn btn-primary"><i class="icon-save"></i> Submit</button> -->
+    <!-- <a href="#myModal" data-toggle="modal" class="btn">Delete</a>-->
   <div class="btn-group">
   </div>
 </div>
 <div class="well">
+
     <div id="myTabContent" class="tab-content">
-      <div class="tab-pane active in" id="home">
-    <form id="tab" method="post" action="${pageContext.request.contextPath}/saveReview">
-        <h5><font color="red">${statusMessage}</font></h5>
-		<h3>Land Lord Identification Details </h3>
-        <input name="id" type="hidden">
+
+
+    <form id="tab2">
+        <h3>Contact Details </h3>
+        <label>Username</label>
+        <input type="text"  class="input-xlarge">
         <label>First Name</label>
-        <input name="firstName" type="text" class="input-xlarge">
+        <input type="text" class="input-xlarge">
         <label>Last Name</label>
-        <input name="lastName" type="text" class="input-xlarge">
+        <input type="text" class="input-xlarge">
         <label>Email</label>
-        <input name="email" type="text" class="input-xlarge">
+        <input type="text" class="input-xlarge">
 		<label>Mobile</label>
-        <input name="mobile" type="text" class="input-xlarge">
+        <input type="text" class="input-xlarge">
 
 		<h3>Address</h3>
 		<label>Plot Number</label>
@@ -148,7 +149,7 @@
         <label>Appartment Name or Building Name</label>
         <input type="text" class="input-xlarge">
         <label>Door Number</label>
-        <input type="text" class="input-xlarge">
+        <input type="text"  class="input-xlarge">
 		<label>Floor</label>
         <input type="text" class="input-xlarge">
         <label>Street Name</label>
@@ -159,86 +160,128 @@
         <input type="text" class="input-xlarge">
 		<label>State</label>
         <input type="text" class="input-xlarge">
-
-		<h3>Tenant comments</h3>
-        <label>Land Lords Behaviour</label>
-        <textarea name="behaviour" value="Smith" rows="5" class="input-xlarge">
-        </textarea>
-		<label>Land Lords Attitude</label>
-        <textarea name="attitude" value="Smith" rows="5" class="input-xlarge">
-        </textarea>
-		<label>Electricity Bill</label>
-        <textarea name="ebBill" value="Smith" rows="5" class="input-xlarge">
-        </textarea>
-		<label>Maintainance Cost</label>
-        <textarea name="maintainance" value="Smith" rows="5" class="input-xlarge">
-        </textarea>
-		<label>Wrt Guest and Visitors</label>
-        <textarea name="guest" value="Smith" rows="5" class="input-xlarge">
-        </textarea>
-		<label>Hidden Costs</label>
-        <textarea name="hiddenCost" value="Smith" rows="5" class="input-xlarge">
-        </textarea>
-		<label>Water Facility</label>
-        <textarea name="water" value="Smith" rows="5" class="input-xlarge">
-        </textarea>
-		<label>Parking Facility</label>
-        <textarea name="parking" value="Smith" rows="5" class="input-xlarge">
-        </textarea>
-		<label>Other Facilities</label>
-        <textarea name="facilities" value="Smith" rows="5" class="input-xlarge">
-        </textarea>
-		<label>Other Comments</label>
-        <textarea name="otherComments" value="Smith" rows="5" class="input-xlarge">
-        </textarea>
-		<label>Suggestion for Other Tenants</label>
-        <textarea name="suggestion" value="Smith" rows="5" class="input-xlarge">
-        </textarea>
-
-        <label>Time Zone</label>
-        <select name="DropDownTimezone" id="DropDownTimezone" class="input-xlarge">
-          <option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>
-          <option value="-11.0">(GMT -11:00) Midway Island, Samoa</option>
-          <option value="-10.0">(GMT -10:00) Hawaii</option>
-          <option value="-9.0">(GMT -9:00) Alaska</option>
-          <option selected="selected" value="-8.0">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
-          <option value="-7.0">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
-          <option value="-6.0">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
-          <option value="-5.0">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
-          <option value="-4.0">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-          <option value="-3.5">(GMT -3:30) Newfoundland</option>
-          <option value="-3.0">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-          <option value="-2.0">(GMT -2:00) Mid-Atlantic</option>
-          <option value="-1.0">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
-          <option value="0.0">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
-          <option value="1.0">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
-          <option value="2.0">(GMT +2:00) Kaliningrad, South Africa</option>
-          <option value="3.0">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
-          <option value="3.5">(GMT +3:30) Tehran</option>
-          <option value="4.0">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
-          <option value="4.5">(GMT +4:30) Kabul</option>
-          <option value="5.0">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
-          <option value="5.5">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-          <option value="5.75">(GMT +5:45) Kathmandu</option>
-          <option value="6.0">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-          <option value="7.0">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-          <option value="8.0">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
-          <option value="9.0">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
-          <option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
-          <option value="10.0">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
-          <option value="11.0">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
-          <option value="12.0">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
-    </select>
-	<div>
-	<button id="createOwnerButton" onclick="validateOwner()" class="btn btn-primary"><i class="icon-save"></i> Submit</button>
-	</div>
+        <div>
+            <button class="btn btn-primary">Search</button>
+        </div>
     </form>
+
+	<!-- start of the data table -->
+<div id="detailsTable">
+<h1 class="page-title">Land Lords List</h1>
+<p><i class="icon-pencil modal-icon"></i>&nbsp;&nbsp;&nbsp;Please click on the following icon for writing review on the listed Land lord</p>
+<p class="error-text"><i class="icon-zoom-in"></i>&nbsp;&nbsp;&nbsp;Please click on the following icon for viewing review on the listed Land lord</p>
+  </div>
+
+<div class="well">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th style="width: 26px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Mark</td>
+          <td>8888554524</td>
+          <td>#47, 1st Floor, Rainbow Flats <br> Dr Ambedkar Salai <br> Enfield Avenue 3 rd Street <br> Madipakkam <br> Chennai - 600091</td>
+          <td>
+              <a href="user.html" ><i class="icon-pencil"></i></a>
+              <a href="user.html"><i class="icon-zoom-in"></i></a>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Ashley</td>
+          <td>8888554524</td>
+          <td>#47, 1st Floor, Rainbow Flats <br> Dr Ambedkar Salai <br> Enfield Avenue 3 rd Street <br> Madipakkam <br> Chennai - 600091</td>
+          <td>
+              <a href="user.html"><i class="icon-pencil"></i></a>
+              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Audrey</td>
+          <td>8888554524</td>
+          <td>#47, 1st Floor, Rainbow Flats <br> Dr Ambedkar Salai <br> Enfield Avenue 3 rd Street <br> Madipakkam <br> Chennai - 600091</td>
+          <td>
+              <a href="user.html"><i class="icon-pencil"></i></a>
+              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+          </td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>John</td>
+          <td>8888554524</td>
+          <td>#47, 1st Floor, Rainbow Flats <br> Dr Ambedkar Salai <br> Enfield Avenue 3 rd Street <br> Madipakkam <br> Chennai - 600091</td>
+          <td>
+              <a href="user.html"><i class="icon-pencil"></i></a>
+              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+          </td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Aaron</td>
+          <td>8888554524</td>
+          <td>#47, 1st Floor, Rainbow Flats <br> Dr Ambedkar Salai <br> Enfield Avenue 3 rd Street <br> Madipakkam <br> Chennai - 600091</td>
+          <td>
+              <a href="user.html"><i class="icon-pencil"></i></a>
+              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+          </td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Chris</td>
+          <td>8888554524</td>
+          <td>#47, 1st Floor, Rainbow Flats <br> Dr Ambedkar Salai <br> Enfield Avenue 3 rd Street <br> Madipakkam <br> Chennai - 600091</td>
+          <td>
+              <a href="user.html" class="btn btn-primary"><i class="icon-pencil"></i>Write Review</a>
+              <a href="user.html" class="btn btn-primary"><i class="icon-zoom-in"></i>View Review</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<div class="pagination">
+    <ul>
+        <li><a href="#">Prev</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">Next</a></li>
+    </ul>
+</div>
+
+</div>
+<!-- end of the data table -->
+
       </div>
   </div>
 
 
 
 
+</div>
+
+<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">\D7</button>
+    <h3 id="myModalLabel">Delete Confirmation</h3>
+  </div>
+  <div class="modal-body">
+
+    <p class="error-text"><i class="icon-warning-sign modal-icon"></i>Are you sure you want to delete the user?</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    <button class="btn btn-danger" data-dismiss="modal">Delete</button>
+  </div>
 </div>
 
         </div>
