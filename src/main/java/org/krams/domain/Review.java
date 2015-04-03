@@ -10,12 +10,17 @@ public class Review {
 	@Id
 	private String id;
 
+    private String behaviour;
+    private String attitude;
+    private String ebBill;
+    private String maintainance;
+    private String guest;
+    private String hiddenCost;
+    private String water;
+    private String parking;
+    private String otherComments;
+    private String suggestion;
 
-    private String behaviourDesc;
-
-    private String attitudeDesc;
-
-    private String ebBillDesc;
 
     public String getId() {
         return id;
@@ -25,27 +30,83 @@ public class Review {
         this.id = id;
     }
 
-    public String getBehaviourDesc() {
-        return behaviourDesc;
+    public String getBehaviour() {
+        return behaviour;
     }
 
-    public void setBehaviourDesc(String behaviourDesc) {
-        this.behaviourDesc = behaviourDesc;
+    public void setBehaviour(String behaviour) {
+        this.behaviour = behaviour;
     }
 
-    public String getAttitudeDesc() {
-        return attitudeDesc;
+    public String getAttitude() {
+        return attitude;
     }
 
-    public void setAttitudeDesc(String attitudeDesc) {
-        this.attitudeDesc = attitudeDesc;
+    public void setAttitude(String attitude) {
+        this.attitude = attitude;
     }
 
-    public String getEbBillDesc() {
-        return ebBillDesc;
+    public String getEbBill() {
+        return ebBill;
     }
 
-    public void setEbBillDesc(String ebBillDesc) {
-        this.ebBillDesc = ebBillDesc;
+    public void setEbBill(String ebBill) {
+        this.ebBill = ebBill;
+    }
+
+    public String getMaintainance() {
+        return maintainance;
+    }
+
+    public void setMaintainance(String maintainance) {
+        this.maintainance = maintainance;
+    }
+
+    public String getGuest() {
+        return guest;
+    }
+
+    public void setGuest(String guest) {
+        this.guest = guest;
+    }
+
+    public String getHiddenCost() {
+        return hiddenCost;
+    }
+
+    public void setHiddenCost(String hiddenCost) {
+        this.hiddenCost = hiddenCost;
+    }
+
+    public String getWater() {
+        return water;
+    }
+
+    public void setWater(String water) {
+        this.water = water;
+    }
+
+    public String getParking() {
+        return parking;
+    }
+
+    public void setParking(String parking) {
+        this.parking = parking;
+    }
+
+    public String getOtherComments() {
+        return otherComments;
+    }
+
+    public void setOtherComments(String otherComments) {
+        this.otherComments = otherComments;
+    }
+
+    public String getSuggestion() {
+        return suggestion;
+    }
+
+    public void setSuggestion(String suggestion) {
+        this.suggestion = suggestion;
     }
 }
