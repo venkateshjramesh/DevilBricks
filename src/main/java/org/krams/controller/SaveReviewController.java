@@ -5,10 +5,7 @@ import org.krams.domain.Review;
 import org.krams.service.DevilBrickService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,34 +26,35 @@ public class SaveReviewController {
     public @ResponseBody ModelAndView create(
             HttpServletRequest request,
             HttpServletResponse response,
-            @RequestParam String id,
-            @RequestParam String email,
-            @RequestParam String mobile,
-            @RequestParam String firstName,
-            @RequestParam String lastName,
-            @RequestParam String plotNumber,
-            @RequestParam String appartmentName,
-            @RequestParam String doorNo,
-            @RequestParam String floor,
-            @RequestParam String streetName,
-            @RequestParam String landmark,
-            @RequestParam String area,
-            @RequestParam String city,
-            @RequestParam String taluk,
-            @RequestParam String district,
-            @RequestParam String state,
-            @RequestParam String pinCode,
-            @RequestParam String behaviour,
-            @RequestParam String attitude,
-            @RequestParam String ebBill,
-            @RequestParam String maintainance,
-            @RequestParam String guest,
-            @RequestParam String hiddenCost,
-            @RequestParam String water,
-            @RequestParam String parking,
-            @RequestParam String otherComments,
-            @RequestParam String suggestion) {
+            @ModelAttribute("id") String id,
+            @ModelAttribute("email") String email,
+            @ModelAttribute("mobile") String mobile,
+            @ModelAttribute("firstName") String firstName,
+            @ModelAttribute("lastName") String lastName,
+            @ModelAttribute("plotNumber") String plotNumber,
+            @ModelAttribute("appartmentName") String appartmentName,
+            @ModelAttribute("doorNo") String doorNo,
+            @ModelAttribute("floor") String floor,
+            @ModelAttribute("streetName") String streetName,
+            @ModelAttribute("landmark") String landmark,
+            @ModelAttribute("area") String area,
+            @ModelAttribute("city") String city,
+            @ModelAttribute("taluk") String taluk,
+            @ModelAttribute("district") String district,
+            @ModelAttribute("state") String state,
+            @ModelAttribute("pinCode") String pinCode,
+            @ModelAttribute("behaviour") String behaviour,
+            @ModelAttribute("attitude") String attitude,
+            @ModelAttribute("ebBill") String ebBill,
+            @ModelAttribute("maintainance") String maintainance,
+            @ModelAttribute("guest") String guest,
+            @ModelAttribute("hiddenCost") String hiddenCost,
+            @ModelAttribute("water") String water,
+            @ModelAttribute("parking") String parking,
+            @ModelAttribute("otherComments") String otherComments,
+            @ModelAttribute("suggestion") String suggestion) {
 
+        System.out.print("/////////////////////id///////////////:::" + id);
 
         Owner owner = new Owner();
         Review review  = new Review();
@@ -108,7 +106,7 @@ public class SaveReviewController {
 
         service.createReview(review);
         service.create(owner);
-
+        id=null;
         return new ModelAndView("writeReview","statusMessage","Details Successfully Inserted.");
 
     }

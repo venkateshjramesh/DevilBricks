@@ -1,3 +1,6 @@
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,12 +11,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap-responsive.css">
-    <link rel="stylesheet" type="text/css" href="resources/stylesheets/theme.css">
-    <link rel="stylesheet" href="resources/lib/font-awesome/css/font-awesome.css">
+   <link href="<spring:url value="/resources/lib/bootstrap/css/bootstrap.css"/>" rel="stylesheet" type="text/css" media="screen">
+   <link href="<spring:url value="/resources/lib/bootstrap/css/bootstrap-responsive.css"/>" rel="stylesheet" type="text/css" media="screen">
+   <link href="<spring:url value="/resources/stylesheets/theme.css"/>" rel="stylesheet" type="text/css" media="screen">
+   <link href="<spring:url value="/resources/lib/font-awesome/css/font-awesome.css"/>" rel="stylesheet" type="text/css" media="screen">
+   <link rel="stylesheet" href="<spring:url value="/resources/css/devilBrick.css"/>" type="text/css" media="screen">
 
-    <script src="resources/lib/jquery-1.8.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="<spring:url value="/resources/lib/jquery-1.8.1.min.js"/>"></script>
+    <script type="text/javascript" src="<spring:url value="/resources/javascripts/DevilBrick.js"/>"></script>
 
     <!-- Demo page code -->
 
@@ -88,10 +93,10 @@
                 <div class="sidebar-nav">
                    <div class="nav-header" data-toggle="collapse" data-target="#dashboard-menu"><i class="icon-dashboard"></i>Dashboard</div>
                      <ul id="dashboard-menu" class="nav nav-list collapse in">
-						<li ><a href="aboutUs">About Us</a></li>
-                        <li class="active"><a href="viewReview">View Reviews</a></li>
-                        <li ><a href="user.html">Search Reviews</a></li>
-                        <li ><a href="writeReview">Write Reviews</a></li>
+						<li ><a href="${pageContext.request.contextPath}/aboutUs">About Us</a></li>
+                        <li class="active"><a href="${pageContext.request.contextPath}/viewReview">View Reviews</a></li>
+                        <li ><a href="${pageContext.request.contextPath}/searchReview">Search Reviews</a></li>
+                        <li ><a href="${pageContext.request.contextPath}/writeReview">Write Reviews</a></li>
                         <li ><a href="faq.html">Faq</a></li>
 
                     </ul>
@@ -135,19 +140,19 @@
             <!-- <div id="line-chart"></div> -->
 			<!-- Start of custom content -->
 
-
+        <input type="hidden" id="ownerIdForReview" value="${id}">
         <div class="block-body">
              <h4>NAME</h4>
-			<p>Illangovan</p>
+			<p>${firstName},${lastName}</p>
 			<h4>MOBILE</h4>
-			<p>9444852426</p>
+			<p>${mobile}</p>
 			<h4>MAIL ID</h4>
-			<p>xxx@yyy@zzz.com</p>
+			<p>${email}</p>
 			<h4>ADDRESS</h4>
 			<p>#44, aaa street,</p>
 			<p>bbb nagar,</p>
 			<p>zzz area.</p>
-
+            <p><button  id="testButton" class="btn btn-primary">test button</button></p>
         </div>
 
 			<!-- end of custom content -->
@@ -156,42 +161,30 @@
     </div>
 </div>
 
-
+<div id="reviewBlock">
 <div class="row-fluid">
-
     <div class="block span12">
         <p class="block-heading"><u>Venkatesh Ramesh</u> &nbsp;&nbsp;&nbsp;
-		<a href="#myModal" data-toggle="modal"><button class="btn btn-primary "><i class="icon-user"></i>Contact User</button></a>
-		<span class="badge badge-success">You have contacted this user</span>
-
+		<a href="#myModal" data-toggle="modal"><button class="btn btn-primary "><i class="icon-user"></i>&nbsp;&nbsp;Contact User</button></a>
+		&nbsp;&nbsp;<span class="badge badge-success">You have contacted this user</span>
 		</p>
         <div class="block-body">
-            <h2>Tip of the Day</h2>
+            <h5>Tip of the Day</h5>
             <p>Fava bean jícama seakale beetroot courgette shallot amaranth pea garbanzo carrot radicchio peanut leek pea sprouts arugula brussels sprout green bean. Spring onion broccoli chicory shallot winter purslane pumpkin gumbo cabbage squash beet greens lettuce celery. Gram zucchini swiss chard mustard burdock radish brussels sprout groundnut. Asparagus horseradish beet greens broccoli brussels sprout bitterleaf groundnut cress sweet pepper leek bok choy shallot celtuce scallion chickpea radish pea sprouts.</p>
-            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+
+            <p><a class="btn btn-primary btn-medium">Learn more &raquo;</a></p>
         </div>
     </div>
-
 </div>
-
-<div class="row-fluid">
-
-    <div class="block span12">
-        <p class="block-heading"><u>Venkatesh Ramesh</u> &nbsp;&nbsp;&nbsp;
-		<button class="btn btn-primary "><i class="icon-user"></i>Contact User</button>
-		</p>
-        <div class="block-body">
-            <h2>Tip of the Day</h2>
-            <p>Fava bean jícama seakale beetroot courgette shallot amaranth pea garbanzo carrot radicchio peanut leek pea sprouts arugula brussels sprout green bean. Spring onion broccoli chicory shallot winter purslane pumpkin gumbo cabbage squash beet greens lettuce celery. Gram zucchini swiss chard mustard burdock radish brussels sprout groundnut. Asparagus horseradish beet greens broccoli brussels sprout bitterleaf groundnut cress sweet pepper leek bok choy shallot celtuce scallion chickpea radish pea sprouts.</p>
-            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-        </div>
-    </div>
-
 </div>
 
 
-        </div>
+
+
+
+
     </div>
+</div>
 
 
 
@@ -210,7 +203,8 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="lib/bootstrap/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="<spring:url value="/resources/lib/bootstrap/js/bootstrap.js"/>"></script>
 
 
 

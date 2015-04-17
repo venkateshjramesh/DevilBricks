@@ -12,8 +12,13 @@
     <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap-responsive.css">
     <link rel="stylesheet" type="text/css" href="resources/stylesheets/theme.css">
     <link rel="stylesheet" href="resources/lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="resources/css/devilBrick.css">
+
 
     <script src="resources/lib/jquery-1.8.1.min.js" type="text/javascript"></script>
+    <script src="resources/javascripts/DevilBrick.js" type="text/javascript"></script>
+    <script src="resources/javascripts/jquery.dataTables.min.js" type="text/javascript"></script>
+
 
     <!-- Demo page code -->
 
@@ -130,9 +135,8 @@
     <div id="myTabContent" class="tab-content">
 
 
-    <form id="tab2" method="get" action="${pageContext.request.contextPath}/searchOwner">
+   <!--  <form id="tab2" method="get" action="${pageContext.request.contextPath}/searchOwner"> -->
         <h3>Contact Details </h3>
-
         <input name="id" type="hidden">
         <label>First Name</label>
         <input name="firstName" type="text" class="input-xlarge">
@@ -161,9 +165,9 @@
 		<label>State</label>
         <input type="text" class="input-xlarge">
         <div>
-            <button class="btn btn-primary">Search</button>
+            <button id="submitForm" class="btn btn-primary">Search</button>
         </div>
-    </form>
+   <!--  </form> -->
 
 	<!-- start of the data table -->
 <div id="detailsTable">
@@ -173,7 +177,7 @@
   </div>
 
 <div class="well">
-    <table class="table">
+    <table class="table" id="ownerTable">
       <thead>
         <tr>
           <th>#</th>
@@ -183,80 +187,13 @@
           <th style="width: 26px;"></th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>8888554524</td>
-          <td>#47, 1st Floor, Rainbow Flats <br> Dr Ambedkar Salai <br> Enfield Avenue 3 rd Street <br> Madipakkam <br> Chennai - 600091</td>
-          <td>
-              <a href="user.html" ><i class="icon-pencil"></i></a>
-              <a href="user.html"><i class="icon-zoom-in"></i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Ashley</td>
-          <td>8888554524</td>
-          <td>#47, 1st Floor, Rainbow Flats <br> Dr Ambedkar Salai <br> Enfield Avenue 3 rd Street <br> Madipakkam <br> Chennai - 600091</td>
-          <td>
-              <a href="user.html"><i class="icon-pencil"></i></a>
-              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Audrey</td>
-          <td>8888554524</td>
-          <td>#47, 1st Floor, Rainbow Flats <br> Dr Ambedkar Salai <br> Enfield Avenue 3 rd Street <br> Madipakkam <br> Chennai - 600091</td>
-          <td>
-              <a href="user.html"><i class="icon-pencil"></i></a>
-              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>John</td>
-          <td>8888554524</td>
-          <td>#47, 1st Floor, Rainbow Flats <br> Dr Ambedkar Salai <br> Enfield Avenue 3 rd Street <br> Madipakkam <br> Chennai - 600091</td>
-          <td>
-              <a href="user.html"><i class="icon-pencil"></i></a>
-              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>Aaron</td>
-          <td>8888554524</td>
-          <td>#47, 1st Floor, Rainbow Flats <br> Dr Ambedkar Salai <br> Enfield Avenue 3 rd Street <br> Madipakkam <br> Chennai - 600091</td>
-          <td>
-              <a href="user.html"><i class="icon-pencil"></i></a>
-              <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-          </td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>Chris</td>
-          <td>8888554524</td>
-          <td>#47, 1st Floor, Rainbow Flats <br> Dr Ambedkar Salai <br> Enfield Avenue 3 rd Street <br> Madipakkam <br> Chennai - 600091</td>
-          <td>
-              <a href="user.html" class="btn btn-primary"><i class="icon-pencil"></i>Write Review</a>
-              <a href="user.html" class="btn btn-primary"><i class="icon-zoom-in"></i>View Review</a>
-          </td>
-        </tr>
+      <tbody id="searchReviewTable">
+
+
       </tbody>
     </table>
 </div>
-<div class="pagination">
-    <ul>
-        <li><a href="#">Prev</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">Next</a></li>
-    </ul>
-</div>
+
 
 </div>
 <!-- end of the data table -->

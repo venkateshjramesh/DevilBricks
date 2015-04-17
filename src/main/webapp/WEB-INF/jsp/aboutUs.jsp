@@ -90,7 +90,7 @@
                     <ul id="dashboard-menu" class="nav nav-list collapse in">
 						<li class="active"><a href="aboutUs">About Us</a></li>
                         <li><a href="index.html">View Reviews</a></li>
-                        <li ><a href="user.html">Search Reviews</a></li>
+                        <li ><a href="searchReview">Search Reviews</a></li>
                         <li ><a href="writeReview">Write Reviews</a></li>
                         <li ><a href="faq.html">Faq</a></li>
                     </ul>

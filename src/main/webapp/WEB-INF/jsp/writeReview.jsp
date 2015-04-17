@@ -1,4 +1,6 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,14 +11,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap-responsive.css">
-    <link rel="stylesheet" type="text/css" href="resources/stylesheets/theme.css">
-    <link rel="stylesheet" href="resources/lib/font-awesome/css/font-awesome.css">
+    <link href="<spring:url value="/resources/lib/bootstrap/css/bootstrap.css"/>" rel="stylesheet" type="text/css" media="screen">
+    <link href="<spring:url value="/resources/lib/bootstrap/css/bootstrap-responsive.css"/>" rel="stylesheet" type="text/css" media="screen">
+    <link href="<spring:url value="/resources/stylesheets/theme.css"/>" rel="stylesheet" type="text/css" media="screen">
+    <link href="<spring:url value="/resources/lib/font-awesome/css/font-awesome.css"/>" rel="stylesheet" type="text/css" media="screen">
 
-    <script src="resources/lib/jquery-1.8.1.min.js" type="text/javascript"></script>
-	<script src="resources/javascripts/DevilBrick.js" type="text/javascript"></script>
-
+    <script type="text/javascript" src="<spring:url value="/resources/lib/jquery-1.8.1.min.js"/>"></script>
+    <script type="text/javascript" src="<spring:url value="/resources/javascripts/DevilBrick.js"/>"></script>
     <!-- Demo page code -->
 
     <style type="text/css">
@@ -90,10 +91,10 @@
                 <div class="sidebar-nav">
                   <div class="nav-header" data-toggle="collapse" data-target="#dashboard-menu"><i class="icon-dashboard"></i>Dashboard</div>
                     <ul id="dashboard-menu" class="nav nav-list collapse in">
-						<li ><a href="aboutUs">About Us</a></li>
+						<li ><a href="${pageContext.request.contextPath}/aboutUs">About Us</a></li>
                         <li><a href="viewReview">View Reviews</a></li>
-                        <li ><a href="user.html">Search Reviews</a></li>
-                        <li class="active"><a href="writeReview">Write Reviews</a></li>
+                        <li ><a href="${pageContext.request.contextPath}/searchReview">Search Reviews</a></li>
+                        <li class="active"><a href="${pageContext.request.contextPath}/writeReview">Write Reviews</a></li>
                         <li ><a href="faq.html">Faq</a></li>
 
                     </ul>
@@ -132,7 +133,39 @@
     <form id="tab" method="post" action="${pageContext.request.contextPath}/saveReview">
         <h5><font color="red">${statusMessage}</font></h5>
 		<h3>Land Lord Identification Details </h3>
-        <input name="id" type="hidden">
+
+		<!-- check for id exist or not for writing review -->
+		<c:choose>
+            <c:when test="${!empty id && !empty firstName}">
+
+                  <input name="id" type="hidden" value="${id}">
+                  <label>First Name</label>
+                  <input name="firstName" id="firstName" type="text" value="${firstName}" disabled="disabled" class="input-xlarge">
+                  <label>Last Name</label>
+                  <input name="lastName" id="lastName" type="text" value="${lastName}" disabled="disabled" class="input-xlarge">
+                  <label>Email</label>
+                  <input name="email" id="email" type="text" value="${email}" disabled="disabled" class="input-xlarge">
+                  <label>Mobile</label>
+                  <input name="mobile" id="mobile" type="text" value="${mobile}" disabled="disabled" class="input-xlarge" maxlength=10>
+            </c:when>
+            <c:otherwise>
+                  <input name="id" type="hidden">
+                          <label>First Name</label>
+                          <input name="firstName" id="firstName" type="text" class="input-xlarge">
+                          <span style="display:none" id="firstNameMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
+                          <label>Last Name</label>
+                          <input name="lastName" id="lastName" type="text" class="input-xlarge">
+                          <span style="display:none" id="lastNameMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
+                          <label>Email</label>
+                          <input name="email" id="email" type="text" class="input-xlarge">
+                          <span style="display:none" id="emailMsg"><font color="Red" size="2"><b>E mail should adhere to proper email format</b></font></span>
+                  		<label>Mobile</label>
+                          <input name="mobile" id="mobile" type="text" class="input-xlarge" maxlength=10>
+                          <span style="display:none" id="mobileMsg"><font color="Blue" size="2"><b>Only 10 digit Indian mobile numbers allowed</b></font></span>
+            </c:otherwise>
+        </c:choose>
+
+       <!--  <input name="id" type="hidden">
         <label>First Name</label>
         <input name="firstName" id="firstName" type="text" class="input-xlarge">
         <span style="display:none" id="firstNameMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
@@ -145,7 +178,7 @@
 		<label>Mobile</label>
         <input name="mobile" id="mobile" type="text" class="input-xlarge" maxlength=10>
         <span style="display:none" id="mobileMsg"><font color="Blue" size="2"><b>Only 10 digit Indian mobile numbers allowed</b></font></span>
-
+          -->
 		<h3>Address</h3>
 		<label>Plot Number</label>
         <input name="plotNumber" id="plotNumber" type="text" class="input-xlarge">
@@ -240,8 +273,8 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="resources/lib/bootstrap/js/bootstrap.js"></script>
 	<script src="resources/lib/bootstrap/js/application.js"></script>
+	<script type="text/javascript" src="<spring:url value="/resources/lib/bootstrap/js/bootstrap.js"/>"></script>
 
 
 

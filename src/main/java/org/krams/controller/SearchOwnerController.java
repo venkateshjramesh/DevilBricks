@@ -5,28 +5,22 @@ import org.krams.domain.Review;
 import org.krams.service.DevilBrickService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Controller
-@RequestMapping("/searchOwner")
+
 public class SearchOwnerController {
 
     @Autowired
     private DevilBrickService service;
 
-
-    @RequestMapping(method=RequestMethod.GET)
-    public @ResponseBody ModelAndView create(
+    @RequestMapping(value = "/searchOwner",method=RequestMethod.GET)
+    public @ResponseBody Map<String, Object> create(
             HttpServletRequest request,
             HttpServletResponse response,
             @RequestParam String id,
@@ -54,8 +48,28 @@ public class SearchOwnerController {
 
         List<Owner> ownerList = service.findByParameters(owner);
 
+        System.out.print("------------" + ownerList.get(0).getFirstName());
 
-        return new ModelAndView("searchReview","ownerList",ownerList);
+//        return new ModelAndView(null,"ownerList",ownerList);
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("ownerList",ownerList);
+
+        return model;
+
+
+    }
+
+    @RequestMapping(value = "/searchReviewForId",method=RequestMethod.GET)
+    public @ResponseBody Map<String, Object> getReviews(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @RequestParam String id
+    ) {
+        Owner owner = service.findOne(id);
+        System.out.print("++++++++++++++++++++++++++" + owner.getFirstName());
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("reviewList",owner.getReview());
+        return model;
 
     }
 
