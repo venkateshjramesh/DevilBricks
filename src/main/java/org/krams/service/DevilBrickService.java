@@ -1,12 +1,14 @@
 package org.krams.service;
 
 import org.krams.domain.Owner;
+import org.krams.domain.Reply;
 import org.krams.domain.Review;
 import org.krams.repository.OwnerRepository;
 import org.krams.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -29,6 +31,17 @@ public class DevilBrickService {
         review.setId(UUID.randomUUID().toString());
         return reviewRepository.save(review);
     }
+
+    public Review updateReview(Reply reply,String id) {
+        Review review = reviewRepository.findOne(id);
+        List<Reply> replies =  review.getReplies();
+        if(replies==null)
+            replies = new ArrayList<Reply>();
+        replies.add(reply);
+        review.setReplies(replies);
+        return reviewRepository.save(review);
+    }
+
     public Owner findOne(String id) {
         return repository.findOne(id);
     }

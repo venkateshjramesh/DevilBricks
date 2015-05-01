@@ -97,7 +97,8 @@ $("#email").bind("blur", function(){
     {"key":"water","value":"Problems wrt Water"},
     {"key":"parking","value":"Problems wrt PRaking"} ,
     {"key":"otherComments","value":"Any Other Comments"}  ,
-    {"key":"suggestion","value":"Any Other Suggestion"}];
+    {"key":"suggestion","value":"Any Other Suggestion"},
+    {"key":"replies","value":""}];
          $.ajax({
                     url: "/spring-mongodb-tutorial/searchReviewForId?id=552e730d694ca34cc8a97963",
                     type: "GET",
@@ -113,12 +114,17 @@ $("#email").bind("blur", function(){
                          var innerHtmlString = "";
                          //iterate each and every kay value pair and check for null
                          for(var j=0;j<keyValue.length;j++) {
-                             innerHtmlString = innerHtmlString + "<h5>"+keyValue[j].value+"</h5><p>"+temp[keyValue[j].key]+"</p>"
+                             innerHtmlString = innerHtmlString + "<h5>"+keyValue[j].value+"</h5><p>"+temp[keyValue[j].key]+"</p>";
+                             //alert(keyValue[j].key);
+                             //alert(temp[keyValue[j].key]);
+                             if(keyValue[j].key == "replies"){
+                              var replyHtml = formReplyHtml(temp[keyValue[j].key]);
+                             }
                          }
 
                         htmlString = htmlString +
                          "<div class='row-fluid'>"+
-                             "<div class='block span12' >"  +
+                             "<div id='span12_"+temp.id+"' class='block span12' >"  +
                                  "<p class='block-heading'><u>Venkatesh Ramesh</u> &nbsp;&nbsp;&nbsp;"  +
                          		"<a href='#myModal' data-toggle='modal'><button class='btn btn-primary '><i class='icon-user'></i>&nbsp;&nbsp;Contact User</button></a>"+
                          		"&nbsp;&nbsp;<span class='badge badge-success'>You have contacted this user</span>" +
@@ -127,7 +133,10 @@ $("#email").bind("blur", function(){
                                       innerHtmlString +
                                  "</div>"+
                                      "<a id='learnMoreButton_"+temp.id+"' class='learnMoreButtonClass btn btn-primary btn-small' onclick='resizeBlockFunction(\"innerHtmlString_"+temp.id+"\")'>Show more &raquo;</a>"+
-                             "</div>"  +
+                             "<p class='block-heading'><a href='#replyModal' data-toggle='modal'>"  +
+                              "<button onclick='replyBox(\""+temp.id+"\")' class='btn btn-primary '><i class='icon-user'></i>&nbsp;&nbsp;Reply</button></a>"  +
+                              "</p>"   +
+                             "</div>"  + replyHtml +
                          "</div> "
 
                         } //end of for loop
@@ -141,7 +150,27 @@ $("#email").bind("blur", function(){
      });
 
 
+     $('#submitReply').click(function(){
+           var idValue = $('#hiddenVal').val();
+           var displayName = $('#displayName').val();
+           var replyText =$('#replyText').val();
+           alert(displayName +":::" + idValue);
+                    $.ajax({
+                               url: "/spring-mongodb-tutorial/saveReview?id=" + idValue+ "&displayName=" + displayName + "&replyText=" + replyText,
+                               type: "GET",
+                               dataType: "json",
+                               contentType: "application/json",
+                               success: function(response) {
+                                   //alert(response)
+                                   alert(response);
 
+
+                               },
+                               error: function(xhr) {
+                                   //alert(xhr)
+                               }
+                       });
+     });
 
 
 
@@ -155,11 +184,42 @@ $("#email").bind("blur", function(){
             if($(tempId).css("height") == "250px" && $(tempId).css("overflow") == "hidden") {
                    $(tempId).css("height","100%");
                    $(tempId).css("overflow","auto");
-                   //$('#' + 'learnMoreButton_' + tempId.split("_")[1]).text("Show less " + &laquo;);
+                   $('#' + 'learnMoreButton_' + tempId.split("_")[1]).text("<< Show less ");
 
             } else{
                  $(tempId).css("height","250px");
                  $(tempId).css("overflow","hidden");
-                // $('#' + 'learnMoreButton_' + tempId.split("_")[1]).text("Show more " + &raquo;);
+                 $('#' + 'learnMoreButton_' + tempId.split("_")[1]).text("Show more ");
             }
+        }
+
+        //area to push reply
+        function replyBox(idVal){
+            alert(idVal);
+            $('#hiddenVal').val(idVal);
+        }
+
+        function formReplyHtml(replyList){
+        if (!replyList)
+            return "";
+        var htmlReplyString = "";
+             for(var i=0;i<replyList.length;i++){
+                  htmlReplyString = htmlReplyString +
+                  "<div class='block  span11' id='span12_5c7272bb-d283-4c61-b209-5e0411606f6b' style='margin-left:8.5%'>  "  +
+                  "<p class='block-heading-reply'><u>Venkatesh Ramesh</u> &nbsp;&nbsp;&nbsp;  "+
+                  "<a data-toggle='modal' href='#myModal'><button class='btn btn-primary '> "+
+                  "<i class='icon-user'></i>&nbsp;&nbsp;Contact User</button></a>&nbsp;&nbsp;"+
+                  "<span class='badge badge-success'>You have contacted this user</span></p> "+
+                  "<div class='block-body' id='innerHtmlString_5c7272bb-d283-4c61-b209-5e0411606f6b'> "+
+
+                    "<h6>User Comments</h6> "+
+                    "<p>"+replyList[i].comments+"</p>"+
+
+                    "</div><p class='block-heading'><a data-toggle='modal' href='#replyModal'> "+
+                    "<button class='btn btn-primary ' onclick='replyBox(&quot;5c7272bb-d283-4c61-b209-5e0411606f6b&quot;)'> "+
+                    "<i class='icon-user'></i>&nbsp;&nbsp;Reply</button></a></p>"+
+                    "</div>"
+             }
+
+             return htmlReplyString;
         }

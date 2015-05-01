@@ -56,3 +56,20 @@
 margin-left:10px;
 margin-bottom:10px;
 }
+
+
+.block-heading-reply {
+    background: -moz-linear-gradient(center bottom , #dddddd 0%, #ffffff 200%) repeat scroll 0 0 padding-box rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #aaa;
+    border-radius: 3px 3px 0 0;
+    color: #333;
+    display: block;
+    filter: none;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 3em;
+    margin-bottom: 0;
+    padding: 0 0.75em;
+    text-shadow: 1px 1px 1px #fff;
+    text-transform: none;
+}

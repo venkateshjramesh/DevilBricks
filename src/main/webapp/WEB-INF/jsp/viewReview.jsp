@@ -174,6 +174,9 @@
 
             <p><a class="btn btn-primary btn-medium">Learn more &raquo;</a></p>
         </div>
+         <p class="block-heading">
+            <a href="#replyModal" data-toggle="modal"><button class="btn btn-primary "><i class="icon-user"></i>&nbsp;&nbsp;Reply</button></a>
+        </p>
     </div>
 </div>
 </div>
@@ -233,6 +236,29 @@
 	  </div>
 	</div>
 	<!-- end of modal -->
+
+
+	<!-- reply Modal -->
+    	<div id="replyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    	  <input type='hidden' id='hiddenVal'>
+    	  <div class="modal-header">
+    	    <h3 id="myModalLabel">Type your comments below</h3>
+    	  </div>
+    	  <div class="modal-body">
+    	    <h4>Reply To</h4>
+    		<p>Illangovan</p>
+    		<h4>display name</h4>
+            <p><input type='text' id='displayName' class='input-xlarge' id='appartmentName' name='appartmentName'>  </p>
+             <h5>comments</h5>
+            <p><textarea id='replyText' class='input-xlarge' rows='5' value='Smith' name='attitude'> </textarea></p>
+            </div>
+
+    	  <div class="modal-footer">
+    	    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+    	    <button class="btn btn-primary" id="submitReply">Submit</button>
+    	  </div>
+    	</div>
+    	<!-- end of modal -->
 
 
 

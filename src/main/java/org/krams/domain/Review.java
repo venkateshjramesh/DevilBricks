@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document
 public class Review {
 	
@@ -20,7 +22,15 @@ public class Review {
     private String parking;
     private String otherComments;
     private String suggestion;
+    private List<Reply> replies;
 
+    public List<Reply> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<Reply> replies) {
+        this.replies = replies;
+    }
 
     public String getId() {
         return id;
