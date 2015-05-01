@@ -34,9 +34,12 @@ public class DevilBrickService {
 
     public Review updateReview(Reply reply,String id) {
         Review review = reviewRepository.findOne(id);
+        System.out.print("////////1:" + review.getId());
         List<Reply> replies =  review.getReplies();
-        if(replies==null)
+        if(replies==null) {
             replies = new ArrayList<Reply>();
+        }
+        System.out.print("////////2:" + replies.size());
         replies.add(reply);
         review.setReplies(replies);
         return reviewRepository.save(review);

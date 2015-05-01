@@ -14,23 +14,24 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
 @Controller
-@RequestMapping("/saveReview")
+@RequestMapping("/saveReply")
 public class SaveReplyController {
 
     @Autowired
     private DevilBrickService service;
 
 
-    @RequestMapping(method=RequestMethod.GET)
+    @RequestMapping(method=RequestMethod.POST)
     public @ResponseBody
     Map<String, Object> getReviews(
             HttpServletRequest request,
             HttpServletResponse response,
             @ModelAttribute("id") String id,
+            @ModelAttribute("idMainValue") String idMainValue,
             @ModelAttribute("displayName") String displayName,
             @ModelAttribute("replyText") String replyText
     ) {
-        System.out.print("/////////////////////id///////////////:::" + id);
+        System.out.print("///////////////////sagereply//id///////////////:::" + id);
 
         Reply reply  = new Reply();
         reply.setId(UUID.randomUUID().toString());
@@ -39,7 +40,7 @@ public class SaveReplyController {
         reply.setCreationDate(new Date());
         reply.setParentId(id);
 
-        service.updateReview(reply,id);
+        service.updateReview(reply,idMainValue);
 
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("reviewList",reply);

@@ -100,7 +100,7 @@ $("#email").bind("blur", function(){
     {"key":"suggestion","value":"Any Other Suggestion"},
     {"key":"replies","value":""}];
          $.ajax({
-                    url: "/spring-mongodb-tutorial/searchReviewForId?id=552e730d694ca34cc8a97963",
+                    url: "/spring-mongodb-tutorial/searchReviewForId?id=5543130e44aefab21e59fc84",
                     type: "GET",
                     dataType: "json",
                     contentType: "application/json",
@@ -115,10 +115,9 @@ $("#email").bind("blur", function(){
                          //iterate each and every kay value pair and check for null
                          for(var j=0;j<keyValue.length;j++) {
                              innerHtmlString = innerHtmlString + "<h5>"+keyValue[j].value+"</h5><p>"+temp[keyValue[j].key]+"</p>";
-                             //alert(keyValue[j].key);
-                             //alert(temp[keyValue[j].key]);
+
                              if(keyValue[j].key == "replies"){
-                              var replyHtml = formReplyHtml(temp[keyValue[j].key]);
+                              var replyHtml = formReplyHtml(temp[keyValue[j].key],temp["id"]);
                              }
                          }
 
@@ -131,10 +130,10 @@ $("#email").bind("blur", function(){
                          		"</p>"+
                                  "<div id='innerHtmlString_"+temp.id+"' class='block-body' style='height:250px;overflow:hidden;'>"  +
                                       innerHtmlString +
-                                 "</div>"+
+                                      "</div>"+
                                      "<a id='learnMoreButton_"+temp.id+"' class='learnMoreButtonClass btn btn-primary btn-small' onclick='resizeBlockFunction(\"innerHtmlString_"+temp.id+"\")'>Show more &raquo;</a>"+
                              "<p class='block-heading'><a href='#replyModal' data-toggle='modal'>"  +
-                              "<button onclick='replyBox(\""+temp.id+"\")' class='btn btn-primary '><i class='icon-user'></i>&nbsp;&nbsp;Reply</button></a>"  +
+                              "<button onclick='replyBox(\""+temp.id+"\",\""+temp.id+"\")' class='btn btn-primary '><i class='icon-user'></i>&nbsp;&nbsp;Reply</button></a>"  +
                               "</p>"   +
                              "</div>"  + replyHtml +
                          "</div> "
@@ -152,14 +151,16 @@ $("#email").bind("blur", function(){
 
      $('#submitReply').click(function(){
            var idValue = $('#hiddenVal').val();
+           var idMainValue = $('#hiddenMainIdVal').val();
            var displayName = $('#displayName').val();
            var replyText =$('#replyText').val();
            alert(displayName +":::" + idValue);
                     $.ajax({
-                               url: "/spring-mongodb-tutorial/saveReview?id=" + idValue+ "&displayName=" + displayName + "&replyText=" + replyText,
-                               type: "GET",
-                               dataType: "json",
-                               contentType: "application/json",
+                               url: "/spring-mongodb-tutorial/saveReply",
+                               type: "POST",
+                               data: "id=" + idValue+ "&displayName=" + displayName + "&replyText=" + replyText + "&idMainValue=" + idMainValue ,
+                               //dataType: "json",
+                               //contentType: "application/json",
                                success: function(response) {
                                    //alert(response)
                                    alert(response);
@@ -194,29 +195,63 @@ $("#email").bind("blur", function(){
         }
 
         //area to push reply
-        function replyBox(idVal){
+        function replyBox(idVal,mainId){
             alert(idVal);
+            alert(mainId);
             $('#hiddenVal').val(idVal);
+            $('#hiddenMainIdVal').val(mainId);
+
         }
 
-        function formReplyHtml(replyList){
+        function formReplyHtml(replyList,mainId){
+        alert(mainId);
         if (!replyList)
             return "";
         var htmlReplyString = "";
+
+            //var sortArray = dataArr['hello'];
+            replyList.sort(function(a,b) {
+                 if ( a.creationDate < b.creationDate )
+                        return -1;
+                    if ( a.creationDate > b.creationDate )
+                        return 1;
+                    return 0;
+            } );
+
+
+           /* var tempArray = [];
+            loop1:for(var j=0;j<replyList.length;j++){
+                var tempId = replyList[j].id;
+               for(var k=0;k<replyList.length;k++){
+                    var tempParentId = replyList[k].parentId;
+                    if($.trim(tempId) == $.trim(tempParentId)){
+                         tempArray.push(replyList[k]);
+                         replyList[k] = "";
+                          continue loop1;
+                    }else if($.trim(tempId) != $.trim(tempParentId) && (k + 1 == replyList.length)) {
+                          tempArray.push(replyList[k]);
+                          replyList[k] = "";
+                          continue loop1;
+                    }
+
+                }
+            }
+replyList = tempArray;*/
+
              for(var i=0;i<replyList.length;i++){
                   htmlReplyString = htmlReplyString +
-                  "<div class='block  span11' id='span12_5c7272bb-d283-4c61-b209-5e0411606f6b' style='margin-left:8.5%'>  "  +
+                  "<div class='block  span11' id='span12_"+replyList[i].id+"' style='margin-left:8.5%'>  "  +
                   "<p class='block-heading-reply'><u>Venkatesh Ramesh</u> &nbsp;&nbsp;&nbsp;  "+
                   "<a data-toggle='modal' href='#myModal'><button class='btn btn-primary '> "+
                   "<i class='icon-user'></i>&nbsp;&nbsp;Contact User</button></a>&nbsp;&nbsp;"+
                   "<span class='badge badge-success'>You have contacted this user</span></p> "+
-                  "<div class='block-body' id='innerHtmlString_5c7272bb-d283-4c61-b209-5e0411606f6b'> "+
+                  "<div class='block-body' id='innerHtmlString_"+replyList[i].id+"'> "+
 
                     "<h6>User Comments</h6> "+
                     "<p>"+replyList[i].comments+"</p>"+
 
                     "</div><p class='block-heading'><a data-toggle='modal' href='#replyModal'> "+
-                    "<button class='btn btn-primary ' onclick='replyBox(&quot;5c7272bb-d283-4c61-b209-5e0411606f6b&quot;)'> "+
+                    "<button class='btn btn-primary ' onclick='replyBox(\""+replyList[i].id+"\",\""+mainId+"\")'> "+
                     "<i class='icon-user'></i>&nbsp;&nbsp;Reply</button></a></p>"+
                     "</div>"
              }

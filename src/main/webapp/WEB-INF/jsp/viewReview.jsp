@@ -241,6 +241,7 @@
 	<!-- reply Modal -->
     	<div id="replyModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     	  <input type='hidden' id='hiddenVal'>
+    	  <input type='hidden' id='hiddenMainIdVal'>
     	  <div class="modal-header">
     	    <h3 id="myModalLabel">Type your comments below</h3>
     	  </div>
