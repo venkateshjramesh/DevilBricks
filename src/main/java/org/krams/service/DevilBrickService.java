@@ -1,8 +1,10 @@
 package org.krams.service;
 
+import org.krams.domain.Blogger;
 import org.krams.domain.Owner;
 import org.krams.domain.Reply;
 import org.krams.domain.Review;
+import org.krams.repository.BloggerRepository;
 import org.krams.repository.OwnerRepository;
 import org.krams.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +23,22 @@ public class DevilBrickService {
     @Autowired
     private ReviewRepository reviewRepository;
 
+    @Autowired
+    private BloggerRepository bloggerRepository;
+
     public Owner create(Owner owner) {
         if(owner.getId()!=null && owner.getId().equals(""))
         owner.setId(UUID.randomUUID().toString());
         return repository.save(owner);
+    }
+
+    public Blogger createBlogger(Blogger blogger) {
+        blogger.setId(UUID.randomUUID().toString());
+        return bloggerRepository.save(blogger);
+    }
+
+    public List<Blogger> checkBlogger(Blogger blogger) {
+        return bloggerRepository.findByParameters(blogger.getUserName(), blogger.getPassword());
     }
 
     public Review createReview(Review review) {

@@ -18,6 +18,7 @@
    <link rel="stylesheet" href="<spring:url value="/resources/css/devilBrick.css"/>" type="text/css" media="screen">
 
     <script type="text/javascript" src="<spring:url value="/resources/lib/jquery-1.8.1.min.js"/>"></script>
+    <script type="text/javascript" src="<spring:url value="/resources/javascripts/jquery.cookie.js"/>"></script>
     <script type="text/javascript" src="<spring:url value="/resources/javascripts/DevilBrick.js"/>"></script>
 
     <!-- Demo page code -->
@@ -102,8 +103,8 @@
                     </ul>
                 <div class="nav-header" data-toggle="collapse" data-target="#accounts-menu"><i class="icon-briefcase"></i>Account<span class="label label-info">+10</span></div>
                 <ul id="accounts-menu" class="nav nav-list collapse in">
-                  <li ><a href="sign-in.html">Sign In</a></li>
-                  <li ><a href="sign-up.html">Sign Up</a></li>
+                  <li ><a href="#loginModal" data-toggle="modal">Sign In</a></li>
+                  <li ><a href="${pageContext.request.contextPath}/signUp" target="_blank">Sign Up</a></li>
                   <li ><a href="reset-password.html">Reset Password</a></li>
                 </ul>
 
@@ -262,6 +263,26 @@
     	<!-- end of modal -->
 
 
+<!-- Modal -->
+	<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel">Sign In</h3>
+	  </div>
+	  <div class="modal-body">
+	     <label>Username</label>
+        <input id="userName" type="text" class='input-xlarge'>
+        <label>Password</label>
+        <input id="password" type="password" class='input-xlarge'>
+        <label class="remember-me"><input type="checkbox"> Remember me</label>
+        <p><a href="reset-password.html">Forgot your password?</a></p>
+    </div>
+	  <div class="modal-footer">
+        <button class="btn btn-primary" id="submitLogin">Submit</button>
+	    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+	  </div>
+	</div>
+	<!-- end of modal -->
 
 
 

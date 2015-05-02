@@ -173,6 +173,56 @@ $("#email").bind("blur", function(){
                        });
      });
 
+     $('#signUpButton').click(function(){
+                var firstName = $('#firstName').val();
+                var lastName = $('#lastName').val();
+                var emailId = $('#emailId').val();
+                var userName =$('#userName').val();
+                var password =$('#password').val();
+                         $.ajax({
+                                    url: "/spring-mongodb-tutorial/saveBlogger",
+                                    type: "POST",
+                                    data: "firstName=" + firstName+ "&lastName=" + lastName + "&emailId=" + emailId + "&userName=" + userName + "&password=" + password ,
+                                    //dataType: "json",
+                                    //contentType: "application/json",
+                                    success: function(response) {
+                                        //alert(response)
+                                        alert(response);
+                                        $('.span4').html("<font size='5'><b>" + response.status + "<b></font>");
+                                        setTimeout(function(){
+                                            self.close();
+                                        },4000);
+
+                                    },
+                                    error: function(xhr) {
+                                        //alert(xhr)
+                                    }
+                            });
+          });
+
+
+          $('#submitLogin').click(function(){
+                          var userName =$('#userName').val();
+                          var password =$('#password').val();
+                                   $.ajax({
+                                              url: "/spring-mongodb-tutorial/loginBlogger",
+                                              type: "POST",
+                                              data: "userName=" + userName + "&password=" + password ,
+                                              //dataType: "json",
+                                              //contentType: "application/json",
+                                              success: function(response) {
+                                                  //alert(response)
+                                                  var idValTemp = response.bloggerList[0].id;
+                                                  var userNameTemp = response.bloggerList[0].userName;
+                                                  $.cookie('devilBricks', idValTemp +'!'+ userNameTemp +'!loggedIn', { expires: 90, path: '/', domain: 'localhost'});
+
+                                              },
+                                              error: function(xhr) {
+                                                  //alert(xhr)
+                                              }
+                                      });
+                    });
+
 
 
 
@@ -204,7 +254,7 @@ $("#email").bind("blur", function(){
         }
 
         function formReplyHtml(replyList,mainId){
-        alert(mainId);
+        //alert(mainId);
         if (!replyList)
             return "";
         var htmlReplyString = "";
