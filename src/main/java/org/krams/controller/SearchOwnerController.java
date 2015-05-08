@@ -1,6 +1,7 @@
 package org.krams.controller;
 
 import org.krams.domain.Owner;
+import org.krams.domain.Reply;
 import org.krams.domain.Review;
 import org.krams.service.DevilBrickService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,5 +73,51 @@ public class SearchOwnerController {
         return model;
 
     }
+
+
+
+    @RequestMapping(value = "/searchVoteForId",method=RequestMethod.POST)
+    public @ResponseBody
+    Map<String, Object> getVotes(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @ModelAttribute("id") String id
+    ) {
+
+        Owner owner = service.findOne(id);
+        System.out.print("++++++++++++++++++++++++++" + owner.getFirstName());
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("vote_up",owner.getVoteUp());
+        model.put("vote_down",owner.getVoteDown());
+        return model;
+
+    }
+
+    @RequestMapping(value = "/changeVoteForId",method=RequestMethod.POST)
+    public @ResponseBody
+    Map<String, Object> setVotes(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @ModelAttribute("id") String id,
+            @ModelAttribute("vote") String vote
+    ) {
+
+        Owner owner = service.findOne(id);
+        System.out.print("++++++++++++++++++++++++++" + owner.getFirstName());
+
+        if(vote.equals("up")) {
+            owner.setVoteUp(String.valueOf(Integer.parseInt(owner.getVoteUp()) + 1));
+        }else if(vote.equals("down")){
+            owner.setVoteDown(String.valueOf(Integer.parseInt(owner.getVoteDown()) + 1));
+        }
+
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("vote_up",owner.getVoteUp());
+        model.put("vote_down",owner.getVoteDown());
+        service.create(owner);
+        return model;
+
+    }
+
 
 }

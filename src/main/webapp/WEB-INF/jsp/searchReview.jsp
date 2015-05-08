@@ -139,13 +139,13 @@
         <h3>Contact Details </h3>
         <input name="id" type="hidden">
         <label>First Name</label>
-        <input name="firstName" type="text" class="input-xlarge">
+        <input id="firstName" name="firstName" type="text" class="input-xlarge">
         <label>Last Name</label>
-        <input name="lastName" type="text" class="input-xlarge">
+        <input id="lastName" name="lastName" type="text" class="input-xlarge">
         <label>Email</label>
-        <input name="email" type="text" class="input-xlarge">
+        <input id="email" name="email" type="text" class="input-xlarge">
         <label>Mobile</label>
-        <input name="mobile" type="text" class="input-xlarge">
+        <input id="mobile" name="mobile" type="text" class="input-xlarge">
 
 		<h3>Address</h3>
 		<label>Plot Number</label>
@@ -170,13 +170,14 @@
    <!--  </form> -->
 
 	<!-- start of the data table -->
+	<div id="fullTable" style="display:none">
 <div id="detailsTable">
 <h1 class="page-title">Land Lords List</h1>
 <p><i class="icon-pencil modal-icon"></i>&nbsp;&nbsp;&nbsp;Please click on the following icon for writing review on the listed Land lord</p>
 <p class="error-text"><i class="icon-zoom-in"></i>&nbsp;&nbsp;&nbsp;Please click on the following icon for viewing review on the listed Land lord</p>
   </div>
 
-<div class="well">
+<div class="well" >
     <table class="table" id="ownerTable">
       <thead>
         <tr>
@@ -193,8 +194,8 @@
       </tbody>
     </table>
 </div>
-
-
+ </div>
+<!-- end of the full Table -->
 </div>
 <!-- end of the data table -->
 

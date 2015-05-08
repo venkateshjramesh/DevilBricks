@@ -18,7 +18,7 @@ public class Reply {
     private String id;
 
     private String displayName;
-    private String comments;
+        private String comments;
     private Date creationDate;
     private String parentId;
 

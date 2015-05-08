@@ -13,11 +13,13 @@
 
    <link href="<spring:url value="/resources/lib/bootstrap/css/bootstrap.css"/>" rel="stylesheet" type="text/css" media="screen">
    <link href="<spring:url value="/resources/lib/bootstrap/css/bootstrap-responsive.css"/>" rel="stylesheet" type="text/css" media="screen">
-   <link href="<spring:url value="/resources/stylesheets/theme.css"/>" rel="stylesheet" type="text/css" media="screen">
+   <link href="<spring:url value="/resources/stylesheets/theme.css"/>"  rel="stylesheet" type="text/css" media="screen">
    <link href="<spring:url value="/resources/lib/font-awesome/css/font-awesome.css"/>" rel="stylesheet" type="text/css" media="screen">
    <link rel="stylesheet" href="<spring:url value="/resources/css/devilBrick.css"/>" type="text/css" media="screen">
+   <link rel="stylesheet" href="<spring:url value="/resources/css/jquery.raty.css"/>" type="text/css" media="screen">
 
     <script type="text/javascript" src="<spring:url value="/resources/lib/jquery-1.8.1.min.js"/>"></script>
+    <script type="text/javascript" src="<spring:url value="/resources/javascripts/jquery.raty.js"/>"></script>
     <script type="text/javascript" src="<spring:url value="/resources/javascripts/jquery.cookie.js"/>"></script>
     <script type="text/javascript" src="<spring:url value="/resources/javascripts/DevilBrick.js"/>"></script>
 
@@ -154,6 +156,18 @@
 			<p>bbb nagar,</p>
 			<p>zzz area.</p>
             <p><button  id="testButton" class="btn btn-primary">test button</button></p>
+            <div >test message</div>
+            <div id="rating"></div>
+            <!-- voting markup -->
+            <div class="voting_wrapper" id="XXXXXXX">
+                <div class="voting_btn">
+                    <div class="up_button">&nbsp;</div><span class="up_votes">0</span>
+                </div>
+                <div class="voting_btn">
+                    <div class="down_button">&nbsp;</div><span class="down_votes">0</span>
+                </div>
+            </div>
+            <!-- voting markup end -->
         </div>
 
 			<!-- end of custom content -->
