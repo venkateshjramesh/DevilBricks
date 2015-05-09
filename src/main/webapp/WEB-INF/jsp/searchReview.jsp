@@ -149,21 +149,29 @@
 
 		<h3>Address</h3>
 		<label>Plot Number</label>
-        <input type="text" class="input-xlarge">
-        <label>Appartment Name or Building Name</label>
-        <input type="text" class="input-xlarge">
-        <label>Door Number</label>
-        <input type="text"  class="input-xlarge">
-		<label>Floor</label>
-        <input type="text" class="input-xlarge">
-        <label>Street Name</label>
-        <input type="text" class="input-xlarge">
-		<label>Area</label>
-        <input type="text" class="input-xlarge">
-		<label>City</label>
-        <input type="text" class="input-xlarge">
-		<label>State</label>
-        <input type="text" class="input-xlarge">
+                <input name="plotNumber" id="plotNumber" type="text" class="input-xlarge">
+                <label>Appartment Name or Building Name</label>
+                <input name="appartmentName" id="appartmentName" type="text" class="input-xlarge">
+                <label>Door Number</label>
+                <input name="doorNo" id="doorNo" type="text" class="input-xlarge">
+        		<label>Floor</label>
+                <input name="floor" id="floor" type="text" class="input-xlarge">
+                <label>Street Name</label>
+                <input name="streetName" id="streetName" type="text" class="input-xlarge">
+                <label>Near By LandMark</label>
+                <input name="landmark" id="landmark" type="text" class="input-xlarge">
+        		<label>Area</label>
+                <input name="area" id="area" type="text" class="input-xlarge">
+        		<label>City</label>
+                <input name="city" id="city" type="text" class="input-xlarge">
+                <label>Taluk</label>
+                <input name="taluk" id="taluk" type="text" class="input-xlarge">
+                <label>District</label>
+                <input name="district" id="district" type="text" class="input-xlarge">
+        		<label>State</label>
+                <input name="state" id="state" type="text" class="input-xlarge">
+                <label>PinCode</label>
+                <input name="pinCode" id="pinCode" type="text" class="input-xlarge">
         <div>
             <button id="submitForm" class="btn btn-primary">Search</button>
         </div>

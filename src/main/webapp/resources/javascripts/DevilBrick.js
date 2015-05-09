@@ -65,10 +65,24 @@ $("#email").bind("blur", function(){
         var lastNameSearch = $('#lastName').val();
         var emailSearch = $('#email').val();
         var mobileSearch = $('#mobile').val();
+        var plotNumberSearch = $('#plotNumber').val();
+        var appartmentNameSearch = $('#appartmentName').val();
+        var doorNoSearch = $('#doorNo').val();
+        var floorSearch = $('#floor').val();
+        var streetNameSearch = $('#streetName').val();
+        var landmarkSearch = $('#landmark').val();
+        var areaSearch = $('#area').val();
+        var citySearch = $('#city').val();
+        var talukSearch = $('#taluk').val();
+        var districtSearch = $('#district').val();
+        var stateSearch = $('#state').val();
+        var pinCodeSearch = $('#pinCode').val();
+
+
 
         var htmlString = "";
         $.ajax({
-            url: "/spring-mongodb-tutorial/searchOwner?id=&firstName="+firstNameSearch+"&lastName="+lastNameSearch+"&email="+emailSearch+"&mobile="+mobileSearch,
+            url: "/spring-mongodb-tutorial/searchOwner?id=&firstName="+firstNameSearch+"&lastName="+lastNameSearch+"&email="+emailSearch+"&mobile="+mobileSearch+"&plotNumber="+plotNumberSearch+"&appartmentName="+appartmentNameSearch+"&doorNo="+doorNoSearch+"&floor="+floorSearch+"&streetName="+streetNameSearch+"&landmark="+landmarkSearch+ "&area="+areaSearch+"&city="+citySearch+"&taluk="+talukSearch+"&district="+districtSearch+"&state="+stateSearch+"&pinCode="+pinCodeSearch,
             type: "GET",
             dataType: "json",
             success: function(response) {

@@ -36,6 +36,18 @@ public class WriteReviewController {
         model.put("lastName",owner.getLastName()) ;
         model.put("mobile",owner.getMobile()) ;
         model.put("email",owner.getEmail()) ;
+        model.put("plotNumber",owner.getPlotNumber()) ;
+        model.put("appartmentName",owner.getAppartmentName()) ;
+        model.put("doorNo",owner.getDoorNo()) ;
+        model.put("floor",owner.getFloor()) ;
+        model.put("streetName",owner.getStreetName()) ;
+        model.put("landmark",owner.getLandmark()) ;
+        model.put("area",owner.getArea()) ;
+        model.put("city",owner.getCity()) ;
+        model.put("taluk",owner.getTaluk()) ;
+        model.put("district",owner.getDistrict()) ;
+        model.put("state",owner.getState()) ;
+        model.put("pinCode",owner.getPinCode()) ;
         return new ModelAndView("writeReview",model);
     }
 

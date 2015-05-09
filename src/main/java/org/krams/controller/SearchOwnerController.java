@@ -28,7 +28,19 @@ public class SearchOwnerController {
             @RequestParam String email,
             @RequestParam String mobile,
             @RequestParam String firstName,
-            @RequestParam String lastName
+            @RequestParam String lastName,
+            @RequestParam String plotNumber,
+            @RequestParam String appartmentName,
+            @RequestParam String doorNo,
+            @RequestParam String floor,
+            @RequestParam String streetName,
+            @RequestParam String landmark,
+            @RequestParam String area,
+            @RequestParam String city,
+            @RequestParam String taluk,
+            @RequestParam String district,
+            @RequestParam String state,
+            @RequestParam String pinCode
            ) {
 
 
@@ -40,12 +52,72 @@ public class SearchOwnerController {
             owner.setId("");
         if(email != null && !email.equals(""))
             owner.setEmail(email);
+        else
+            owner.setEmail("");
         if(firstName != null && !firstName.equals(""))
             owner.setFirstName(firstName);
+        else
+            owner.setFirstName("");
         if(lastName != null && !lastName.equals(""))
             owner.setLastName(lastName);
+        else
+            owner.setLastName("");
         if(mobile != null && !mobile.equals(""))
             owner.setMobile(mobile);
+        else
+            owner.setMobile("");
+        if(plotNumber != null && !plotNumber.equals(""))
+            owner.setPlotNumber(plotNumber);
+        else
+            owner.setPlotNumber("");
+        if(id != null && !id.equals(""))
+            owner.setId(id);
+        else
+            owner.setId("");
+        if(appartmentName != null && !appartmentName.equals(""))
+            owner.setAppartmentName(appartmentName);
+        else
+            owner.setAppartmentName("");
+        if(doorNo != null && !doorNo.equals(""))
+            owner.setDoorNo(doorNo);
+        else
+            owner.setDoorNo("");
+        if(floor != null && !floor.equals(""))
+            owner.setFloor(floor);
+        else
+            owner.setFloor("");
+        if(streetName != null && !streetName.equals(""))
+            owner.setStreetName(streetName);
+        else
+            owner.setStreetName("");
+        if(landmark != null && !landmark.equals(""))
+            owner.setLandmark(landmark);
+        else
+            owner.setLandmark("");
+        if(area != null && !area.equals(""))
+            owner.setArea(area);
+        else
+            owner.setArea("");
+        if(city != null && !city.equals(""))
+            owner.setCity(city);
+        else
+            owner.setCity("");
+        if(taluk != null && !taluk.equals(""))
+            owner.setTaluk(taluk);
+        else
+            owner.setTaluk("");
+        if(district != null && !district.equals(""))
+            owner.setDistrict(district);
+        else
+            owner.setDistrict("");
+        if(state != null && !state.equals(""))
+            owner.setState(state);
+        else
+            owner.setState("");
+        if(pinCode != null && !pinCode.equals(""))
+            owner.setPinCode(pinCode);
+        else
+            owner.setPinCode("");
 
         List<Owner> ownerList = service.findByParameters(owner);
 

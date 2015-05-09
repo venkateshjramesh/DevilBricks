@@ -147,6 +147,32 @@
                   <input name="email" id="email" type="text" value="${email}" disabled="disabled" class="input-xlarge">
                   <label>Mobile</label>
                   <input name="mobile" id="mobile" type="text" value="${mobile}" disabled="disabled" class="input-xlarge" maxlength=10>
+
+                  <h3>Address</h3>
+                <label>Plot Number</label>
+                  <input name="plotNumber" id="plotNumber" value="${plotNumber}" disabled="disabled" type="text" class="input-xlarge">
+                  <label>Appartment Name or Building Name</label>
+                  <input name="appartmentName" id="appartmentName" value="${appartmentName}" disabled="disabled" type="text" class="input-xlarge">
+                  <label>Door Number</label>
+                  <input name="doorNo" id="doorNo" value="${doorNo}" disabled="disabled" type="text" class="input-xlarge">
+                <label>Floor</label>
+                  <input name="floor" id="floor" value="${floor}" disabled="disabled" type="text" class="input-xlarge">
+                  <label>Street Name</label>
+                  <input name="streetName" id="streetName" value="${streetName}" disabled="disabled" type="text" class="input-xlarge">
+                  <label>Near By LandMark</label>
+                  <input name="landmark" id="landmark" value="${landmark}" disabled="disabled" type="text" class="input-xlarge">
+                <label>Area</label>
+                  <input name="area" id="area" value="${area}" disabled="disabled" type="text" class="input-xlarge">
+                <label>City</label>
+                  <input name="city" id="city" value="${city}" disabled="disabled" type="text" class="input-xlarge">
+                  <label>Taluk</label>
+                  <input name="taluk" id="taluk" value="${taluk}" disabled="disabled" type="text" class="input-xlarge">
+                  <label>District</label>
+                  <input name="district" id="district" value="${district}" disabled="disabled" type="text" class="input-xlarge">
+                <label>State</label>
+                  <input name="state" id="state" value="${state}" disabled="disabled" type="text" class="input-xlarge">
+                  <label>PinCode</label>
+                  <input name="pinCode" id="pinCode" value="${pinCode}" disabled="disabled" type="text" class="input-xlarge">
             </c:when>
             <c:otherwise>
                   <input name="id" type="hidden">
@@ -162,6 +188,32 @@
                   		<label>Mobile</label>
                           <input name="mobile" id="mobile" type="text" class="input-xlarge" maxlength=10>
                           <span style="display:none" id="mobileMsg"><font color="Blue" size="2"><b>Only 10 digit Indian mobile numbers allowed</b></font></span>
+
+                          <h3>Address</h3>
+                          		<label>Plot Number</label>
+                                  <input name="plotNumber" id="plotNumber" type="text" class="input-xlarge">
+                                  <label>Appartment Name or Building Name</label>
+                                  <input name="appartmentName" id="appartmentName" type="text" class="input-xlarge">
+                                  <label>Door Number</label>
+                                  <input name="doorNo" id="doorNo" type="text" class="input-xlarge">
+                          		<label>Floor</label>
+                                  <input name="floor" id="floor" type="text" class="input-xlarge">
+                                  <label>Street Name</label>
+                                  <input name="streetName" id="streetName" type="text" class="input-xlarge">
+                                  <label>Near By LandMark</label>
+                                  <input name="landmark" id="landmark" type="text" class="input-xlarge">
+                          		<label>Area</label>
+                                  <input name="area" id="area" type="text" class="input-xlarge">
+                          		<label>City</label>
+                                  <input name="city" id="city" type="text" class="input-xlarge">
+                                  <label>Taluk</label>
+                                  <input name="taluk" id="taluk" type="text" class="input-xlarge">
+                                  <label>District</label>
+                                  <input name="district" id="district" type="text" class="input-xlarge">
+                          		<label>State</label>
+                                  <input name="state" id="state" type="text" class="input-xlarge">
+                                  <label>PinCode</label>
+                                  <input name="pinCode" id="pinCode" type="text" class="input-xlarge">
             </c:otherwise>
         </c:choose>
 
@@ -179,7 +231,7 @@
         <input name="mobile" id="mobile" type="text" class="input-xlarge" maxlength=10>
         <span style="display:none" id="mobileMsg"><font color="Blue" size="2"><b>Only 10 digit Indian mobile numbers allowed</b></font></span>
           -->
-		<h3>Address</h3>
+		<!-- <h3>Address</h3>
 		<label>Plot Number</label>
         <input name="plotNumber" id="plotNumber" type="text" class="input-xlarge">
         <label>Appartment Name or Building Name</label>
@@ -203,7 +255,7 @@
 		<label>State</label>
         <input name="state" id="state" type="text" class="input-xlarge">
         <label>PinCode</label>
-        <input name="pinCode" id="pinCode" type="text" class="input-xlarge">
+        <input name="pinCode" id="pinCode" type="text" class="input-xlarge">  -->
 
 		<h3>Tenant comments</h3>
         <label>Land Lords Behaviour</label>
