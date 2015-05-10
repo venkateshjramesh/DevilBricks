@@ -189,11 +189,10 @@
     <table class="table" id="ownerTable">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Mobile</th>
-          <th>Address</th>
-          <th style="width: 26px;"></th>
+          <th style="width:20%">Name</th>
+          <th style="width:15%">Mobile</th>
+          <th style="width:55%">Address</th>
+          <th ></th>
         </tr>
       </thead>
       <tbody id="searchReviewTable">

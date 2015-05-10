@@ -89,13 +89,57 @@ $("#email").bind("blur", function(){
                 //alert(response)
                 for(var i=0;i<response.ownerList.length;i++) {
                 var obj = response.ownerList[i];
-                  htmlString = htmlString + "<tr><td>"+obj.id+"</td><td>"+obj.firstName+","+obj.lastName+"</td><td>"+
-                  ""+obj.mobile+"</td><td>"+obj.plotNumber+"</td><td><a id="+obj.id+" href='/spring-mongodb-tutorial/writeReview/"+obj.id+"'><i class='icon-pencil'></i></a>" +
+
+                var plotNumber = "";
+                var appartmentName = "";
+                var doorNo = "";
+                var floor = "";
+                var streetName = "";
+                var landmark = "";
+                var area = "";
+                var city = "";
+                var taluk = "";
+                var district = "";
+                var state = "";
+                var pinCode = "";
+
+                if(obj.plotNumber)
+                plotNumber = "Plot No: " +obj.plotNumber + ", ";
+                if(obj.appartmentName)
+                appartmentName = obj.appartmentName + ", ";
+                if(obj.doorNo)
+                doorNo = "Door No: " +obj.doorNo + ", ";
+                if(obj.floor)
+                floor = "Floor No: " + obj.floor + ", ";
+                if(obj.streetName)
+                streetName = obj.streetName + ", ";
+                if(obj.landmark)
+                landmark = "LandMark: (" +obj.landmark + "), ";
+                if(obj.area)
+                area = obj.area + ", ";
+                if(obj.city)
+                city = obj.city + "- ";
+                if(obj.taluk)
+                taluk = "Taluk: " + obj.taluk + ", ";
+                if(obj.district)
+                district = "District Name: " + obj.district + ", ";
+                if(obj.state)
+                state = obj.state + ", ";
+                if(obj.pinCode)
+                pinCode = obj.pinCode;
+
+
+
+
+                 var addressString = "<td>"+plotNumber+appartmentName+doorNo+floor+streetName+landmark+area+taluk+district+state+city+pinCode+"</td>" ;
+
+                  htmlString = htmlString + "<tr><td>"+obj.firstName+","+obj.lastName+"</td><td>"+
+                  ""+obj.mobile+"</td>"+addressString+"<td><a id="+obj.id+" href='/spring-mongodb-tutorial/writeReview/"+obj.id+"'><i class='icon-pencil'></i></a>" +
                   "<a id="+obj.id+" href='/spring-mongodb-tutorial/viewReview/"+obj.id+"'><i class='icon-zoom-in'></i></a></td></tr>";
                 }
 
                 $('#searchReviewTable').html(htmlString);
-                 $('#ownerTable').DataTable();
+                 $('#ownerTable').DataTable({"bAutoWidth": false });
                  $('#fullTable').show();
 
             },
@@ -134,6 +178,7 @@ $("#email").bind("blur", function(){
                          var innerHtmlString = "";
                          //iterate each and every kay value pair and check for null
                          for(var j=0;j<keyValue.length;j++) {
+                             if(temp[keyValue[j].key])
                              innerHtmlString = innerHtmlString + "<h5>"+keyValue[j].value+"</h5><p>"+temp[keyValue[j].key]+"</p>";
 
                              if(keyValue[j].key == "replies"){

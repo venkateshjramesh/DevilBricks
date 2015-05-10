@@ -59,37 +59,37 @@ public class SaveReviewController {
         Owner owner = new Owner();
         Review review  = new Review();
         review.setId(UUID.randomUUID().toString());
-        review.setBehaviour(behaviour);
-        review.setAttitude(attitude);
-        review.setEbBill(ebBill);
-        review.setMaintainance(maintainance);
-        review.setGuest(guest);
-        review.setHiddenCost(hiddenCost);
-        review.setWater(water);
-        review.setParking(parking);
-        review.setOtherComments(otherComments);
-        review.setSuggestion(suggestion);
+        review.setBehaviour(behaviour.trim().equals("") ? null : behaviour);
+        review.setAttitude(attitude.trim().equals("") ? null : attitude);
+        review.setEbBill(ebBill.trim().equals("") ? null : ebBill);
+        review.setMaintainance(maintainance.trim().equals("") ? null : maintainance);
+        review.setGuest(guest.trim().equals("") ? null : guest);
+        review.setHiddenCost(hiddenCost.trim().equals("") ? null : hiddenCost);
+        review.setWater(water.trim().equals("") ? null : water);
+        review.setParking(parking.trim().equals("") ? null : parking);
+        review.setOtherComments(otherComments.trim().equals("") ? null : otherComments);
+        review.setSuggestion(suggestion.trim().equals("") ? null : suggestion);
 
         if(id != null && id.equals("")){
             //personal details
-            owner.setEmail(email);
-            owner.setFirstName(firstName);
-            owner.setLastName(lastName);
-            owner.setMobile(mobile);
+            owner.setEmail(email.trim().equals("") ? null : email);
+            owner.setFirstName(firstName.trim().equals("") ? null : firstName);
+            owner.setLastName(lastName.trim().equals("") ? null : lastName);
+            owner.setMobile(mobile.trim().equals("") ? null : mobile);
 
             //addressd details
-            owner.setPlotNumber(plotNumber);
-            owner.setAppartmentName(appartmentName);
-            owner.setDoorNo(doorNo);
-            owner.setFloor(floor);
-            owner.setStreetName(streetName);
-            owner.setLandmark(landmark);
-            owner.setArea(area);
-            owner.setCity(city);
-            owner.setTaluk(taluk);
-            owner.setDistrict(district);
-            owner.setState(state);
-            owner.setPinCode(pinCode);
+            owner.setPlotNumber(plotNumber.trim().equals("") ? null : plotNumber);
+            owner.setAppartmentName(appartmentName.trim().equals("") ? null : appartmentName);
+            owner.setDoorNo(doorNo.trim().equals("") ? null : doorNo);
+            owner.setFloor(floor.trim().equals("") ? null : floor);
+            owner.setStreetName(streetName.trim().equals("") ? null : streetName);
+            owner.setLandmark(landmark.trim().equals("") ? null : landmark);
+            owner.setArea(area.trim().equals("") ? null : area);
+            owner.setCity(city.trim().equals("") ? null : city);
+            owner.setTaluk(taluk.trim().equals("") ? null : taluk);
+            owner.setDistrict(district.trim().equals("") ? null : district);
+            owner.setState(state.trim().equals("") ? null : state);
+            owner.setPinCode(pinCode.trim().equals("") ? null : pinCode);
 
             List<Review> reviewList = new ArrayList<Review>();
 
