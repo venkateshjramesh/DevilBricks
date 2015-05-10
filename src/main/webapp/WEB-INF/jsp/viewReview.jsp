@@ -71,14 +71,14 @@
 
                     <li id="fat-menu" class="dropdown">
                         <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user"></i> Jack Smith
+                            <i class="icon-user"></i> <span id="userNameVal">Anonymous</span>
                             <i class="icon-caret-down"></i>
                         </a>
 
                         <ul class="dropdown-menu">
                             <li><a tabindex="-1" href="#">Settings</a></li>
                             <li class="divider"></li>
-                            <li><a tabindex="-1" href="sign-in.html">Logout</a></li>
+                            <li id="logout"><a tabindex="-1" href="#">Logout</a></li>
                         </ul>
                     </li>
 
@@ -152,7 +152,7 @@
 			<h4>MAIL ID</h4>
 			<p>${email}</p>
 			<h4>ADDRESS</h4>
-			<p>${address}</p>
+			<p style="width:28%">${address}</p>
 
             <p><button  id="testButton" class="btn btn-primary">test button</button></p>
             <div >test message</div>

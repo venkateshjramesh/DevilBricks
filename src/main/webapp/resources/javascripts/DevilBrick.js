@@ -280,6 +280,7 @@ $("#email").bind("blur", function(){
                                                   var idValTemp = response.bloggerList[0].id;
                                                   var userNameTemp = response.bloggerList[0].userName;
                                                   $.cookie('devilBricks', idValTemp +'!'+ userNameTemp +'!loggedIn', { expires: 90, path: '/', domain: 'localhost'});
+                                                  $('#userNameVal').text($.cookie('devilBricks').split("!")[1])
 
                                               },
                                               error: function(xhr) {
@@ -371,6 +372,18 @@ $("#email").bind("blur", function(){
           });
           //end
 
+          //set username for cookie
+          if($.cookie('devilBricks'))
+          $('#userNameVal').text($.cookie('devilBricks').split("!")[1])
+
+          //logout function
+
+           $("#logout").click(function(){
+                      $.removeCookie('devilBricks', { path: '/' })
+                      $('#userNameVal').text("anonymous");
+                      alert("User Sucessfully logged out. Happy Blogging");
+                 })
+
 });
 
 
@@ -453,3 +466,6 @@ replyList = tempArray;*/
 
              return htmlReplyString;
         }
+
+
+
