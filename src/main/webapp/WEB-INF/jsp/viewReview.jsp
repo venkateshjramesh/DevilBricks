@@ -152,9 +152,8 @@
 			<h4>MAIL ID</h4>
 			<p>${email}</p>
 			<h4>ADDRESS</h4>
-			<p>#44, aaa street,</p>
-			<p>bbb nagar,</p>
-			<p>zzz area.</p>
+			<p>${address}</p>
+
             <p><button  id="testButton" class="btn btn-primary">test button</button></p>
             <div >test message</div>
             <div id="rating"></div>
