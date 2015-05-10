@@ -231,7 +231,7 @@ $("#email").bind("blur", function(){
            var idMainValue = $('#hiddenMainIdVal').val();
            var displayName = $('#displayName').val();
            var replyText =$('#replyText').val();
-           alert(displayName +":::" + idValue);
+           //alert(displayName +":::" + idValue);
                     $.ajax({
                                url: "/spring-mongodb-tutorial/saveReply",
                                type: "POST",
@@ -240,8 +240,9 @@ $("#email").bind("blur", function(){
                                //contentType: "application/json",
                                success: function(response) {
                                    //alert(response)
-                                   alert(response);
-
+                                   //alert(response);
+                                     $('#closeReply').click();
+                                     alert("Reply successfully Saved.")
 
                                },
                                error: function(xhr) {
@@ -321,12 +322,13 @@ $("#email").bind("blur", function(){
           $('#userNameVal').text($.cookie('devilBricks').split("!")[1])
 
           //logout function
-
            $("#logout").click(function(){
                       $.removeCookie('devilBricks', { path: '/' })
                       $('#userNameVal').text("anonymous");
                       alert("User Sucessfully logged out. Happy Blogging");
-                 })
+                 });
+
+
 
 });
 
@@ -346,10 +348,14 @@ $("#email").bind("blur", function(){
             }
         }
 
+
+
+
         //area to push reply
         function replyBox(idVal,mainId){
-            alert(idVal);
-            alert(mainId);
+
+            //alert(idVal);
+            //alert(mainId);
             $('#hiddenVal').val(idVal);
             $('#hiddenMainIdVal').val(mainId);
 
@@ -360,8 +366,6 @@ $("#email").bind("blur", function(){
         if (!replyList)
             return "";
         var htmlReplyString = "";
-
-
 
              for(var i=0;i<replyList.length;i++){
                   htmlReplyString = htmlReplyString +
@@ -385,7 +389,7 @@ $("#email").bind("blur", function(){
                     "<h6>User Comments</h6> "+
                     "<p>"+replyList[i].comments+"</p>"+
 
-                    "</div><p class='block-heading'><a data-toggle='modal' href='#replyModal'> "+
+                    "</div><p class='block-heading'><a id='replyAnchor' data-toggle='modal' href='#replyModal'> "+
                     "<button class='btn btn-primary ' onclick='replyBox(\""+replyList[i].id+"\",\""+mainId+"\")'> "+
                     "<i class='icon-user'></i>&nbsp;&nbsp;Reply</button></a></p>"+
                     "</div>"
@@ -422,6 +426,11 @@ function callVotingFunction(){
 
 $(".voting_wrapper .voting_btn").click(function (e) {
 
+               //see if user is logged in
+               if(!($.cookie('devilBricks'))) {
+                    alert("Please login to vote. Happy Blogging")
+                   return false;
+               }
               //get class name (down_button / up_button) of clicked element
               var clicked_button = $(this).children().attr('class');
 

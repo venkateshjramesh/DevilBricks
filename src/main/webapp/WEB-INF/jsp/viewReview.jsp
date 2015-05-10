@@ -269,7 +269,7 @@
             </div>
 
     	  <div class="modal-footer">
-    	    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+    	    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" id="closeReply">Close</button>
     	    <button class="btn btn-primary" id="submitReply">Submit</button>
     	  </div>
     	</div>
