@@ -158,14 +158,14 @@
             <div >test message</div>
             <div id="rating"></div>
             <!-- voting markup -->
-            <div class="voting_wrapper" id="XXXXXXX">
+            <!-- <div class="voting_wrapper" id="XXXXXXX">
                 <div class="voting_btn">
                     <div class="up_button">&nbsp;</div><span class="up_votes">0</span>
                 </div>
                 <div class="voting_btn">
                     <div class="down_button">&nbsp;</div><span class="down_votes">0</span>
                 </div>
-            </div>
+            </div>  -->
             <!-- voting markup end -->
         </div>
 
@@ -292,7 +292,7 @@
     </div>
 	  <div class="modal-footer">
         <button class="btn btn-primary" id="submitLogin">Submit</button>
-	    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+	    <button id="loginModelClose" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
 	  </div>
 	</div>
 	<!-- end of modal -->

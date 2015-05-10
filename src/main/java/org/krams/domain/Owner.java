@@ -28,8 +28,7 @@ public class Owner {
     private String district;
     private String state;
     private String pinCode;
-    private String voteUp;
-    private String voteDown;
+
    /* private String behaviour;
     private String attitude;
     private String ebBill;
@@ -48,21 +47,6 @@ public class Owner {
         return review;
     }
 
-    public String getVoteUp() {
-        return voteUp;
-    }
-
-    public void setVoteUp(String voteUp) {
-        this.voteUp = voteUp;
-    }
-
-    public String getVoteDown() {
-        return voteDown;
-    }
-
-    public void setVoteDown(String voteDown) {
-        this.voteDown = voteDown;
-    }
 
     public void setReview(List<Review> review) {
         this.review = review;

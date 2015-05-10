@@ -69,6 +69,8 @@ public class SaveReviewController {
         review.setParking(parking.trim().equals("") ? null : parking);
         review.setOtherComments(otherComments.trim().equals("") ? null : otherComments);
         review.setSuggestion(suggestion.trim().equals("") ? null : suggestion);
+        review.setVoteDown("0");
+        review.setVoteUp("0");
 
         if(id != null && id.equals("")){
             //personal details

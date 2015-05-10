@@ -193,6 +193,16 @@ $("#email").bind("blur", function(){
                          		"<a href='#myModal' data-toggle='modal'><button class='btn btn-primary '><i class='icon-user'></i>&nbsp;&nbsp;Contact User</button></a>"+
                          		"&nbsp;&nbsp;<span class='badge badge-success'>You have contacted this user</span>" +
                          		"</p>"+
+
+                         		 "<div class='voting_wrapper'> "+
+                                "    <div class='voting_btn'>"+
+                                 "       <div class='up_button'>&nbsp;</div><span class='up_votes'>0</span>"+
+                                  "  </div>"+
+                                   " <div class='voting_btn'>"+
+                                    "    <div class='down_button'>&nbsp;</div><span class='down_votes'>0</span>"+
+                                    "</div>"+
+                                "</div>"+
+
                                  "<div id='innerHtmlString_"+temp.id+"' class='block-body' style='height:250px;overflow:hidden;'>"  +
                                       innerHtmlString +
                                       "</div>"+
@@ -205,6 +215,8 @@ $("#email").bind("blur", function(){
 
                         } //end of for loop
                        $('#reviewBlock').html(htmlString);
+
+                       callVotingFunction();
 
                     },
                     error: function(xhr) {
@@ -281,6 +293,8 @@ $("#email").bind("blur", function(){
                                                   var userNameTemp = response.bloggerList[0].userName;
                                                   $.cookie('devilBricks', idValTemp +'!'+ userNameTemp +'!loggedIn', { expires: 90, path: '/', domain: 'localhost'});
                                                   $('#userNameVal').text($.cookie('devilBricks').split("!")[1])
+                                                  $('#loginModelClose').click()
+                                                  alert("User Logged in successfully. Happy Blogging.")
 
                                               },
                                               error: function(xhr) {
@@ -300,77 +314,7 @@ $("#email").bind("blur", function(){
               //save to database                                              star
           });
 
-          //####### on page load, retrive votes for each content
-          //http://www.sanwebe.com/2013/04/voting-system-with-jquery-php
-          $.each( $('.voting_wrapper'), function(){
 
-              //retrive unique id from this voting_wrapper element
-              var unique_id = $('#ownerIdForReview').val();
-
-              $("#XXXXXXX").attr("id", unique_id);
-              alert(unique_id)
-              //prepare post content
-              post_data = {'id':unique_id, 'vote':'fetch'};
-
-              //send our data to "vote_process.php" using jQuery $.post()
-              $.post('/spring-mongodb-tutorial/searchVoteForId', post_data,  function(response) {
-
-                      //retrive votes from server, replace each vote count text
-                      $('#'+unique_id+' .up_votes').text(response.vote_up);
-                      $('#'+unique_id+' .down_votes').text(response.vote_down);
-                  },'json');
-          });
-
-          $(".voting_wrapper .voting_btn").click(function (e) {
-
-              //get class name (down_button / up_button) of clicked element
-              var clicked_button = $(this).children().attr('class');
-
-              //get unique ID from voted parent element
-              var unique_id   = $(this).parent().attr("id");
-
-              if(clicked_button==='down_button') //user disliked the content
-              {
-                  //prepare post content
-                  post_data = {'id':unique_id, 'vote':'down'};
-
-                  //send our data to "vote_process.php" using jQuery $.post()
-                  $.post('/spring-mongodb-tutorial/changeVoteForId', post_data, function(data) {
-
-                      //replace vote down count text with new values
-                      $('#'+unique_id+' .down_votes').text(data.vote_down);
-
-                      //thank user for the dislike
-                      alert("Thanks! Each Vote Counts, Even Dislikes!");
-
-                  }).fail(function(err) {
-
-                  //alert user about the HTTP server error
-                  alert(err.statusText);
-                  });
-              }
-              else if(clicked_button==='up_button') //user liked the content
-              {
-                  //prepare post content
-                  post_data = {'id':unique_id, 'vote':'up'};
-
-                  //send our data to "vote_process.php" using jQuery $.post()
-                  $.post('/spring-mongodb-tutorial/changeVoteForId', post_data, function(data) {
-
-                      //replace vote up count text with new values
-                      $('#'+unique_id+' .up_votes').text(data.vote_up);
-
-                      //thank user for liking the content
-                      alert("Thanks! For Liking This Content.");
-                  }).fail(function(err) {
-
-                  //alert user about the HTTP server error
-                  alert(err.statusText);
-                  });
-              }
-
-          });
-          //end
 
           //set username for cookie
           if($.cookie('devilBricks'))
@@ -417,42 +361,25 @@ $("#email").bind("blur", function(){
             return "";
         var htmlReplyString = "";
 
-            //var sortArray = dataArr['hello'];
-            replyList.sort(function(a,b) {
-                 if ( a.creationDate < b.creationDate )
-                        return -1;
-                    if ( a.creationDate > b.creationDate )
-                        return 1;
-                    return 0;
-            } );
 
-
-           /* var tempArray = [];
-            loop1:for(var j=0;j<replyList.length;j++){
-                var tempId = replyList[j].id;
-               for(var k=0;k<replyList.length;k++){
-                    var tempParentId = replyList[k].parentId;
-                    if($.trim(tempId) == $.trim(tempParentId)){
-                         tempArray.push(replyList[k]);
-                         replyList[k] = "";
-                          continue loop1;
-                    }else if($.trim(tempId) != $.trim(tempParentId) && (k + 1 == replyList.length)) {
-                          tempArray.push(replyList[k]);
-                          replyList[k] = "";
-                          continue loop1;
-                    }
-
-                }
-            }
-replyList = tempArray;*/
 
              for(var i=0;i<replyList.length;i++){
                   htmlReplyString = htmlReplyString +
-                  "<div class='block  span11' id='span12_"+replyList[i].id+"' style='margin-left:8.5%'>  "  +
+                  "<div class='block  span11' id='span11_"+replyList[i].id+"' style='margin-left:8.5%'>  "  +
                   "<p class='block-heading-reply'><u>Venkatesh Ramesh</u> &nbsp;&nbsp;&nbsp;  "+
                   "<a data-toggle='modal' href='#myModal'><button class='btn btn-primary '> "+
                   "<i class='icon-user'></i>&nbsp;&nbsp;Contact User</button></a>&nbsp;&nbsp;"+
                   "<span class='badge badge-success'>You have contacted this user</span></p> "+
+                    "<div><input type='hidden' id='span_"+replyList[i].id+"' value='"+mainId+"'></div>"  +
+                   "<div class='voting_wrapper'> "+
+                  "    <div class='voting_btn'>"+
+                   "       <div class='up_button'>&nbsp;</div><span class='up_votes'>0</span>"+
+                    "  </div>"+
+                     " <div class='voting_btn'>"+
+                      "    <div class='down_button'>&nbsp;</div><span class='down_votes'>0</span>"+
+                      "</div>"+
+                  "</div>"+
+
                   "<div class='block-body' id='innerHtmlString_"+replyList[i].id+"'> "+
 
                     "<h6>User Comments</h6> "+
@@ -469,3 +396,82 @@ replyList = tempArray;*/
 
 
 
+function callVotingFunction(){
+ //####### on page load, retrive votes for each content
+          //http://www.sanwebe.com/2013/04/voting-system-with-jquery-php
+          $.each( $('.voting_wrapper'), function(){
+
+              //retrive unique id from this voting_wrapper element
+              var unique_id = $(this).parent().attr("id");
+
+              //$("#XXXXXXX").attr("id", unique_id);
+              //alert("unique_id:::" + unique_id);
+              var parentId =  $('#span_'+unique_id.split("_")[1]).val();
+              //alert("parentId::" + parentId);
+              //prepare post content
+              post_data = {'id':unique_id, 'vote':'fetch','parentId':parentId};
+
+              //send our data to "vote_process.php" using jQuery $.post()
+              $.post('/spring-mongodb-tutorial/searchVoteForId', post_data,  function(response) {
+
+                      //retrive votes from server, replace each vote count text
+                      $('#'+unique_id+' .up_votes').text((response.vote_up != null) ? response.vote_up : 0);
+                      $('#'+unique_id+' .down_votes').text((response.vote_down != null) ? response.vote_down : 0);
+                  },'json');
+          });
+
+$(".voting_wrapper .voting_btn").click(function (e) {
+
+              //get class name (down_button / up_button) of clicked element
+              var clicked_button = $(this).children().attr('class');
+
+              //get unique ID from voted parent element
+              var unique_id   = $(this).parent().parent().attr("id");
+
+              //alert(unique_id);
+              var parentId =  $('#span_'+unique_id.split("_")[1]).val();
+              //alert("parentId::" + parentId);
+
+              if(clicked_button==='down_button') //user disliked the content
+              {
+                  //prepare post content
+                  post_data = {'id':unique_id, 'vote':'down','parentId':parentId};
+
+                  //send our data to "vote_process.php" using jQuery $.post()
+                  $.post('/spring-mongodb-tutorial/changeVoteForId', post_data, function(data) {
+
+                      //replace vote down count text with new values
+                      $('#'+unique_id+' .down_votes').text(data.vote_down);
+
+                      //thank user for the dislike
+                      alert("Thanks! Each Vote Counts, Even Dislikes!");
+
+                  }).fail(function(err) {
+
+                  //alert user about the HTTP server error
+                  alert(err.statusText);
+                  });
+              }
+              else if(clicked_button==='up_button') //user liked the content
+              {
+                  //prepare post content
+                  post_data = {'id':unique_id, 'vote':'up','parentId':parentId};
+
+                  //send our data to "vote_process.php" using jQuery $.post()
+                  $.post('/spring-mongodb-tutorial/changeVoteForId', post_data, function(data) {
+
+                      //replace vote up count text with new values
+                      $('#'+unique_id+' .up_votes').text(data.vote_up);
+
+                      //thank user for liking the content
+                      alert("Thanks! For Liking This Content.");
+                  }).fail(function(err) {
+
+                  //alert user about the HTTP server error
+                  alert(err.statusText);
+                  });
+              }
+
+          });
+          //end
+}

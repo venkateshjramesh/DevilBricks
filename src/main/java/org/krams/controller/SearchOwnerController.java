@@ -153,14 +153,30 @@ public class SearchOwnerController {
     Map<String, Object> getVotes(
             HttpServletRequest request,
             HttpServletResponse response,
-            @ModelAttribute("id") String id
+            @ModelAttribute("id") String id   ,
+            @ModelAttribute("parentId") String parentId
     ) {
-
-        Owner owner = service.findOne(id);
-        System.out.print("++++++++++++++++++++++++++" + owner.getFirstName());
         Map<String, Object> model = new HashMap<String, Object>();
-        model.put("vote_up",owner.getVoteUp());
-        model.put("vote_down",owner.getVoteDown());
+
+        if(id.trim().split("_")[0].equals("span12")) {
+            Review review = service.findOneReview(id.trim().split("_")[1]);
+            model.put("vote_up",review.getVoteUp());
+            model.put("vote_down",review.getVoteDown());
+        }else if(id.trim().split("_")[0].equals("span11")) {
+            Review review = service.findOneReview(parentId);
+            List<Reply> replyList = review.getReplies();
+
+            for (int i = 0; i < replyList.size(); i++) {
+                Reply reply = replyList.get(i);
+                System.out.print("*********************************************" + reply.getDisplayName());
+                if (reply.getId().trim().equals(id.trim().split("_")[1])) {
+                    model.put("vote_up", reply.getVoteUp());
+                    model.put("vote_down", reply.getVoteDown());
+                    return model;
+                }
+            }
+
+        }
         return model;
 
     }
@@ -171,22 +187,47 @@ public class SearchOwnerController {
             HttpServletRequest request,
             HttpServletResponse response,
             @ModelAttribute("id") String id,
-            @ModelAttribute("vote") String vote
+            @ModelAttribute("vote") String vote,
+            @ModelAttribute("parentId") String parentId
     ) {
 
-        Owner owner = service.findOne(id);
-        System.out.print("++++++++++++++++++++++++++" + owner.getFirstName());
+        Map<String, Object> model = new HashMap<String, Object>();
 
-        if(vote.equals("up")) {
-            owner.setVoteUp(String.valueOf(Integer.parseInt(owner.getVoteUp()) + 1));
-        }else if(vote.equals("down")){
-            owner.setVoteDown(String.valueOf(Integer.parseInt(owner.getVoteDown()) + 1));
+        if(id.trim().split("_")[0].equals("span12")) {
+            Review review = service.findOneReview(id.trim().split("_")[1]);
+            System.out.print("*********************************************" + review.getId());
+            if(vote.equals("up")) {
+                review.setVoteUp(String.valueOf(Integer.parseInt(review.getVoteUp()) + 1));
+            }else if(vote.equals("down")){
+                review.setVoteDown(String.valueOf(Integer.parseInt(review.getVoteDown()) + 1));
+            }
+
+            model.put("vote_up",review.getVoteUp());
+            model.put("vote_down",review.getVoteDown());
+            service.createReview(review);
+        }else if(id.trim().split("_")[0].equals("span11")) {
+            System.out.print("***************************parentid::" + parentId);
+            Review review = service.findOneReview(parentId);
+            List<Reply> replyList = review.getReplies();
+
+            for (int i = 0; i < replyList.size(); i++) {
+                Reply reply = replyList.get(i);
+                System.out.print("*********************************************" + reply.getDisplayName());
+                if (reply.getId().trim().equals(id.trim().split("_")[1])) {
+                    if(vote.equals("up")) {
+                        reply.setVoteUp(String.valueOf(Integer.parseInt(reply.getVoteUp()) + 1));
+                    }else if(vote.equals("down")){
+                        reply.setVoteDown(String.valueOf(Integer.parseInt(reply.getVoteDown()) + 1));
+                    }
+                    model.put("vote_up",reply.getVoteUp());
+                    model.put("vote_down",reply.getVoteDown());
+                }
+
+            }
+            service.createReview(review);
+
         }
 
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("vote_up",owner.getVoteUp());
-        model.put("vote_down",owner.getVoteDown());
-        service.create(owner);
         return model;
 
     }

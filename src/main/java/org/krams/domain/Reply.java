@@ -21,6 +21,24 @@ public class Reply {
         private String comments;
     private Date creationDate;
     private String parentId;
+    private String voteUp;
+    private String voteDown;
+
+    public String getVoteUp() {
+        return voteUp;
+    }
+
+    public void setVoteUp(String voteUp) {
+        this.voteUp = voteUp;
+    }
+
+    public String getVoteDown() {
+        return voteDown;
+    }
+
+    public void setVoteDown(String voteDown) {
+        this.voteDown = voteDown;
+    }
 
     public String getParentId() {
         return parentId;

@@ -6,6 +6,7 @@ import org.krams.domain.Reply;
 import org.krams.domain.Review;
 import org.krams.repository.BloggerRepository;
 import org.krams.repository.OwnerRepository;
+import org.krams.repository.ReplyRepository;
 import org.krams.repository.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -28,6 +29,9 @@ public class DevilBrickService {
     @Autowired
     private BloggerRepository bloggerRepository;
 
+    @Autowired
+    private ReplyRepository replyRepository;
+
     public Owner create(Owner owner) {
         if(owner.getId()!=null && owner.getId().equals(""))
         owner.setId(UUID.randomUUID().toString());
@@ -44,7 +48,10 @@ public class DevilBrickService {
     }
 
     public Review createReview(Review review) {
+        if(review.getId()!=null && review.getId().equals(""))
         review.setId(UUID.randomUUID().toString());
+        else if(review.getId()==null)
+            review.setId(UUID.randomUUID().toString());
         return reviewRepository.save(review);
     }
 
@@ -59,8 +66,13 @@ public class DevilBrickService {
         return reviewRepository.save(review);
     }
 
+
     public Owner findOne(String id) {
         return repository.findOne(id);
+    }
+
+    public Review findOneReview(String id) {
+        return reviewRepository.findOne(id);
     }
 
     public List<Owner> findByParameters(Owner owner){

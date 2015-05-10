@@ -39,6 +39,8 @@ public class SaveReplyController {
         reply.setComments(replyText);
         reply.setCreationDate(new Date());
         reply.setParentId(id);
+        reply.setVoteUp("0");
+        reply.setVoteDown("0");
 
         service.updateReview(reply,idMainValue);
 
