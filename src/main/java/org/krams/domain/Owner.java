@@ -28,6 +28,8 @@ public class Owner {
     private String district;
     private String state;
     private String pinCode;
+    private String ratedUsers;
+    private String totalRating;
 
    /* private String behaviour;
     private String attitude;
@@ -47,9 +49,24 @@ public class Owner {
         return review;
     }
 
-
     public void setReview(List<Review> review) {
         this.review = review;
+    }
+
+    public String getRatedUsers() {
+        return ratedUsers;
+    }
+
+    public void setRatedUsers(String ratedUsers) {
+        this.ratedUsers = ratedUsers;
+    }
+
+    public String getTotalRating() {
+        return totalRating;
+    }
+
+    public void setTotalRating(String totalRating) {
+        this.totalRating = totalRating;
     }
 
     public String getEmail() {

@@ -18,11 +18,20 @@ public class Reply {
     private String id;
 
     private String displayName;
-        private String comments;
+    private String comments;
     private Date creationDate;
     private String parentId;
     private String voteUp;
     private String voteDown;
+    private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getVoteUp() {
         return voteUp;

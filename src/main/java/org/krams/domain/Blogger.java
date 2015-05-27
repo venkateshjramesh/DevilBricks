@@ -19,17 +19,42 @@ public class Blogger {
     private String userName;
     private String password;
     private String plotNumber;
-    private String appartmentName;
-    private String doorNo;
-    private String floor;
-    private String streetName;
-    private String landmark;
-    private String area;
-    private String city;
-    private String taluk;
-    private String district;
-    private String state;
-    private String pinCode;
+    private String showEmail ;
+    private String showMobile ;
+    private String showAddress ;
+    private String address;
+
+    public String getShowAddress() {
+        return showAddress;
+    }
+
+    public void setShowAddress(String showAddress) {
+        this.showAddress = showAddress;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getShowEmail() {
+        return showEmail;
+    }
+
+    public void setShowEmail(String showEmail) {
+        this.showEmail = showEmail;
+    }
+
+    public String getShowMobile() {
+        return showMobile;
+    }
+
+    public void setShowMobile(String showMobile) {
+        this.showMobile = showMobile;
+    }
 
     public String getUserName() {
         return userName;
@@ -85,94 +110,6 @@ public class Blogger {
 
     public void setPlotNumber(String plotNumber) {
         this.plotNumber = plotNumber;
-    }
-
-    public String getAppartmentName() {
-        return appartmentName;
-    }
-
-    public void setAppartmentName(String appartmentName) {
-        this.appartmentName = appartmentName;
-    }
-
-    public String getDoorNo() {
-        return doorNo;
-    }
-
-    public void setDoorNo(String doorNo) {
-        this.doorNo = doorNo;
-    }
-
-    public String getFloor() {
-        return floor;
-    }
-
-    public void setFloor(String floor) {
-        this.floor = floor;
-    }
-
-    public String getStreetName() {
-        return streetName;
-    }
-
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
-
-    public String getLandmark() {
-        return landmark;
-    }
-
-    public void setLandmark(String landmark) {
-        this.landmark = landmark;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getTaluk() {
-        return taluk;
-    }
-
-    public void setTaluk(String taluk) {
-        this.taluk = taluk;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getPinCode() {
-        return pinCode;
-    }
-
-    public void setPinCode(String pinCode) {
-        this.pinCode = pinCode;
     }
 
     public String getId() {

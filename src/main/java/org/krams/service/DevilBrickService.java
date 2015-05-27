@@ -1,13 +1,7 @@
 package org.krams.service;
 
-import org.krams.domain.Blogger;
-import org.krams.domain.Owner;
-import org.krams.domain.Reply;
-import org.krams.domain.Review;
-import org.krams.repository.BloggerRepository;
-import org.krams.repository.OwnerRepository;
-import org.krams.repository.ReplyRepository;
-import org.krams.repository.ReviewRepository;
+import org.krams.domain.*;
+import org.krams.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -32,10 +26,26 @@ public class DevilBrickService {
     @Autowired
     private ReplyRepository replyRepository;
 
+    @Autowired
+    private ReportRepository reportRepository;
+
+    @Autowired
+    private RatingHistoryRepository ratingHistoryRepository;
+
     public Owner create(Owner owner) {
         if(owner.getId()!=null && owner.getId().equals(""))
         owner.setId(UUID.randomUUID().toString());
         return repository.save(owner);
+    }
+
+    public Report createReport(Report report) {
+        report.setId(UUID.randomUUID().toString());
+        return reportRepository.save(report);
+    }
+
+    public RatingHistory createRatingHistory(RatingHistory ratingHistory) {
+        ratingHistory.setId(UUID.randomUUID().toString());
+        return ratingHistoryRepository.save(ratingHistory);
     }
 
     public Blogger createBlogger(Blogger blogger) {
@@ -45,6 +55,10 @@ public class DevilBrickService {
 
     public List<Blogger> checkBlogger(Blogger blogger) {
         return bloggerRepository.findByParameters(blogger.getUserName(), blogger.getPassword());
+    }
+
+    public Blogger findOneBlogger(String id) {
+        return bloggerRepository.findOne(id);
     }
 
     public Review createReview(Review review) {
@@ -74,13 +88,26 @@ public class DevilBrickService {
     public Review findOneReview(String id) {
         return reviewRepository.findOne(id);
     }
+    public Review findReviewForReply(String id) {
+        return reviewRepository.findReviewForReply(id);
+    }
 
     public List<Owner> findByParameters(Owner owner){
 //        return  repository.findByFirstNameAndLastNameAndMobileAndEmailAndId(owner.getFirstName(),owner.getLastName(),owner.getMobile(),owner.getEmail(),owner.getId()) ;
 //        return  repository.findByFirstNameOrLastNameOrMobileOrEmailOrId(owner.getFirstName(),owner.getLastName(),owner.getMobile(),owner.getEmail(),owner.getId()) ;
-        return repository.findByParameters(owner.getFirstName(),owner.getLastName(),owner.getMobile(),owner.getEmail(),owner.getId(),owner.getPlotNumber(),owner.getAppartmentName(),owner.getDoorNo(),owner.getFloor(),owner.getStreetName(),owner.getLandmark(),owner.getArea(),owner.getCity(),owner.getTaluk(),owner.getDistrict(),owner.getState(),owner.getPinCode());
+        //return repository.findByParameters(owner.getFirstName(),owner.getLastName(),owner.getMobile(),owner.getEmail(),owner.getId(),owner.getPlotNumber(),owner.getAppartmentName(),owner.getDoorNo(),owner.getFloor(),owner.getStreetName(),owner.getLandmark(),owner.getArea(),owner.getCity(),owner.getTaluk(),owner.getDistrict(),owner.getState(),owner.getPinCode());
+        //return repository.findByParameters(owner.getFirstName(),owner.getPinCode());
+
+        return repository.findByPinCodeAndFirstName(owner.getPinCode(),owner.getFirstName());
 
 
+
+
+
+    }
+
+    public List<RatingHistory> findByParameters(String userId,String targetId) {
+        return ratingHistoryRepository.findByUserIdAndTargetId(userId,targetId);
     }
 
 }

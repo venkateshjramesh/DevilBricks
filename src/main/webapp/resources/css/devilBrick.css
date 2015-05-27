@@ -82,3 +82,10 @@ margin-bottom:10px;
 .voting_wrapper .up_button:hover{background: url(/spring-mongodb-tutorial/resources/images/thumbs.png) no-repeat -16px -16px;;}
 .voting_btn{float:left;margin-right:5px;}
 .voting_btn span{font-size: 11px;float: left;margin-left: 3px;}
+.voting_btn_noClick{float:left;margin-right:5px;}
+.voting_btn_noClick span{font-size: 11px;float: left;margin-left: 3px;}
+
+
+.anchorClass{}
+
+.ratingClass{}

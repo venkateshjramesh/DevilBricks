@@ -16,8 +16,10 @@
 
 
     <script src="resources/lib/jquery-1.8.1.min.js" type="text/javascript"></script>
-    <script src="resources/javascripts/DevilBrick.js" type="text/javascript"></script>
     <script src="resources/javascripts/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="resources/javascripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="resources/javascripts/jquery.raty.js"></script>
+    <script src="resources/javascripts/DevilBrick.js" type="text/javascript"></script>
 
 
     <!-- Demo page code -->
@@ -94,31 +96,22 @@
                   <div class="nav-header" data-toggle="collapse" data-target="#dashboard-menu"><i class="icon-dashboard"></i>Dashboard</div>
                     <ul id="dashboard-menu" class="nav nav-list collapse in">
 						<li ><a href="aboutUs">About Us</a></li>
-                        <li ><a href="viewReview">View Reviews</a></li>
                         <li class="active"><a href="searchReview">Search Reviews</a></li>
                         <li ><a href="writeReview">Write Reviews</a></li>
-                        <li ><a href="faq.html">Faq</a></li>
+                        <li ><a href="faq">Faq</a></li>
 
                     </ul>
                 <div class="nav-header" data-toggle="collapse" data-target="#accounts-menu"><i class="icon-briefcase"></i>Account<span class="label label-info">+10</span></div>
                 <ul id="accounts-menu" class="nav nav-list collapse in">
-                  <li ><a href="sign-in.html">Sign In</a></li>
-                  <li ><a href="signUp">Sign Up</a></li>
-                  <li ><a href="reset-password.html">Reset Password</a></li>
+                  <li ><a href="#loginModal" data-toggle="modal">Sign In</a></li>
+                  <li ><a href="signUp" target="_blank">Sign Up</a></li>
+                  <li ><a href="resetPassword" target="_blank">Reset Password</a></li>
                 </ul>
-
-                <!-- <div class="nav-header" data-toggle="collapse" data-target="#settings-menu"><i class="icon-exclamation-sign"></i>Error Pages</div>
-                <ul id="settings-menu" class="nav nav-list collapse in">
-                  <li ><a href="403.html">403 page</a></li>
-                  <li ><a href="404.html">404 page</a></li>
-                  <li ><a href="500.html">500 page</a></li>
-                  <li ><a href="503.html">503 page</a></li>
-                </ul> -->
 
                 <div class="nav-header" data-toggle="collapse" data-target="#legal-menu"><i class="icon-legal"></i>Legal</div>
                 <ul id="legal-menu" class="nav nav-list collapse in">
-                  <li ><a href="privacy-policy.html">Privacy Policy</a></li>
-                  <li ><a href="terms-and-conditions.html">Terms and Conditions</a></li>
+                  <li ><a href="privacyPolicy">Privacy Policy</a></li>
+                  <li ><a href="termsAndConditions">Terms and Conditions</a></li>
                 </ul>
             </div>
         </div>
@@ -192,7 +185,7 @@
           <th style="width:20%">Name</th>
           <th style="width:15%">Mobile</th>
           <th style="width:55%">Address</th>
-          <th ></th>
+          <th >Action</th>
         </tr>
       </thead>
       <tbody id="searchReviewTable">
@@ -253,14 +246,27 @@
 	<script src="resources/lib/bootstrap/js/application.js"></script>
 
 
-
-
-
-
-
-
-
-
+  <!-- Modal -->
+    	<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    	  <div class="modal-header">
+    	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	    <h3 id="myModalLabel">Sign In</h3>
+    	  </div>
+    	  <div class="modal-body">
+    	     <label>Username</label>
+            <input id="userName" type="text" class='input-xlarge'>
+            <label>Password</label>
+            <input id="password" type="password" class='input-xlarge'>
+            <label class="remember-me"><input type="checkbox"> Remember me</label>
+            <p><a href="signUp" target="_blank">Sign Up</a></p
+            <p><a href="resetPassword" target="_blank">Forgot Password</a></p>
+        </div>
+    	  <div class="modal-footer">
+            <button class="btn btn-primary" id="submitLogin">Submit</button>
+    	    <button id="loginModelClose" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+    	  </div>
+    	</div>
+    	<!-- end of modal -->
 
 
 

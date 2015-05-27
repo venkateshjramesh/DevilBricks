@@ -52,7 +52,8 @@ public class SaveReviewController {
             @ModelAttribute("water") String water,
             @ModelAttribute("parking") String parking,
             @ModelAttribute("otherComments") String otherComments,
-            @ModelAttribute("suggestion") String suggestion) {
+            @ModelAttribute("suggestion") String suggestion,
+            @CookieValue("devilBricks") String devilBricks) {
 
         System.out.print("/////////////////////id///////////////:::" + id);
 
@@ -71,6 +72,8 @@ public class SaveReviewController {
         review.setSuggestion(suggestion.trim().equals("") ? null : suggestion);
         review.setVoteDown("0");
         review.setVoteUp("0");
+        review.setUserId(devilBricks == null ? null : devilBricks.toString().split("!")[0]);
+        review.setDisplayName(devilBricks == null ? null : devilBricks.toString().split("!")[1]);
 
         if(id != null && id.equals("")){
             //personal details

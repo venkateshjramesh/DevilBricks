@@ -1,10 +1,9 @@
 package org.krams.controller;
 
-import org.krams.domain.Owner;
-import org.krams.domain.Reply;
-import org.krams.domain.Review;
+import org.krams.domain.*;
 import org.krams.service.DevilBrickService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -121,7 +120,7 @@ public class SearchOwnerController {
 
         List<Owner> ownerList = service.findByParameters(owner);
 
-        System.out.print("------------" + ownerList.get(0).getFirstName());
+        //System.out.print("------------" + ownerList.get(0).getFirstName());
 
 //        return new ModelAndView(null,"ownerList",ownerList);
         Map<String, Object> model = new HashMap<String, Object>();
@@ -154,12 +153,20 @@ public class SearchOwnerController {
             HttpServletRequest request,
             HttpServletResponse response,
             @ModelAttribute("id") String id   ,
-            @ModelAttribute("parentId") String parentId
+            @ModelAttribute("parentId") String parentId,
+            @ModelAttribute("userId") String userId
     ) {
         Map<String, Object> model = new HashMap<String, Object>();
 
         if(id.trim().split("_")[0].equals("span12")) {
             Review review = service.findOneReview(id.trim().split("_")[1]);
+            //get from history
+            List<RatingHistory> ratingHistory = service.findByParameters(userId,review.getId());
+            if(ratingHistory != null && ratingHistory.size() > 0)
+                model.put("exists","true");
+            else
+                model.put("exists","false");
+
             model.put("vote_up",review.getVoteUp());
             model.put("vote_down",review.getVoteDown());
         }else if(id.trim().split("_")[0].equals("span11")) {
@@ -170,6 +177,13 @@ public class SearchOwnerController {
                 Reply reply = replyList.get(i);
                 System.out.print("*********************************************" + reply.getDisplayName());
                 if (reply.getId().trim().equals(id.trim().split("_")[1])) {
+                    //get from history
+                    List<RatingHistory> ratingHistory = service.findByParameters(userId,reply.getId());
+                    if(ratingHistory != null && ratingHistory.size() > 0)
+                        model.put("exists","true");
+                    else
+                        model.put("exists","false");
+
                     model.put("vote_up", reply.getVoteUp());
                     model.put("vote_down", reply.getVoteDown());
                     return model;
@@ -188,22 +202,32 @@ public class SearchOwnerController {
             HttpServletResponse response,
             @ModelAttribute("id") String id,
             @ModelAttribute("vote") String vote,
-            @ModelAttribute("parentId") String parentId
+            @ModelAttribute("parentId") String parentId,
+            @ModelAttribute("userId") String userId
     ) {
 
         Map<String, Object> model = new HashMap<String, Object>();
 
         if(id.trim().split("_")[0].equals("span12")) {
             Review review = service.findOneReview(id.trim().split("_")[1]);
+            RatingHistory ratingHistory = new RatingHistory();
+            ratingHistory.setUserId(userId);
+            ratingHistory.setCreationDate(new Date());
+            ratingHistory.setTargetId(id.trim().split("_")[1]);
             System.out.print("*********************************************" + review.getId());
             if(vote.equals("up")) {
                 review.setVoteUp(String.valueOf(Integer.parseInt(review.getVoteUp()) + 1));
+                ratingHistory.setTargetType("voteUp-Review");
             }else if(vote.equals("down")){
                 review.setVoteDown(String.valueOf(Integer.parseInt(review.getVoteDown()) + 1));
+                ratingHistory.setTargetType("voteDown-Review");
             }
-
-            model.put("vote_up",review.getVoteUp());
+            ratingHistory.setValue("1");
+            model.put("vote_up", review.getVoteUp());
             model.put("vote_down",review.getVoteDown());
+
+
+            service.createRatingHistory(ratingHistory);
             service.createReview(review);
         }else if(id.trim().split("_")[0].equals("span11")) {
             System.out.print("***************************parentid::" + parentId);
@@ -214,23 +238,117 @@ public class SearchOwnerController {
                 Reply reply = replyList.get(i);
                 System.out.print("*********************************************" + reply.getDisplayName());
                 if (reply.getId().trim().equals(id.trim().split("_")[1])) {
+                    RatingHistory ratingHistory = new RatingHistory();
+
+                    ratingHistory.setUserId(userId);
+                    ratingHistory.setCreationDate(new Date());
+                    ratingHistory.setTargetId(id.trim().split("_")[1]);
+
                     if(vote.equals("up")) {
                         reply.setVoteUp(String.valueOf(Integer.parseInt(reply.getVoteUp()) + 1));
+                        ratingHistory.setTargetType("voteUp-Reply");
                     }else if(vote.equals("down")){
                         reply.setVoteDown(String.valueOf(Integer.parseInt(reply.getVoteDown()) + 1));
+                        ratingHistory.setTargetType("voteDown-Reply");
                     }
+                    ratingHistory.setValue("1");
                     model.put("vote_up",reply.getVoteUp());
                     model.put("vote_down",reply.getVoteDown());
+                    service.createRatingHistory(ratingHistory);
                 }
 
             }
             service.createReview(review);
-
         }
+        return model;
+
+    }
+
+    @RequestMapping(value = "/searchRatingForId",method=RequestMethod.POST)
+    public @ResponseBody
+    Map<String, Object> getRating(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @ModelAttribute("id") String id,
+            @ModelAttribute("userId") String userId
+    ) {
+        Map<String, Object> model = new HashMap<String, Object>();
+        List<RatingHistory> ratingHistory = service.findByParameters(userId,id);
+        if(ratingHistory != null && ratingHistory.size() > 0){
+            model.put("exists","true");
+            model.put("value",ratingHistory.get(0).getValue());
+        }
+        else {
+            model.put("exists","false");
+        }
+
+            Owner owner = service.findOne(id);
+            Float finalRating = Float.parseFloat(owner.getTotalRating()) / Float.parseFloat(owner.getRatedUsers()) ;
+            model.put("finalRating",finalRating);
+            model.put("totalUsers",owner.getRatedUsers());
 
         return model;
 
     }
 
+    @Scope
+    @RequestMapping(value = "/changeRatingForId",method=RequestMethod.POST)
+    public @ResponseBody
+    Map<String, Object> setRating(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @ModelAttribute("id") String id,
+            @ModelAttribute("score") String score ,
+            @ModelAttribute("userId") String userId
+    ) {
+
+        Map<String, Object> model = new HashMap<String, Object>();
+            RatingHistory ratingHistory  = new RatingHistory();
+            ratingHistory.setUserId(userId);
+            ratingHistory.setTargetType("rating");
+            ratingHistory.setTargetId(id);
+            ratingHistory.setValue(score);
+            ratingHistory.setCreationDate(new Date());
+
+            Owner owner = service.findOne(id);
+            owner.setRatedUsers(Integer.toString(Integer.parseInt(owner.getRatedUsers()) + 1));
+            owner.setTotalRating(Float.toString(Float.parseFloat(owner.getTotalRating()) + Float.parseFloat(score)));
+            service.create(owner);
+            service.createRatingHistory(ratingHistory);
+
+        model.put("ratingMessage","Your Rating of "+score+" Saved Successfully. Happy Blogging.");
+        return model;
+    }
+
+    @RequestMapping(value = "/searchUserForId",method=RequestMethod.POST)
+    public @ResponseBody
+    Map<String, Object> getUser(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @ModelAttribute("id") String id
+    ) {
+        Map<String, Object> model = new HashMap<String, Object>();
+
+        if(id.trim().split("_")[0].equals("span12")) {
+            Review review = service.findOneReview(id.trim().split("_")[1]);
+            Blogger blogger = service.findOneBlogger(review.getUserId());
+            model.put("blogger", blogger);
+        }else if(id.trim().split("_")[0].equals("span11")) {
+            Review review = service.findReviewForReply(id.trim().split("_")[1]);
+            List<Reply> replyList = review.getReplies();
+
+            for (int i = 0; i < replyList.size(); i++) {
+                Reply reply = replyList.get(i);
+                if (reply.getId().trim().equals(id.trim().split("_")[1])) {
+                    Blogger blogger = service.findOneBlogger(reply.getUserId());
+                    model.put("blogger", blogger);
+                    return model;
+                }
+            }
+
+        }
+        return model;
+
+    }
 
 }

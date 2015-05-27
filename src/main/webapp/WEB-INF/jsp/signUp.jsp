@@ -16,8 +16,10 @@
 
 
     <script src="resources/lib/jquery-1.8.1.min.js" type="text/javascript"></script>
-    <script src="resources/javascripts/DevilBrick.js" type="text/javascript"></script>
+    <script type="text/javascript" src="resources/javascripts/jquery.raty.js"></script>
+    <script type="text/javascript" src="resources/javascripts/jquery.cookie.js"></script>
     <script src="resources/javascripts/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="resources/javascripts/DevilBrick.js" type="text/javascript"></script>
 
     <!-- Demo page code -->
     
@@ -85,16 +87,26 @@
                     <input id="lastName" type="text" class="span12">
                     <label>Email Address</label>
                     <input id="emailId" type="text" class="span12">
+                    <label class="remember-me"><input type="checkbox" id="showEmail">Show my Email Id to Public</label>
+                    <br>
+                    <label>Mobile No</label>
+                    <input id="mobile" type="text" class="span12">
+                    <label class="remember-me"><input type="checkbox" id="showMobile">Show my Mobile No to Public</label>
+                    <br>
+                    <label>Address</label>
+                    <input id="address" type="text" class="span12">
+                    <label class="remember-me"><input type="checkbox" id="showAddress">Show my Address to Public</label>
+                    <br>
                     <label>Username</label>
                     <input id="userName" type="text" class="span12">
                     <label>Password</label>
                     <input id="password" type="password" class="span12">
                     <a id="signUpButton" class="btn btn-primary pull-right">Sign Up!</a>
-                    <label class="remember-me"><input type="checkbox"> I agree with the <a href="terms-and-conditions.html">Terms and Conditions</a></label>
+                    <label class="remember-me"><input type="checkbox" id="agree"> I agree with the <a href="termsAndConditions" target="_blank">Terms and Conditions</a></label>
                     <div class="clearfix"></div>
             </div>
         </div>
-        <p><a href="privacy-policy.html">Privacy Policy</a></p>
+        <p><a href="privacyPolicy" target="_blank">Privacy Policy</a></p>
     </div>
 </div>
 

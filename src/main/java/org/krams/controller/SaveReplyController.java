@@ -29,7 +29,8 @@ public class SaveReplyController {
             @ModelAttribute("id") String id,
             @ModelAttribute("idMainValue") String idMainValue,
             @ModelAttribute("displayName") String displayName,
-            @ModelAttribute("replyText") String replyText
+            @ModelAttribute("replyText") String replyText,
+            @ModelAttribute("userId") String userId
     ) {
         System.out.print("///////////////////sagereply//id///////////////:::" + id);
 
@@ -37,6 +38,7 @@ public class SaveReplyController {
         reply.setId(UUID.randomUUID().toString());
         reply.setDisplayName(displayName);
         reply.setComments(replyText);
+        reply.setUserId(userId);
         reply.setCreationDate(new Date());
         reply.setParentId(id);
         reply.setVoteUp("0");

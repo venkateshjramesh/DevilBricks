@@ -100,28 +100,20 @@
                         <li class="active"><a href="${pageContext.request.contextPath}/viewReview">View Reviews</a></li>
                         <li ><a href="${pageContext.request.contextPath}/searchReview">Search Reviews</a></li>
                         <li ><a href="${pageContext.request.contextPath}/writeReview">Write Reviews</a></li>
-                        <li ><a href="faq.html">Faq</a></li>
+                        <li ><a href="${pageContext.request.contextPath}/faq">Faq</a></li>
 
                     </ul>
                 <div class="nav-header" data-toggle="collapse" data-target="#accounts-menu"><i class="icon-briefcase"></i>Account<span class="label label-info">+10</span></div>
                 <ul id="accounts-menu" class="nav nav-list collapse in">
                   <li ><a href="#loginModal" data-toggle="modal">Sign In</a></li>
                   <li ><a href="${pageContext.request.contextPath}/signUp" target="_blank">Sign Up</a></li>
-                  <li ><a href="reset-password.html">Reset Password</a></li>
+                  <li ><a href="${pageContext.request.contextPath}/resetPassword" target="_blank">Forgot Password</a></li>
                 </ul>
-
-                <!-- <div class="nav-header" data-toggle="collapse" data-target="#settings-menu"><i class="icon-exclamation-sign"></i>Error Pages</div>
-                <ul id="settings-menu" class="nav nav-list collapse in">
-                  <li ><a href="403.html">403 page</a></li>
-                  <li ><a href="404.html">404 page</a></li>
-                  <li ><a href="500.html">500 page</a></li>
-                  <li ><a href="503.html">503 page</a></li>
-                </ul> -->
 
                 <div class="nav-header" data-toggle="collapse" data-target="#legal-menu"><i class="icon-legal"></i>Legal</div>
                 <ul id="legal-menu" class="nav nav-list collapse in">
-                  <li ><a href="privacy-policy.html">Privacy Policy</a></li>
-                  <li ><a href="terms-and-conditions.html">Terms and Conditions</a></li>
+                  <li ><a href="${pageContext.request.contextPath}/privacyPolicy">Privacy Policy</a></li>
+                  <li ><a href="${pageContext.request.contextPath}/termsAndConditions">Terms and Conditions</a></li>
                 </ul>
             </div>
         </div>
@@ -154,9 +146,11 @@
 			<h4>ADDRESS</h4>
 			<p style="width:28%">${address}</p>
 
-            <p><button  id="testButton" class="btn btn-primary">test button</button></p>
-            <div >test message</div>
+            <p><button  style='display:none' id="testButton" class="btn btn-primary">test button</button></p>
             <div id="rating"></div>
+            <div id="totalUsers" style="font-size: 10px;"></div>
+
+            <a href="#ratingModal" class="ratingClass" data-toggle="modal"><button  id="ratingButton" class="btn btn-primary btn-mini">Rate The Owner</button></a>
             <!-- voting markup -->
             <!-- <div class="voting_wrapper" id="XXXXXXX">
                 <div class="voting_btn">
@@ -234,16 +228,14 @@
 	    <h3 id="myModalLabel">Reviewer Details</h3>
 	  </div>
 	  <div class="modal-body">
-	    <h4>NAME</h4>
-		<p>Illangovan</p>
+	    <h4 >NAME</h4>
+		<p id="bloggerName">Not available</p>
 		<h4>MOBILE</h4>
-		<p>9444852426</p>
+		<p id="bloggerMobile">Not available</p>
 		<h4>MAIL ID</h4>
-		<p>xxx@yyy@zzz.com</p>
+		<p id="bloggerEmail">Not available</p>
 		<h4>ADDRESS</h4>
-		<p>#44, aaa street,</p>
-		<p>bbb nagar,</p>
-		<p>zzz area.</p>
+		<p id="bloggerAddress">Not available</p>
 	  </div>
 	  <div class="modal-footer">
 	    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -261,9 +253,8 @@
     	  </div>
     	  <div class="modal-body">
     	    <h4>Reply To</h4>
-    		<p>Illangovan</p>
-    		<h4>display name</h4>
-            <p><input type='text' id='displayName' class='input-xlarge' id='appartmentName' name='appartmentName'>  </p>
+    		<p id="userDispName">Not Available</p>
+
              <h5>comments</h5>
             <p><textarea id='replyText' class='input-xlarge' rows='5' value='Smith' name='attitude'> </textarea></p>
             </div>
@@ -288,7 +279,8 @@
         <label>Password</label>
         <input id="password" type="password" class='input-xlarge'>
         <label class="remember-me"><input type="checkbox"> Remember me</label>
-        <p><a href="reset-password.html">Forgot your password?</a></p>
+        <p><a href="${pageContext.request.contextPath}/signUp" target="_blank">Sign Up</a></p
+        <p><a href="${pageContext.request.contextPath}/resetPassword" target="_blank">Forgot Password</a></p>
     </div>
 	  <div class="modal-footer">
         <button class="btn btn-primary" id="submitLogin">Submit</button>
@@ -297,9 +289,46 @@
 	</div>
 	<!-- end of modal -->
 
+	<!--Rating Modal -->
+    	<div id="ratingModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    	  <div class="modal-header">
+    	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    	    <h3 id="myModalLabel">RATE THIS OWNER</h3>
+    	  </div>
+    	  <div class="modal-body">
+    	    <div id="ratingByUser"></div>
+    	    <div id="ratingMessage"></div>
+    	  </div>
+    	  <div class="modal-footer">
+          	    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+          	  </div>
+    	</div>
+    	<!-- end of modal -->
 
+            <!-- report Modal -->
+            <div id="reportModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <input type='hidden' id='hiddenReportType'>
+              <input type='hidden' id='hiddenReportIdVal'>
+              <div class="modal-header">
+                <h3 id="myModalLabel">Report To Us</h3>
+              </div>
+              <div class="modal-body">
+                <h4>Report Category</h4>
+                <div class="btn-group" data-toggle="buttons-radio" id="reportRadio">
+                  <button type="button" class="theme reportClass btn btn-primary">Abusive</button>
+                  <button type="button" class="theme reportClass btn btn-primary">Irrelevant</button>
+                </div>
 
+                <h5>Type your comments below</h5>
+                <p><textarea id='reportText' class='input-xlarge' rows='5' value='Smith' name='attitude'> </textarea></p>
+                </div>
 
+              <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" id="closeReport">Close</button>
+                <button class="btn btn-primary" id="submitReport">Submit</button>
+              </div>
+            </div>
+            <!-- end of modal -->
 
 
 

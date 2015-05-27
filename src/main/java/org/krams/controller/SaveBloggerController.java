@@ -34,7 +34,12 @@ public class SaveBloggerController {
             @ModelAttribute("lastName") String lastName,
             @ModelAttribute("emailId") String emailId,
             @ModelAttribute("userName") String userName,
-            @ModelAttribute("password") String password
+            @ModelAttribute("password") String password,
+            @ModelAttribute("mobile") String mobile,
+            @ModelAttribute("showEmail") String showEmail,
+            @ModelAttribute("showMobile") String showMobile,
+            @ModelAttribute("showAddress") String showAddress,
+            @ModelAttribute("address") String address
     ) {
 
         Blogger blogger = new Blogger();
@@ -43,12 +48,17 @@ public class SaveBloggerController {
         blogger.setEmail(emailId);
         blogger.setUserName(userName);
         blogger.setPassword(password);
+        blogger.setMobile(mobile);
+        blogger.setAddress(address);
+        blogger.setShowEmail(showEmail.equals("0") ? "N" : "Y");
+        blogger.setShowMobile(showMobile.equals("0") ? "N" : "Y");
+        blogger.setShowAddress(showAddress.equals("0") ? "N" : "Y");
 
 
         service.createBlogger(blogger);
 
         Map<String, Object> model = new HashMap<String, Object>();
-        model.put("status","user created successfully. happy blogging.");
+        model.put("status","user created successfully. happy blogging. You will be automatically redirected to Blog");
         return model;
 
     }
