@@ -225,6 +225,24 @@
     	<scope>test</scope>
     </dependency>
 
+      <!--<dependency>
+          <groupId>com.mysema.querydsl</groupId>
+          <artifactId>querydsl-core</artifactId>
+          <version>3.3.2</version>
+      </dependency>
+      <dependency>
+          <groupId>com.mysema.querydsl</groupId>
+          <artifactId>querydsl-apt</artifactId>
+          <version>3.3.2</version>
+      </dependency>
+      <dependency>
+          <groupId>com.mysema.querydsl</groupId>
+          <artifactId>querydsl-mongodb</artifactId>
+          <version>3.3.2</version>
+      </dependency>-->
+
+
+
   </dependencies>
   
   <build>
@@ -259,6 +277,23 @@
                 <url>http://localhost:8080/manager/text</url>
             </configuration>
         </plugin>
+        <!--<plugin>
+            <groupId>com.mysema.maven</groupId>
+            <artifactId>apt-maven-plugin</artifactId>
+            <version>1.0.5</version>
+            <executions>
+                <execution>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>process</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>target/generated-sources/querydsl</outputDirectory>
+                        <processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor</processor>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>-->
     </plugins>
     
   </build>

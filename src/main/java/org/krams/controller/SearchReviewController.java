@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class SearchReviewController {
 
     @Autowired
-    private DevilBrickService service;
+    private DevilBrickService devilBrickService;
 
 	@RequestMapping
 	public ModelAndView Owner() {

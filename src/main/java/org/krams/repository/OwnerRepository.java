@@ -22,7 +22,7 @@ public interface OwnerRepository extends MongoRepository<Owner, String> {
 
 
 
-    List<Owner> findByPinCodeAndFirstName(String pinCode, String firstName);
+    //List<Owner> findByPinCodeAndFirstName(String pinCode, String firstName);
 
 
 }

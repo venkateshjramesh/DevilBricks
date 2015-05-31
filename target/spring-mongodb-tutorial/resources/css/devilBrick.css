@@ -1,0 +1,91 @@
+#ownerTable_previous {
+    background-color: #ffffff;
+    border-color: #dddddd;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    float: left;
+    line-height: 20px;
+    padding: 4px 12px;
+    text-decoration: none;
+    color: #0088cc;
+    border-bottom-left-radius: 4px;
+    border-left-width: 1px;
+    border-top-left-radius: 4px;
+}
+
+#ownerTable_next{
+    background-color: #ffffff;
+     border-color: #dddddd;
+     border-image: none;
+     border-style: solid;
+     border-width: 1px 1px 1px 0;
+     float: left;
+     line-height: 20px;
+     padding: 4px 12px;
+     text-decoration: none;
+     color: #0088cc;
+     border-bottom-right-radius: 4px;
+     border-top-right-radius: 4px;
+}
+
+.paginate_button{
+    background-color: #ffffff;
+     border-color: #dddddd;
+     border-image: none;
+     border-style: solid;
+     border-width: 1px 1px 1px 0;
+     float: left;
+     line-height: 20px;
+     padding: 4px 12px;
+     text-decoration: none;
+     color: #0088cc;
+}
+
+#ownerTable_info{
+    margin-bottom: 1%;
+     color: #0088cc;
+     font-weight: bold;
+}
+
+#ownerTable_paginate{
+    margin-bottom: 25px;
+}
+
+.learnMoreButtonClass{
+margin-left:10px;
+margin-bottom:10px;
+}
+
+
+.block-heading-reply {
+    background: -moz-linear-gradient(center bottom , #dddddd 0%, #ffffff 200%) repeat scroll 0 0 padding-box rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #aaa;
+    border-radius: 3px 3px 0 0;
+    color: #333;
+    display: block;
+    filter: none;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 3em;
+    margin-bottom: 0;
+    padding: 0 0.75em;
+    text-shadow: 1px 1px 1px #fff;
+    text-transform: none;
+}
+
+/*voting style */
+.voting_wrapper {display:inline-block;margin-left: 20px;margin-top:10px;}
+.voting_wrapper .down_button {background: url(/spring-mongodb-tutorial/resources/images/thumbs.png) no-repeat;float: left;height: 14px;width: 16px;cursor:pointer;margin-top: 3px;}
+.voting_wrapper .down_button:hover {background: url(/spring-mongodb-tutorial/resources/images/thumbs.png) no-repeat 0px -16px;}
+.voting_wrapper .up_button {background: url(/spring-mongodb-tutorial/resources/images/thumbs.png) no-repeat -16px 0px;float: left;height: 14px;width: 16px;cursor:pointer;}
+.voting_wrapper .up_button:hover{background: url(/spring-mongodb-tutorial/resources/images/thumbs.png) no-repeat -16px -16px;;}
+.voting_btn{float:left;margin-right:5px;}
+.voting_btn span{font-size: 11px;float: left;margin-left: 3px;}
+.voting_btn_noClick{float:left;margin-right:5px;}
+.voting_btn_noClick span{font-size: 11px;float: left;margin-left: 3px;}
+
+
+.anchorClass{}
+
+.ratingClass{}

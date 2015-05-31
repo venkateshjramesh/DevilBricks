@@ -3,10 +3,13 @@ package org.krams.service;
 import org.krams.domain.*;
 import org.krams.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -14,8 +17,14 @@ import java.util.UUID;
 @Service
 public class DevilBrickService {
 
+    @Autowired
+    private IMongoDBOwnerRepository mongoDBOwnerRepository;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
 	@Autowired
-	private OwnerRepository repository;
+	private OwnerRepository ownerRepository;
 
     @Autowired
     private ReviewRepository reviewRepository;
@@ -35,7 +44,7 @@ public class DevilBrickService {
     public Owner create(Owner owner) {
         if(owner.getId()!=null && owner.getId().equals(""))
         owner.setId(UUID.randomUUID().toString());
-        return repository.save(owner);
+        return ownerRepository.save(owner);
     }
 
     public Report createReport(Report report) {
@@ -82,7 +91,7 @@ public class DevilBrickService {
 
 
     public Owner findOne(String id) {
-        return repository.findOne(id);
+        return ownerRepository.findOne(id);
     }
 
     public Review findOneReview(String id) {
@@ -98,7 +107,11 @@ public class DevilBrickService {
         //return repository.findByParameters(owner.getFirstName(),owner.getLastName(),owner.getMobile(),owner.getEmail(),owner.getId(),owner.getPlotNumber(),owner.getAppartmentName(),owner.getDoorNo(),owner.getFloor(),owner.getStreetName(),owner.getLandmark(),owner.getArea(),owner.getCity(),owner.getTaluk(),owner.getDistrict(),owner.getState(),owner.getPinCode());
         //return repository.findByParameters(owner.getFirstName(),owner.getPinCode());
 
-        return repository.findByPinCodeAndFirstName(owner.getPinCode(),owner.getFirstName());
+        String pincode = owner.getFirstName()+"!"+owner.getLastName()+"!"+owner.getMobile()+"!"+owner.getEmail()+"!"+owner.getId()+"!"+owner.getPlotNumber()+"!"+owner.getAppartmentName()+"!"+owner.getDoorNo()+"!"+owner.getFloor()+"!"+owner.getStreetName()+"!"+owner.getLandmark()+"!"+owner.getArea()+"!"+owner.getCity()+"!"+owner.getTaluk()+"!"+owner.getDistrict()+"!"+owner.getState()+"!"+owner.getPinCode();
+
+        return mongoDBOwnerRepository.findByPinCode(pincode);
+        //mongoDBOwnerRepository.
+        //return ownerRepository.findByPinCodeAndFirstName(owner.getPinCode(),owner.getFirstName());
 
 
 
