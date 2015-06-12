@@ -1,5 +1,8 @@
 package org.krams.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Date;
 
 /**
@@ -10,8 +13,10 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 
+@Document
 public class RatingHistory {
 
+    @Id
     private String id;
     private String targetId;
     private String targetType;

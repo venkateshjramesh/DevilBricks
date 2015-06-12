@@ -283,9 +283,9 @@ public class SearchOwnerController {
         }
 
             Owner owner = service.findOne(id);
-            Float finalRating = Float.parseFloat(owner.getTotalRating()) / Float.parseFloat(owner.getRatedUsers()) ;
+            Float finalRating = Float.parseFloat(owner.getTotalRating() == null ? "0" : owner.getTotalRating()) / Float.parseFloat(owner.getRatedUsers() == null ? "0" : owner.getRatedUsers() ) ;
             model.put("finalRating",finalRating);
-            model.put("totalUsers",owner.getRatedUsers());
+            model.put("totalUsers",owner.getRatedUsers() == null ? "0" : owner.getRatedUsers());
 
         return model;
 
@@ -311,8 +311,8 @@ public class SearchOwnerController {
             ratingHistory.setCreationDate(new Date());
 
             Owner owner = service.findOne(id);
-            owner.setRatedUsers(Integer.toString(Integer.parseInt(owner.getRatedUsers()) + 1));
-            owner.setTotalRating(Float.toString(Float.parseFloat(owner.getTotalRating()) + Float.parseFloat(score)));
+            owner.setRatedUsers(Integer.toString(Integer.parseInt(owner.getRatedUsers() == null ? "0" : owner.getRatedUsers()) + 1));
+            owner.setTotalRating(Float.toString(Float.parseFloat(owner.getTotalRating() == null ? "0" : owner.getTotalRating()) + Float.parseFloat(score)));
             service.create(owner);
             service.createRatingHistory(ratingHistory);
 

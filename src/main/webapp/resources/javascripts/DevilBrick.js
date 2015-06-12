@@ -529,6 +529,50 @@ testButton();
         }
 
         function formReplyHtml(replyList,mainId){
+
+        var mainReplyList = [];
+        mainReplyList.push.apply(mainReplyList, replyList);
+        var tempReplyList = [];
+        var tempMainId = '';
+        var mainIdSearch = true;
+        var replyLength =  replyList.length;
+
+        //start of reply sort
+        loop1: for(var i=0;i<mainReplyList.length;i++){
+        //alert("i:" + i)
+          loop2: for(var j=0;j<replyList.length;j++){
+          //alert("list" + replyList.length)
+          //alert("j" + j)
+                if(replyList[j].parentId == mainId && mainIdSearch) {
+                //alert("came inside mainid:" + replyList[j].comments)
+                   tempReplyList.push(replyList[j]);
+                   tempMainId = replyList[j].id;
+                   mainIdSearch = false;
+                   if (typeof replyList[j+1] == 'undefined')
+                   mainIdSearch = true;
+                   replyList.splice(j, 1);
+                   continue loop1;
+                }
+
+                if(replyList[j].parentId == tempMainId && !mainIdSearch) {
+                //alert("came inside childid:" + replyList[j].comments)
+                   tempReplyList.push(replyList[j]);
+                   tempMainId = replyList[j].id;
+                   if (typeof replyList[j+1] == 'undefined')
+                   mainIdSearch = true;
+                   replyList.splice(j, 1);
+                   continue loop1;
+                }
+
+                   if (typeof replyList[j+1] == 'undefined')
+                  mainIdSearch = true;
+
+          }
+        }
+        replyList = tempReplyList;
+        //stop of reply sort
+
+
         //alert(mainId);
         if (!replyList)
             return "";
