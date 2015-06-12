@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/krams/domain/RatingHistory.java" afterPath="$PROJECT_DIR$/src/main/java/org/krams/domain/RatingHistory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/krams/controller/SearchOwnerController.java" afterPath="$PROJECT_DIR$/src/main/java/org/krams/controller/SearchOwnerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="spring-mongodb-tutorial.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -18,7 +15,7 @@
     <file path="/Owner.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1429029259131" ignored="false" />
     <file path="/DevilBrickService.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1433085607667" ignored="false" />
     <file path="/DevilBrickRepository.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1425319439422" ignored="false" />
-    <file path="/DevilBrick.js" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434132305231" ignored="false" />
+    <file path="/DevilBrick.js" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434133297750" ignored="false" />
     <file path="/custom.js" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1425208958282" ignored="false" />
     <file path="/Review.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1425319179054" ignored="false" />
     <file path="/ReviewRepository.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1425319480826" ignored="false" />
@@ -122,7 +119,7 @@
       <file leaf-file-name="DevilBrick.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="557" column="18" selection-start="25773" selection-end="25773" vertical-scroll-proportion="0.6994992">
+            <state line="590" column="117" selection-start="26888" selection-end="26888" vertical-scroll-proportion="0.3572621">
               <folding />
             </state>
           </provider>
@@ -1058,7 +1055,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="557" column="18" selection-start="25773" selection-end="25773" vertical-scroll-proportion="0.6994992">
+        <state line="590" column="117" selection-start="26888" selection-end="26888" vertical-scroll-proportion="0.3572621">
           <folding />
         </state>
       </provider>

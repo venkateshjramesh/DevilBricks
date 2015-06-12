@@ -579,8 +579,16 @@ testButton();
         var htmlReplyString = "";
 
              for(var i=0;i<replyList.length;i++){
+             if(replyList[i].parentId == mainId){
+             var spanType = 'span11'
+             var marginType = 8.5;
+             }
+             else{
+             var spanType = 'span10'
+             var marginType = 17.5;
+             }
                   htmlReplyString = htmlReplyString +
-                  "<div class='block  span11' id='span11_"+replyList[i].id+"' style='margin-left:8.5%'>  "  +
+                  "<div class='block  "+spanType+"' id='span11_"+replyList[i].id+"' style='margin-left:"+marginType+"%'>  "  +
                   "<p class='block-heading-reply'><u>"+replyList[i].displayName+"</u> &nbsp;&nbsp;&nbsp;  "+
                   "<a data-toggle='modal' href='#myModal'><button class='btn btn-primary btn-mini' id='contactUser_span11_"+replyList[i].id+"'> "+
                   "<i class='icon-user'></i>&nbsp;&nbsp;Contact User</button></a>&nbsp;&nbsp;"+
