@@ -188,7 +188,7 @@ function testButton(){
                              innerHtmlString = innerHtmlString + "<h5>"+keyValue[j].value+"</h5><p>"+temp[keyValue[j].key]+"</p>";
 
                              if(keyValue[j].key == "replies"){
-                              var replyHtml = formReplyHtml(temp[keyValue[j].key],temp["id"]);
+                              var replyHtml = formReplyHtml(temp[keyValue[j].key],temp["id"],temp.displayName);
                              }
                          }
 
@@ -198,6 +198,7 @@ function testButton(){
                                  "<p class='block-heading'><u>"+temp.displayName+"</u> &nbsp;&nbsp;&nbsp;"  +
                          		"<a href='#myModal' data-toggle='modal'><button id='contactUser_span12_"+temp.id+"' class='btn btn-primary btn-mini'><i class='icon-user'></i>&nbsp;&nbsp;Contact User</button></a>"+
                          		"&nbsp;&nbsp;<span class='badge badge-success "+temp.displayName+"' style='display:none'>You have contacted this user</span>" +
+                         		"<span style='float:right;font-weight: normal;font-size:90%'>"+new Date(temp.creationDate)+"</span>"  +
                          		"</p>"+
                          		 "<div class='voting_wrapper'> "+
                                 "    <div class='voting_btn'>"+
@@ -281,11 +282,12 @@ testButton();
            var displayName = $.cookie('devilBricks').split("!")[1];
            var replyText =$('#replyText').val();
            var userId = $.cookie('devilBricks').split("!")[0];
+           var replyToName = $('#userDispName').text();
            //alert(displayName +":::" + idValue);
                     $.ajax({
                                url: "/spring-mongodb-tutorial/saveReply",
                                type: "POST",
-                               data: "id=" + idValue+ "&displayName=" + displayName + "&replyText=" + replyText + "&idMainValue=" + idMainValue + "&userId=" + userId,
+                               data: "id=" + idValue+ "&displayName=" + displayName + "&replyText=" + replyText + "&idMainValue=" + idMainValue + "&userId=" + userId + "&replyToName=" + replyToName,
                                //dataType: "json",
                                //contentType: "application/json",
                                success: function(response) {
@@ -528,14 +530,14 @@ testButton();
 
         }
 
-        function formReplyHtml(replyList,mainId){
+        function formReplyHtml(replyList,mainId,mainDisplayName){
 
-        var mainReplyList = [];
+       /* var mainReplyList = [];
         mainReplyList.push.apply(mainReplyList, replyList);
         var tempReplyList = [];
         var tempMainId = '';
         var mainIdSearch = true;
-        var replyLength =  replyList.length;
+        //var replyLength =  replyList.length;
 
         //start of reply sort
         loop1: for(var i=0;i<mainReplyList.length;i++){
@@ -569,7 +571,7 @@ testButton();
 
           }
         }
-        replyList = tempReplyList;
+        replyList = tempReplyList;*/
         //stop of reply sort
 
 
@@ -577,15 +579,17 @@ testButton();
         if (!replyList)
             return "";
         var htmlReplyString = "";
-
+        displayNameVariable = "NA";
              for(var i=0;i<replyList.length;i++){
              if(replyList[i].parentId == mainId){
              var spanType = 'span11'
              var marginType = 8.5;
+             displayNameVariable =  mainDisplayName;
              }
              else{
              var spanType = 'span10'
              var marginType = 17.5;
+             displayNameVariable = replyList[i].replyToName ;
              }
                   htmlReplyString = htmlReplyString +
                   "<div class='block  "+spanType+"' id='span11_"+replyList[i].id+"' style='margin-left:"+marginType+"%'>  "  +
@@ -593,6 +597,8 @@ testButton();
                   "<a data-toggle='modal' href='#myModal'><button class='btn btn-primary btn-mini' id='contactUser_span11_"+replyList[i].id+"'> "+
                   "<i class='icon-user'></i>&nbsp;&nbsp;Contact User</button></a>&nbsp;&nbsp;"+
                   "<span class='badge badge-success "+replyList[i].displayName+"' style='display:none'>You have contacted this user</span>"+
+                  "<span style='float:right;font-weight: normal;font-size:90%'>"+new Date(replyList[i].creationDate)+"</span>"  +
+                  "<span style='font-weight: normal;font-size:90%'> REPLY TO : <B>"+displayNameVariable+"</B></span>"  +
                   "</p> "+
                     "<div><input type='hidden' id='span_"+replyList[i].id+"' value='"+mainId+"'></div>"  +
                    "<div class='voting_wrapper'> "+

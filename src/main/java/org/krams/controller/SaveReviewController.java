@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -74,6 +75,7 @@ public class SaveReviewController {
         review.setVoteUp("0");
         review.setUserId(devilBricks == null ? null : devilBricks.toString().split("!")[0]);
         review.setDisplayName(devilBricks == null ? null : devilBricks.toString().split("!")[1]);
+        review.setCreationDate(new Date());
 
         if(id != null && id.equals("")){
             //personal details

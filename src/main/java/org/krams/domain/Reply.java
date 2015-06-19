@@ -24,6 +24,15 @@ public class Reply {
     private String voteUp;
     private String voteDown;
     private String userId;
+    private String replyToName;
+
+    public String getReplyToName() {
+        return replyToName;
+    }
+
+    public void setReplyToName(String replyToName) {
+        this.replyToName = replyToName;
+    }
 
     public String getUserId() {
         return userId;

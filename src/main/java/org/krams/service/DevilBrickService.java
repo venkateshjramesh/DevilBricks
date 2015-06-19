@@ -84,9 +84,19 @@ public class DevilBrickService {
         if(replies==null) {
             replies = new ArrayList<Reply>();
         }
+        //add reply in a specific position
+        for(int j=0;j<replies.size();j++){
+            if(replies.get(j).getId().equals(reply.getParentId())){
+                replies.add(j + 1,reply);
+            review.setReplies(replies);
+            return reviewRepository.save(review);
+            }
+        }
+
         replies.add(reply);
         review.setReplies(replies);
         return reviewRepository.save(review);
+
     }
 
 

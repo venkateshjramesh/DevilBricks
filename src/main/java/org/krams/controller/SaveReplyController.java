@@ -30,7 +30,8 @@ public class SaveReplyController {
             @ModelAttribute("idMainValue") String idMainValue,
             @ModelAttribute("displayName") String displayName,
             @ModelAttribute("replyText") String replyText,
-            @ModelAttribute("userId") String userId
+            @ModelAttribute("userId") String userId,
+            @ModelAttribute("replyToName") String replyToName
     ) {
         System.out.print("///////////////////sagereply//id///////////////:::" + id);
 
@@ -43,6 +44,7 @@ public class SaveReplyController {
         reply.setParentId(id);
         reply.setVoteUp("0");
         reply.setVoteDown("0");
+        reply.setReplyToName(replyToName);
 
         service.updateReview(reply,idMainValue);
 
