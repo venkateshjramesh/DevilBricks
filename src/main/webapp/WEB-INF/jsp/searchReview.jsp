@@ -173,6 +173,9 @@
         		<label>City</label>
                 <input name="city" id="city" type="text" class="input-xlarge">
                   <span style="display:none" id="cityMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
+                <label>PinCode &nbsp;<i class="icon-asterisk" style="color:red"></i></label>
+                <input name="pinCode" id="pinCode" type="text" class="input-xlarge">
+                  <span style="display:none" id="pinCodeMsg"><font color="Blue" size="2"><b>Only 6 digit numbers allowed</b></font></span>
                 <label>Taluk</label>
                 <input name="taluk" id="taluk" type="text" class="input-xlarge">
                   <span style="display:none" id="talukMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
@@ -182,9 +185,6 @@
         		<label>State</label>
                 <input name="state" id="state" type="text" class="input-xlarge">
                   <span style="display:none" id="stateMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
-                <label>PinCode &nbsp;<i class="icon-asterisk" style="color:red"></i></label>
-                <input name="pinCode" id="pinCode" type="text" class="input-xlarge">
-                  <span style="display:none" id="pinCodeMsg"><font color="Blue" size="2"><b>Only 6 digit numbers allowed</b></font></span>
 
         <div>
             <button id="submitForm" class="btn btn-primary">Search</button>

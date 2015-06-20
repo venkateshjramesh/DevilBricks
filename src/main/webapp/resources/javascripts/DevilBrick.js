@@ -308,6 +308,11 @@ $("#email").bind("blur keyup", function(e){
             dataType: "json",
             success: function(response) {
                 //alert(response)
+                if(response.ownerList.length == 1 && response.ownerList[0].pinCode == "500"){
+                $('#fullTable').hide();
+                alert("ResultSet size too large. Apply more filters to narrow-down the Result")
+                return false;
+                }
                 for(var i=0;i<response.ownerList.length;i++) {
                 var obj = response.ownerList[i];
 

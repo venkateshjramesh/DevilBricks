@@ -161,14 +161,14 @@
                   <input name="area" id="area" value="${area}" disabled="disabled" type="text" class="input-xlarge">
                 <label>City</label>
                   <input name="city" id="city" value="${city}" disabled="disabled" type="text" class="input-xlarge">
+                  <label>PinCode</label>
+                  <input name="pinCode" id="pinCode" value="${pinCode}" disabled="disabled" type="text" class="input-xlarge">
                   <label>Taluk</label>
                   <input name="taluk" id="taluk" value="${taluk}" disabled="disabled" type="text" class="input-xlarge">
                   <label>District</label>
                   <input name="district" id="district" value="${district}" disabled="disabled" type="text" class="input-xlarge">
                 <label>State</label>
                   <input name="state" id="state" value="${state}" disabled="disabled" type="text" class="input-xlarge">
-                  <label>PinCode</label>
-                  <input name="pinCode" id="pinCode" value="${pinCode}" disabled="disabled" type="text" class="input-xlarge">
             </c:when>
             <c:otherwise>
                   <input name="id" type="hidden">
@@ -212,6 +212,9 @@
                           		<label>City</label>
                                   <input name="city" id="city" type="text" class="input-xlarge">
                                   <span style="display:none" id="cityMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
+                                  <label>PinCode</label>
+                                  <input name="pinCode" id="pinCode" type="text" class="input-xlarge" maxlength=6>
+                                  <span style="display:none" id="pinCodeMsg"><font color="Blue" size="2"><b>Only 6 digit numbers allowed</b></font></span>
                                   <label>Taluk</label>
                                   <input name="taluk" id="taluk" type="text" class="input-xlarge">
                                   <span style="display:none" id="talukMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
@@ -221,9 +224,6 @@
                           		<label>State</label>
                                   <input name="state" id="state" type="text" class="input-xlarge">
                                   <span style="display:none" id="stateMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
-                                  <label>PinCode</label>
-                                  <input name="pinCode" id="pinCode" type="text" class="input-xlarge" maxlength=6>
-                                  <span style="display:none" id="pinCodeMsg"><font color="Blue" size="2"><b>Only 6 digit numbers allowed</b></font></span>
             </c:otherwise>
         </c:choose>
 

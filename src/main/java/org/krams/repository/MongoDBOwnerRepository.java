@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
@@ -54,7 +55,15 @@ class MongoDBOwnerRepository implements IMongoDBOwnerRepository {
         query.fields().exclude("review");
 
         //long count = operations.count(query, Owner.class);
+        if(operations.count(query, Owner.class) < 1500)
         return operations.find(query, Owner.class);
+        else{
+            Owner owner = new Owner();
+            owner.setPinCode("500");
+            List<Owner> ownerList = new ArrayList<Owner>();
+            ownerList.add(owner);
+            return ownerList;
+        }
     }
 
 
