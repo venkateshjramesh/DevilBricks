@@ -111,6 +111,9 @@ public class DevilBrickService {
         return reviewRepository.findReviewForReply(id);
     }
 
+
+
+
     public List<Owner> findByParameters(Owner owner){
 //        return  repository.findByFirstNameAndLastNameAndMobileAndEmailAndId(owner.getFirstName(),owner.getLastName(),owner.getMobile(),owner.getEmail(),owner.getId()) ;
 //        return  repository.findByFirstNameOrLastNameOrMobileOrEmailOrId(owner.getFirstName(),owner.getLastName(),owner.getMobile(),owner.getEmail(),owner.getId()) ;

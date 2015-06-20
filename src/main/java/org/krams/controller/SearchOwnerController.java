@@ -118,13 +118,21 @@ public class SearchOwnerController {
         else
             owner.setPinCode("");
 
-        List<Owner> ownerList = service.findByParameters(owner);
+        Map<String, Object> model = new HashMap<String, Object>();
 
+       /* Long count = service.findCountByParameters(owner);
+        model.put("count",count);
+
+        if(count > 500){
+            return model;
+        }*/
+
+        List<Owner> ownerList = service.findByParameters(owner);
         //System.out.print("------------" + ownerList.get(0).getFirstName());
 
 //        return new ModelAndView(null,"ownerList",ownerList);
-        Map<String, Object> model = new HashMap<String, Object>();
         model.put("ownerList",ownerList);
+
 
         return model;
 

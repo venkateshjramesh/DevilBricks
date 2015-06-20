@@ -3,6 +3,197 @@
 $( document ).ready(function() {
 
 //validations for write review
+$("#pinCode").bind("blur keyup", function(){
+    var temp = $('#pinCode').val();
+    temp = temp.replace(/[^0-9]/g, '');
+    $('#pinCode').val(temp);
+    if($("#pinCode").val().length < 6 && !$.trim($("#pinCode").val()) == '') {
+        $('#pinCodeMsg').show();
+        $('#pinCodeMsg font').attr('color','red')
+        } else {
+        $('#pinCodeMsg font').attr('color','blue')
+        $('#pinCodeMsg').hide();
+        }
+});
+
+$("#pinCode").bind("blur", function(){
+    $('#pinCodeMsg').hide();
+
+});
+
+$("#pinCode").bind("focus", function(){
+    $('#pinCodeMsg').show() ;
+});
+
+$("#state").bind("blur keyup", function(){
+    var temp = $('#state').val();
+    temp = temp.replace(/[^a-z A-Z]/g, '');
+    $('#state').val(temp);
+});
+
+$("#state").bind("blur", function(){
+    $('#stateMsg').hide();
+
+});
+
+$("#state").bind("focus", function(){
+    $('#stateMsg').show() ;
+});
+
+$("#district").bind("blur keyup", function(){
+    var temp = $('#district').val();
+    temp = temp.replace(/[^a-z A-Z]/g, '');
+    $('#district').val(temp);
+});
+
+$("#district").bind("blur", function(){
+    $('#districtMsg').hide();
+
+});
+
+$("#district").bind("focus", function(){
+    $('#districtMsg').show() ;
+});
+
+$("#taluk").bind("blur keyup", function(){
+    var temp = $('#taluk').val();
+    temp = temp.replace(/[^a-z A-Z]/g, '');
+    $('#taluk').val(temp);
+});
+
+$("#taluk").bind("blur", function(){
+    $('#talukMsg').hide();
+
+});
+
+$("#taluk").bind("focus", function(){
+    $('#talukMsg').show() ;
+});
+
+$("#city").bind("blur keyup", function(){
+    var temp = $('#city').val();
+    temp = temp.replace(/[^a-z A-Z]/g, '');
+    $('#city').val(temp);
+});
+
+$("#city").bind("blur", function(){
+    $('#cityMsg').hide();
+
+});
+
+$("#city").bind("focus", function(){
+    $('#cityMsg').show() ;
+});
+
+
+$("#area").bind("blur keyup", function(){
+    var temp = $('#area').val();
+    temp = temp.replace(/[^a-z A-Z]/g, '');
+    $('#area').val(temp);
+});
+
+$("#area").bind("blur", function(){
+    $('#areaMsg').hide();
+
+});
+
+$("#area").bind("focus", function(){
+    $('#areaMsg').show() ;
+});
+
+$("#landmark").bind("blur keyup", function(){
+    var temp = $('#landmark').val();
+    temp = temp.replace(/[^a-z A-Z0-9]/g, '');
+    $('#landmark').val(temp);
+});
+
+$("#landmark").bind("blur", function(){
+    $('#landmarkMsg').hide();
+
+});
+
+$("#landmark").bind("focus", function(){
+    $('#landmarkMsg').show() ;
+});
+
+$("#streetName").bind("blur keyup", function(){
+    var temp = $('#streetName').val();
+    temp = temp.replace(/[^a-z A-Z]/g, '');
+    $('#streetName').val(temp);
+});
+
+$("#streetName").bind("blur", function(){
+    $('#streetNameMsg').hide();
+
+});
+
+$("#streetName").bind("focus", function(){
+    $('#streetNameMsg').show() ;
+});
+
+$("#floor").bind("blur keyup", function(){
+    var temp = $('#floor').val();
+    temp = temp.replace(/[^a-zA-Z0-9]/g, '');
+    $('#floor').val(temp);
+});
+
+$("#floor").bind("blur", function(){
+    $('#floorMsg').hide();
+
+});
+
+$("#floor").bind("focus", function(){
+    $('#floorMsg').show() ;
+});
+
+$("#doorNo").bind("blur keyup", function(){
+    var temp = $('#doorNo').val();
+    temp = temp.replace(/[^a-zA-Z0-9]/g, '');
+    $('#doorNo').val(temp);
+});
+
+$("#doorNo").bind("blur", function(){
+    $('#doorNoMsg').hide();
+    $('#doorNoMsg1').hide();
+
+});
+
+$("#doorNo").bind("focus", function(){
+    $('#doorNoMsg').show() ;
+    $('#doorNoMsg1').show() ;
+});
+
+$("#appartmentName").bind("blur keyup", function(){
+    var temp = $('#appartmentName').val();
+    temp = temp.replace(/[^a-z A-Z0-9]/g, '');
+    $('#appartmentName').val(temp);
+});
+
+$("#appartmentName").bind("blur", function(){
+    $('#appartmentNameMsg').hide();
+
+});
+
+$("#appartmentName").bind("focus", function(){
+    $('#appartmentNameMsg').show() ;
+});
+
+$("#plotNumber").bind("blur keyup", function(){
+    var temp = $('#plotNumber').val();
+    temp = temp.replace(/[^a-zA-Z0-9]/g, '');
+    $('#plotNumber').val(temp);
+});
+
+$("#plotNumber").bind("blur", function(){
+    $('#plotNumberMsg').hide();
+     $('#plotNumberMsg1 ').hide();
+});
+
+$("#plotNumber").bind("focus", function(){
+    $('#plotNumberMsg').show() ;
+    $('#plotNumberMsg1').show() ;
+});
+
 $("#firstName").bind("blur keyup", function(){
     var temp = $('#firstName').val();
     temp = temp.replace(/[^a-z A-Z]/g, '');
@@ -37,19 +228,23 @@ $("#mobile").bind("blur keyup", function(){
     $('#mobile').val(temp);
 });
 
-$("#mobile").bind("blur", function(){
+
+
+
+$("#mobile").bind("blur keyup", function(){
+if($("#mobile").val().length < 10 && !$.trim($("#mobile").val()) == '') {
+    $('#mobileMsg').show();
+    $('#mobileMsg font').attr('color','red')
+    } else {
+    $('#mobileMsg font').attr('color','blue')
     $('#mobileMsg').hide();
+    }
 });
 
-$("#mobile").bind("focus", function(){
-    $('#mobileMsg').show() ;
-});
-
-
-$("#email").bind("blur", function(){
+$("#email").bind("blur keyup", function(e){
     var regex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     testValue = regex.test($("#email").val());
-    if(!testValue)
+    if(!testValue && !$.trim($("#email").val()) == '')
      $('#emailMsg').show() ;
      else
      $('#emailMsg').hide() ;

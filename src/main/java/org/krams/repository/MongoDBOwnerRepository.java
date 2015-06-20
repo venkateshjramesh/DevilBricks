@@ -52,8 +52,12 @@ class MongoDBOwnerRepository implements IMongoDBOwnerRepository {
         );
 
         query.fields().exclude("review");
+
+        //long count = operations.count(query, Owner.class);
         return operations.find(query, Owner.class);
     }
+
+
 
     public Owner findOne(String id) {
 

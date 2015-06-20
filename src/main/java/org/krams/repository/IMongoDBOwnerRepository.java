@@ -11,5 +11,4 @@ public interface IMongoDBOwnerRepository extends Repository<Owner, String> {
 
     Owner findOne(String id);
 
-
 }

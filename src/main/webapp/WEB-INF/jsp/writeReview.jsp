@@ -187,28 +187,42 @@
                           <h3>Address</h3>
                           		<label>Plot Number</label>
                                   <input name="plotNumber" id="plotNumber" type="text" class="input-xlarge">
+                                  <span style="display:none" id="plotNumberMsg"><font color="Blue" size="2"><b>Only Numbers and alphabets allowed. In-case of multiple plot numbers enter only the</b></font></span>
+                                  <span id="plotNumberMsg1" style="display: none;margin-left:35%"><font size="2" color="Blue"><b>first plot number</b></font></span>
                                   <label>Appartment Name or Building Name</label>
                                   <input name="appartmentName" id="appartmentName" type="text" class="input-xlarge">
+                                  <span style="display:none" id="appartmentNameMsg"><font color="Blue" size="2"><b>Only alphabets,Numbers and space allowed</b></font></span>
                                   <label>Door Number</label>
                                   <input name="doorNo" id="doorNo" type="text" class="input-xlarge">
+                                  <span style="display:none" id="doorNoMsg"><font color="Blue" size="2"><b>Only alphabets and Numbers allowed. In-case of multiple door numbers enter only the</b></font></span>
+                                  <span id="doorNoMsg1" style="display: none;margin-left:35%"><font size="2" color="Blue"><b>first door number</b></font></span>
                           		<label>Floor</label>
                                   <input name="floor" id="floor" type="text" class="input-xlarge">
+                                  <span style="display:none" id="floorMsg"><font color="Blue" size="2"><b>Only alphabets and Numbers allowed. Preferably use only Numbers</b></font></span>
                                   <label>Street Name</label>
                                   <input name="streetName" id="streetName" type="text" class="input-xlarge">
+                                  <span style="display:none" id="streetNameMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
                                   <label>Near By LandMark</label>
                                   <input name="landmark" id="landmark" type="text" class="input-xlarge">
+                                  <span style="display:none" id="landmarkMsg"><font color="Blue" size="2"><b>Only alphabets,Numbers and space allowed</b></font></span>
                           		<label>Area</label>
                                   <input name="area" id="area" type="text" class="input-xlarge">
+                                  <span style="display:none" id="areaMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
                           		<label>City</label>
                                   <input name="city" id="city" type="text" class="input-xlarge">
+                                  <span style="display:none" id="cityMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
                                   <label>Taluk</label>
                                   <input name="taluk" id="taluk" type="text" class="input-xlarge">
+                                  <span style="display:none" id="talukMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
                                   <label>District</label>
                                   <input name="district" id="district" type="text" class="input-xlarge">
+                                  <span style="display:none" id="districtMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
                           		<label>State</label>
                                   <input name="state" id="state" type="text" class="input-xlarge">
+                                  <span style="display:none" id="stateMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
                                   <label>PinCode</label>
-                                  <input name="pinCode" id="pinCode" type="text" class="input-xlarge">
+                                  <input name="pinCode" id="pinCode" type="text" class="input-xlarge" maxlength=6>
+                                  <span style="display:none" id="pinCodeMsg"><font color="Blue" size="2"><b>Only 6 digit numbers allowed</b></font></span>
             </c:otherwise>
         </c:choose>
 
