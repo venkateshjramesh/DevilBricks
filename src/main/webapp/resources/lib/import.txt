@@ -1,0 +1,1 @@
+mongoimport --host localhost --port 10040 -d spring_mongodb_tutorial -c CityZip --type csv --file /home/venkatesh/Downloads/CityZipMaster.csv  --headerline

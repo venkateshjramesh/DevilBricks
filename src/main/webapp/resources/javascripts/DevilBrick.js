@@ -16,6 +16,19 @@ $("#pinCode").bind("blur keyup", function(){
         $('#pinCodeMsg font').attr('color','blue')
         $('#pinCodeMsg').hide();
         }
+
+});
+
+$("#pinCode").bind("keyup", function(){
+        //if pincode is equal to 6 thenn do follows
+        if($.trim($("#pinCode").val()).length == 6){
+        post_data = {'pinCode':$("#pinCode").val()};
+        //alert(post_data.pinCode)
+        $.post('/spring-mongodb-tutorial/searchForPinCode', post_data,  function(response) {
+         //alert(response);
+      },'json');
+        }
+
 });
 
 $("#pinCode").bind("blur", function(){

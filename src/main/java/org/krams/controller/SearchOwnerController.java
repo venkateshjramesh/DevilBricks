@@ -359,4 +359,18 @@ public class SearchOwnerController {
 
     }
 
+    @RequestMapping(value = "/searchForPinCode",method=RequestMethod.POST)
+    public @ResponseBody
+    Map<String, Object> getPinCodeDetails(
+            HttpServletRequest request,
+            HttpServletResponse response,
+            @ModelAttribute("pinCode") String pinCode
+    ) {
+        Map<String, Object> model = new HashMap<String, Object>();
+        CityZip cityZip = service.findByPinCode(pinCode);
+        model.put("cityZip", cityZip);
+        return model;
+
+    }
+
 }

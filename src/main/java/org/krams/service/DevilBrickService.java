@@ -41,6 +41,9 @@ public class DevilBrickService {
     @Autowired
     private RatingHistoryRepository ratingHistoryRepository;
 
+    @Autowired
+    private CityZipRepository cityZipRepository;
+
     public Owner create(Owner owner) {
         if(owner.getId()!=null && owner.getId().equals(""))
         owner.setId(UUID.randomUUID().toString());
@@ -102,6 +105,17 @@ public class DevilBrickService {
 
     public Owner findOne(String id) {
         return ownerRepository.findOne(id);
+    }
+
+    public CityZip findByPinCode(String pinCode) {
+        System.out.println("***************************came insede service");
+        int pin = Integer.parseInt(pinCode.trim());
+        List<CityZip> cityList = cityZipRepository.findByPinCode(Integer.parseInt(pinCode));
+       // System.out.println("*****************************" + cityList.get(0));
+        if(cityList != null && cityList.size() > 0)
+        return cityList.get(0);
+        else
+            return null;
     }
 
     public Review findOneReview(String id) {
