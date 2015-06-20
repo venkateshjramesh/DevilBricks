@@ -127,9 +127,10 @@
       <div class="tab-pane active in" id="home">
     <form id="tab" method="post" action="${pageContext.request.contextPath}/saveReview">
         <h5><font color="red">${statusMessage}</font></h5>
-		<h3>Land Lord Identification Details </h3>
-
+        <h6>IMPORTANT: Please fill maximum accurate details in the below boxes, So that it makes search easier for other users</h3>
+		<h6><i class="icon-asterisk" style="color:red"></i>&nbsp;&nbsp;&nbsp;The fields marked with this symbol are mandatory</h6>
 		<!-- check for id exist or not for writing review -->
+		<h3>Land Lord Identification Details </h3>
 		<c:choose>
             <c:when test="${!empty id && !empty firstName}">
 
@@ -171,7 +172,7 @@
             </c:when>
             <c:otherwise>
                   <input name="id" type="hidden">
-                          <label>First Name</label>
+                          <label>First Name &nbsp;<i class="icon-asterisk" style="color:red"></i></label>
                           <input name="firstName" id="firstName" type="text" class="input-xlarge">
                           <span style="display:none" id="firstNameMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
                           <label>Last Name</label>
@@ -185,7 +186,7 @@
                           <span style="display:none" id="mobileMsg"><font color="Blue" size="2"><b>Only 10 digit Indian mobile numbers allowed</b></font></span>
 
                           <h3>Address</h3>
-                          		<label>Plot Number</label>
+                          		<label>Plot Number &nbsp;<i class="icon-asterisk" style="color:red"></i></label>
                                   <input name="plotNumber" id="plotNumber" type="text" class="input-xlarge">
                                   <span style="display:none" id="plotNumberMsg"><font color="Blue" size="2"><b>Only Numbers and alphabets allowed. In-case of multiple plot numbers enter only the</b></font></span>
                                   <span id="plotNumberMsg1" style="display: none;margin-left:35%"><font size="2" color="Blue"><b>first plot number</b></font></span>

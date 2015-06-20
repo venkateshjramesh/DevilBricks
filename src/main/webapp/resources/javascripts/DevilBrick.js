@@ -1,6 +1,8 @@
 
 
 $( document ).ready(function() {
+//focus on the first name
+$('#firstName').focus() ;
 
 //validations for write review
 $("#pinCode").bind("blur keyup", function(){
@@ -273,7 +275,16 @@ $("#email").bind("blur keyup", function(e){
         var stateSearch = $('#state').val();
         var pinCodeSearch = $('#pinCode').val();
 
-
+        if($.trim(firstNameSearch) == ''){
+            alert("FirstName is mandatory");
+            $('#firstName').focus();
+            return false;
+        }
+        if($.trim(pinCodeSearch) == ''){
+            alert("PinCode is mandatory");
+            $('#pinCode').focus();
+            return false;
+        }
 
         var htmlString = "";
         $.ajax({
@@ -678,6 +689,21 @@ testButton();
                   alert("Please login to review this Owner. Happy Blogging")
                   return false;
               }
+              if($.trim($('#firstName').val()) == ''){
+                  alert("FirstName is mandatory");
+                  $('#firstName').focus();
+                  return false;
+              }
+              if($.trim($('#pinCode').val()) == ''){
+                  alert("PinCode is mandatory");
+                  $('#pinCode').focus();
+                  return false;
+              }
+              if($.trim($('#plotNumber').val()) == ''){
+                alert("plot Number is mandatory");
+                $('#plotNumber').focus();
+                return false;
+            }
             });
 
 });

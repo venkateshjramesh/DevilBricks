@@ -129,9 +129,10 @@
 
 
    <!--  <form id="tab2" method="get" action="${pageContext.request.contextPath}/searchOwner"> -->
+   <h6><i class="icon-asterisk" style="color:red"></i>&nbsp;&nbsp;&nbsp;The fields marked with this symbol are mandatory</h6>
         <h3>Contact Details </h3>
         <input name="id" type="hidden">
-        <label>First Name</label>
+        <label>First Name &nbsp;<i class="icon-asterisk" style="color:red"></i></label>
         <input id="firstName" name="firstName" type="text" class="input-xlarge">
                   <span style="display:none" id="firstNameMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
         <label>Last Name</label>
@@ -181,7 +182,7 @@
         		<label>State</label>
                 <input name="state" id="state" type="text" class="input-xlarge">
                   <span style="display:none" id="stateMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
-                <label>PinCode</label>
+                <label>PinCode &nbsp;<i class="icon-asterisk" style="color:red"></i></label>
                 <input name="pinCode" id="pinCode" type="text" class="input-xlarge">
                   <span style="display:none" id="pinCodeMsg"><font color="Blue" size="2"><b>Only 6 digit numbers allowed</b></font></span>
 

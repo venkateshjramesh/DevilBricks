@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/krams/service/DevilBrickService.java" afterPath="$PROJECT_DIR$/src/main/java/org/krams/service/DevilBrickService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/krams/repository/IMongoDBOwnerRepository.java" afterPath="$PROJECT_DIR$/src/main/java/org/krams/repository/IMongoDBOwnerRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/krams/repository/MongoDBOwnerRepository.java" afterPath="$PROJECT_DIR$/src/main/java/org/krams/repository/MongoDBOwnerRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/krams/controller/SearchOwnerController.java" afterPath="$PROJECT_DIR$/src/main/java/org/krams/controller/SearchOwnerController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/searchReview.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/searchReview.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/writeReview.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/writeReview.jsp" />
     </list>
     <ignored path="spring-mongodb-tutorial.iws" />
@@ -16,13 +11,13 @@
     <file path="/a.dummy" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434722922193" ignored="false" />
     <file path="/fragment.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1432987449715" ignored="false" />
     <file path="/aboutUs.jsp" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1425151982504" ignored="false" />
-    <file path="/writeReview.jsp" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434784467901" ignored="false" />
+    <file path="/writeReview.jsp" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434799927773" ignored="false" />
     <file path="/Dummy.txt" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434778649322" ignored="false" />
     <file path="/WriteReviewController.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1431191662688" ignored="false" />
     <file path="/Owner.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1429029259131" ignored="false" />
     <file path="/DevilBrickService.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434730997547" ignored="false" />
     <file path="/DevilBrickRepository.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1425319439422" ignored="false" />
-    <file path="/DevilBrick.js" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434794372648" ignored="false" />
+    <file path="/DevilBrick.js" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434801006913" ignored="false" />
     <file path="/custom.js" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1425208958282" ignored="false" />
     <file path="/Review.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1425319179054" ignored="false" />
     <file path="/ReviewRepository.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1425319480826" ignored="false" />
@@ -118,7 +113,7 @@
       <file leaf-file-name="DevilBrick.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="534" selection-end="534" vertical-scroll-proportion="0.45967743">
+            <state line="4" column="21" selection-start="82" selection-end="82" vertical-scroll-proportion="0.09677419">
               <folding />
             </state>
           </provider>
@@ -127,7 +122,7 @@
       <file leaf-file-name="writeReview.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/writeReview.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="224" column="155" selection-start="10816" selection-end="14939" vertical-scroll-proportion="0.0">
+            <state line="130" column="130" selection-start="6405" selection-end="6527" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -136,7 +131,7 @@
       <file leaf-file-name="searchReview.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/searchReview.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="185" column="138" selection-start="10522" selection-end="10522" vertical-scroll-proportion="0.0">
+            <state line="131" column="125" selection-start="5882" selection-end="5882" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -589,21 +584,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/writeReview.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="224" column="155" selection-start="10816" selection-end="14939" vertical-scroll-proportion="0.0">
+        <state line="130" column="130" selection-start="6405" selection-end="6527" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/searchReview.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="138" selection-start="10522" selection-end="10522" vertical-scroll-proportion="0.0">
+        <state line="131" column="125" selection-start="5882" selection-end="5882" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="534" selection-end="534" vertical-scroll-proportion="0.45967743">
+        <state line="4" column="21" selection-start="82" selection-end="82" vertical-scroll-proportion="0.09677419">
           <folding />
         </state>
       </provider>
