@@ -108,10 +108,7 @@ public class DevilBrickService {
     }
 
     public CityZip findByPinCode(String pinCode) {
-        System.out.println("***************************came insede service");
-        int pin = Integer.parseInt(pinCode.trim());
-        List<CityZip> cityList = cityZipRepository.findByPinCode(Integer.parseInt(pinCode));
-       // System.out.println("*****************************" + cityList.get(0));
+        List<CityZip> cityList = cityZipRepository.findByPinCode(pinCode);
         if(cityList != null && cityList.size() > 0)
         return cityList.get(0);
         else

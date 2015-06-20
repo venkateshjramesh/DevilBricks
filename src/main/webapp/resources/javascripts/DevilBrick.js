@@ -25,7 +25,9 @@ $("#pinCode").bind("keyup", function(){
         post_data = {'pinCode':$("#pinCode").val()};
         //alert(post_data.pinCode)
         $.post('/spring-mongodb-tutorial/searchForPinCode', post_data,  function(response) {
-         //alert(response);
+        $('#taluk').val(response.cityZip.taluk);
+         $('#district').val(response.cityZip.districtName);
+         $('#state').val(response.cityZip.stateName);
       },'json');
         }
 

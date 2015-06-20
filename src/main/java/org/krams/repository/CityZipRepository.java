@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface CityZipRepository extends MongoRepository<CityZip, String> {
     //@Query("{ 'pinCode': ?0}")
-    List<CityZip> findByPinCode(Integer pinCode);
+    List<CityZip> findByPinCode(String pinCode);
 }

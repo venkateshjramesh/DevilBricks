@@ -1,1 +1,22 @@
 mongoimport --host localhost --port 10040 -d spring_mongodb_tutorial -c CityZip --type csv --file /home/venkatesh/Downloads/CityZipMaster.csv  --headerline
+
+db.CityZip.find( {} ).forEach( function (x) {
+  x.pinCode = (x.pinCode).toString(); // convert field to string
+  db.CityZip.save(x);
+})
+
+
+db.CityZip.find( {} ).forEach( function (x) {
+db.CityZip.remove(x)   ;
+  x['_id'].toString
+temp = x['_id'].str
+x['_id'] = temp;
+  db.CityZip.save(x);
+})
+
+db.CityZip.find( {} ).forEach( function (x) {
+  x[_class] = "org.krams.domain.CityZip";
+  db.CityZip.save(x);
+})
+
+db.CityZip.update({},{$set : {"_class":"org.krams.domain.CityZip"}},{multi:true});

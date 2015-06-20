@@ -2,17 +2,16 @@ package org.krams.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.List;
 
 @Document
 public class CityZip {
 
     @Id
     private String id;
-	private Integer pinCode;
+
+    @Indexed
+	private String pinCode;
 
     private String taluk;
     private String districtName;
@@ -26,11 +25,11 @@ public class CityZip {
         this.id = id;
     }
 
-    public Integer getPinCode() {
+    public String getPinCode() {
         return pinCode;
     }
 
-    public void setPinCode(Integer pinCode) {
+    public void setPinCode(String pinCode) {
         this.pinCode = pinCode;
     }
 
