@@ -1,9 +1,6 @@
 
 
 $( document ).ready(function() {
-//focus on the first name
-$('#firstName').focus() ;
-
 //validations for write review
 $("#pinCode").bind("blur keyup", function(){
     var temp = $('#pinCode').val();
@@ -211,6 +208,20 @@ $("#plotNumber").bind("focus", function(){
     $('#plotNumberMsg1').show() ;
 });
 
+$("#userName").bind("blur keyup", function(){
+    var temp = $('#userName').val();
+    temp = temp.replace(/[^a-zA-Z]/g, '');
+    $('#userName').val(temp);
+});
+
+$("#userName").bind("blur", function(){
+    $('#userNameMsg').hide();
+});
+
+$("#userName").bind("focus", function(){
+    $('#userNameMsg').show() ;
+});
+
 $("#firstName").bind("blur keyup", function(){
     var temp = $('#firstName').val();
     temp = temp.replace(/[^a-z A-Z]/g, '');
@@ -225,6 +236,9 @@ $("#firstName").bind("focus", function(){
     $('#firstNameMsg').show() ;
 });
 
+//focus on the first name
+$('#firstName').focus() ;
+
 $("#lastName").bind("blur keyup", function(){
     var temp = $('#lastName').val();
     temp = temp.replace(/[^a-z A-Z]/g, '');
@@ -238,6 +252,8 @@ $("#lastName").bind("blur", function(){
 $("#lastName").bind("focus", function(){
     $('#lastNameMsg').show() ;
 });
+
+
 
 $("#mobile").bind("blur keyup", function(){
     var temp = $('#mobile').val();
@@ -265,6 +281,15 @@ $("#email").bind("blur keyup", function(e){
      $('#emailMsg').show() ;
      else
      $('#emailMsg').hide() ;
+});
+
+$("#emailId").bind("blur keyup", function(e){
+    var regex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    testValue = regex.test($("#emailId").val());
+    if(!testValue && !$.trim($("#emailId").val()) == '')
+     $('#emailIdMsg').show() ;
+     else
+     $('#emailIdMsg').hide() ;
 });
 
 

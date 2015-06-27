@@ -83,22 +83,29 @@
             <div class="block-body">
                     <label>First Name</label>
                     <input id="firstName" type="text" class="span12">
+                    <span style="display:none;" id="firstNameMsg"><font size="2" color="Blue"><b>Only alphabets and space allowed.</b></font></span>
                     <label>Last Name</label>
                     <input id="lastName" type="text" class="span12">
+                    <span style="display:none;" id="lastNameMsg"><font size="2" color="Blue"><b>Only alphabets and space allowed.</b></font></span>
                     <label>Email Address</label>
                     <input id="emailId" type="text" class="span12">
+                    <span style="display:none;" id="emailIdMsg"><font size="2" color="red"><b>E mail should adhere to proper email format.</b></font></span>
                     <label class="remember-me"><input type="checkbox" id="showEmail">Show my Email Id to Public</label>
+                    <label style="font-size:80%"><b>NOTE:</b> By clicking this option your email id is visible to public</label>
                     <br>
                     <label>Mobile No</label>
-                    <input id="mobile" type="text" class="span12">
+                    <input id="mobile" type="text" class="span12" maxlength=10>
+                    <span style="display:none;" id="mobileMsg"><font size="2" color="Blue"><b>Only 10 digit Indian Mobile Numbers allowed.</b></font></span>
                     <label class="remember-me"><input type="checkbox" id="showMobile">Show my Mobile No to Public</label>
-                    <br>
+                    <label style="font-size:80%"><b>NOTE:</b> By clicking this option your mobile-no is visible to public</label>
+
                     <label>Address</label>
                     <input id="address" type="text" class="span12">
                     <label class="remember-me"><input type="checkbox" id="showAddress">Show my Address to Public</label>
-                    <br>
+                    <label style="font-size:80%"><b>NOTE:</b> By clicking this option your address is visible to public</label>
                     <label>Username</label>
                     <input id="userName" type="text" class="span12">
+                    <span style="display:none;" id="userNameMsg"><font size="2" color="Blue"><b>Only alphabets allowed. Space not allowed</b></font></span>
                     <label>Password</label>
                     <input id="password" type="password" class="span12">
                     <a id="signUpButton" class="btn btn-primary pull-right">Sign Up!</a>
