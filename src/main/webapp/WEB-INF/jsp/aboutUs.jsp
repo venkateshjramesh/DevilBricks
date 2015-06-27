@@ -102,7 +102,7 @@
                 <ul id="accounts-menu" class="nav nav-list collapse in">
                   <li ><a href="#loginModal" data-toggle="modal">Sign In</a></li>
                   <li ><a href="signUp" target="_blank">Sign Up</a></li>
-                  <li ><a href="#forgotPasswordModal" data-toggle="modal">Forgot Password</a></li>
+                  <li ><a id="forgotPassAnchor" href="#forgotPasswordModal" data-toggle="modal">Forgot Password</a></li>
                 </ul>
 
 
@@ -193,10 +193,16 @@
      	    <h3 id="myModalLabel">Forgot Password</h3>
      	  </div>
      	  <div class="modal-body">
+     	  <div id="hideEmailPassword">
      	  <h6>Please enter your registered E-Mail Id</h6>
      	     <label>E-mail Id</label>
              <input id="passwordEmail" type="text" class='input-xlarge'>
+             <h6 style="display:inline"><font color="Red"><span id="emailPaswordMsg"></span></font></h6>
 
+         </div>
+         <div id="showEmailStatus" style="display:none">
+         <h5><font color="Red">E-Mail sent successfully. Please check your E-Mail Id for password.</font></h5>
+         </div>
          </div>
      	  <div class="modal-footer">
              <button id="submitPasswordReset" class="btn btn-primary" id="submitLogin">Submit</button>

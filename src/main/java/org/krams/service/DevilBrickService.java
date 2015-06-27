@@ -167,7 +167,7 @@ public class DevilBrickService {
     }
 
 
-    public void sendMail(String dear, String content,String passwordEmail,Blogger blogger) {
+    public void sendMail(String dear, String content,String passwordEmail,Blogger blogger) throws MessagingException {
 
         String[] emailList = new String[1];
         emailList[0] = passwordEmail;
@@ -175,17 +175,18 @@ public class DevilBrickService {
         String[] toEmail = emailList;
         String emailSubject = "Password Details - DevilBricks.com";
         //String emailBody = String.format("Please note your password : " + blogger.getPassword(), blogger.getUserName(), content);
-        String emailBody = "Hi "  + blogger.getUserName() +  "\n\tPlease note your password: " + blogger.getPassword()
-                + "\n\nThanks and Regards,\nDevilBricksTeam";
+        String emailBody = "Hi "  + blogger.getUserName() +  "<br>     Please note your password details below."
+                +"<br><br><html><body><table border=1><tr><td>PASSWORD</td><td>"+blogger.getPassword()+"</td></tr></table></body></html>"
+                + "<br><br>Thanks and Regards,<br>DevilBricksTeam";
 
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-        try {
+
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
 
             helper.setFrom(fromEmail);
             helper.setTo(toEmail);
             helper.setSubject(emailSubject);
-            helper.setText(emailBody);
+            helper.setText(emailBody,true);
 
 			/*
 			  uncomment the following lines for attachment FileSystemResource
@@ -195,9 +196,7 @@ public class DevilBrickService {
 
             javaMailSender.send(mimeMessage);
             System.out.println("Mail sent successfully.");
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
+
 
 
     }

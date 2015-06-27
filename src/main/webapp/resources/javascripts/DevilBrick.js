@@ -283,6 +283,16 @@ $("#email").bind("blur keyup", function(e){
      $('#emailMsg').hide() ;
 });
 
+$("#passwordEmail").bind("blur keyup", function(e){
+    var regex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    testValue = regex.test($("#passwordEmail").val());
+    if(!testValue && !$.trim($("#passwordEmail").val()) == '')
+     $('#emailPaswordMsg').text("Please enter a valid E-Mail Id") ;
+     else
+     $('#emailPaswordMsg').text('') ;
+});
+
+
 $("#emailId").bind("blur keyup", function(e){
     var regex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     testValue = regex.test($("#emailId").val());
@@ -714,8 +724,26 @@ testButton();
                             });
           });
 
+           //fields to reset when rforgot password is clicked
+           $('#forgotPassAnchor').click(function(){
+                 $('#hideEmailPassword').show();
+                 $('#showEmailStatus').hide();
+                 $('#emailPaswordMsg').text('') ;
+                 $('#submitPasswordReset').show();
+                 $('#passwordEmail').focus();
+                 $('#passwordEmail').val('');
+           });
 
            $('#submitPasswordReset').click(function(){
+           //check if the emial is in proper format
+
+               var regex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+               testValue = regex.test($("#passwordEmail").val());
+               if(!testValue && !$.trim($("#passwordEmail").val()) == '')
+                return false ;
+
+
+           $('#submitPasswordReset').hide();
              var passwordEmail =  $('#passwordEmail').val();
               $.ajax({
                    url: "/spring-mongodb-tutorial/forgotPassword",
@@ -724,7 +752,16 @@ testButton();
                    //dataType: "json",
                    //contentType: "application/json",
                    success: function(response) {
-                       alert(response.success);
+                   if(response.failure == "The E-Mail Id id not match any records in our Database"){
+                      $('#emailPaswordMsg').text("The E-Mail Id id not match any records in our Database") ;
+                      $('#submitPasswordReset').show();
+                      return false;
+                   }
+//                       alert(response.success);
+                        $('#hideEmailPassword').hide();
+                        $('#submitPasswordReset').hide();
+                        $('#showEmailStatus').show();
+                        $('#emailPaswordMsg').text('') ;
                    },
                    error: function(xhr) {
                        //alert(xhr)

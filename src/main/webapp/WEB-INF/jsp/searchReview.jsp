@@ -105,7 +105,7 @@
                 <ul id="accounts-menu" class="nav nav-list collapse in">
                   <li ><a href="#loginModal" data-toggle="modal">Sign In</a></li>
                   <li ><a href="signUp" target="_blank">Sign Up</a></li>
-                  <li ><a href="resetPassword" target="_blank">Reset Password</a></li>
+                  <li ><a id="forgotPassAnchor" href="#forgotPasswordModal" data-toggle="modal">Forgot Password</a></li>
                 </ul>
 
                 <div class="nav-header" data-toggle="collapse" data-target="#legal-menu"><i class="icon-legal"></i>Legal</div>
@@ -267,6 +267,33 @@
 	<script src="resources/lib/bootstrap/js/application.js"></script>
 
 
+<!-- Modal -->
+     	<div id="forgotPasswordModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     	  <div class="modal-header">
+     	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+     	    <h3 id="myModalLabel">Forgot Password</h3>
+     	  </div>
+     	  <div class="modal-body">
+     	  <div id="hideEmailPassword">
+     	  <h6>Please enter your registered E-Mail Id</h6>
+     	     <label>E-mail Id</label>
+             <input id="passwordEmail" type="text" class='input-xlarge'>
+             <h6 style="display:inline"><font color="Red"><span id="emailPaswordMsg"></span></font></h6>
+
+         </div>
+         <div id="showEmailStatus" style="display:none">
+         <h5><font color="Red">E-Mail sent successfully. Please check your E-Mail Id for password.</font></h5>
+         </div>
+         </div>
+     	  <div class="modal-footer">
+             <button id="submitPasswordReset" class="btn btn-primary" id="submitLogin">Submit</button>
+     	    <button id="passwordModelClose" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+     	  </div>
+     	</div>
+     	<!-- end of modal -->
+
+
+
   <!-- Modal -->
     	<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     	  <div class="modal-header">
@@ -288,6 +315,8 @@
     	  </div>
     	</div>
     	<!-- end of modal -->
+
+
 
 
 

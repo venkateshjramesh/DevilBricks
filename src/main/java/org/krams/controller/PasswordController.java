@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
@@ -30,11 +31,16 @@ public class PasswordController {
             HttpServletRequest request,
             HttpServletResponse response,
             @ModelAttribute("passwordEmail") String passwordEmail
-    ) {
+    ) throws MessagingException {
 
         Blogger blogger = service.findByEmail(passwordEmail);
-        service.sendMail(null,"DevilBricksTeam",passwordEmail,blogger);
         Map<String, Object> model = new HashMap<String, Object>();
+        if(blogger==null){
+            model.put("failure","The E-Mail Id id not match any records in our Database");
+            return model;
+        }
+
+            service.sendMail(null,"DevilBricksTeam",passwordEmail,blogger);
         model.put("success","Please check your Email Id for your password details");
         return model;
 
