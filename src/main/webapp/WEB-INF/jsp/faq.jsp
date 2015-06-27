@@ -225,7 +225,7 @@
             <input id="password" type="password" class='input-xlarge'>
             <label class="remember-me"><input type="checkbox"> Remember me</label>
             <p><a href="signUp" target="_blank">Sign Up</a></p
-            <p><a href="resetPassword" target="_blank">Forgot Password</a></p>
+
         </div>
     	  <div class="modal-footer">
             <button class="btn btn-primary" id="submitLogin">Submit</button>

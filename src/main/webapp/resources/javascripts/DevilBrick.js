@@ -326,6 +326,32 @@ $("#emailId").bind("blur keyup", function(e){
             return false;
         }
 
+        if($.trim(pinCodeSearch).length < 6){
+                    alert("Please enter a valid PinCode");
+                    $('#pinCode').focus();
+                    return false;
+                }
+
+        if(!$.trim(emailSearch) == ''){
+        var regex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            testValue = regex.test($("#email").val());
+            if(!testValue && !$.trim($("#email").val()) == ''){
+            alert("E mail should adhere to proper format");
+            $('#email').focus();
+            return false;
+            }
+        }
+
+      if(!$.trim(mobileSearch) == ''){
+            if($("#mobile").val().length < 10 && !$.trim($("#mobile").val()) == '') {
+                alert("Please enter 10 digit mobile number");
+                $('#mobile').focus();
+                return false;
+                }
+            }
+
+
+
         var htmlString = "";
         $.ajax({
             url: "/spring-mongodb-tutorial/searchOwner?id=&firstName="+firstNameSearch+"&lastName="+lastNameSearch+"&email="+emailSearch+"&mobile="+mobileSearch+"&plotNumber="+plotNumberSearch+"&appartmentName="+appartmentNameSearch+"&doorNo="+doorNoSearch+"&floor="+floorSearch+"&streetName="+streetNameSearch+"&landmark="+landmarkSearch+ "&area="+areaSearch+"&city="+citySearch+"&taluk="+talukSearch+"&district="+districtSearch+"&state="+stateSearch+"&pinCode="+pinCodeSearch,
@@ -589,15 +615,84 @@ testButton();
                 var userName =$('#userName').val();
                 var password =$('#password').val();
                 var mobile =$('#mobile').val();
+                var address = $('#address').val();
                 var showEmail =$("input[id=showEmail]:checked").length;
                 var showMobile =$("input[id=showMobile]:checked").length;
                 var showAddress =$("input[id=showAddress]:checked").length;
                 var agree =$("input[id=agree]:checked").length;
+
+                if($.trim(firstName) == ''){
+                    alert("FirstName is mandatory");
+                    $('#firstName').focus();
+                    return false;
+                }
+
+                if($.trim(lastName) == ''){
+                    alert("LastName is mandatory");
+                    $('#lastName').focus();
+                    return false;
+                }
+
+                if($.trim(emailId) == ''){
+                    alert("Email Id is mandatory");
+                    $('#emailId').focus();
+                    return false;
+                }
+
+                 if($.trim(mobile) == ''){
+                    alert("Mobile No is mandatory");
+                    $('#mobile').focus();
+                    return false;
+                }
+
+                 if($.trim(address) == ''){
+                    alert("Address is mandatory");
+                    $('#address').focus();
+                    return false;
+                }
+
+                 if($.trim(mobile) == ''){
+                    alert("Mobile No is mandatory");
+                    $('#mobile').focus();
+                    return false;
+                }
+
+                if($.trim(userName) == ''){
+                    alert("UserName is mandatory");
+                    $('#userName').focus();
+                    return false;
+                }
+                if($.trim(password) == ''){
+                    alert("Password is mandatory");
+                    $('#password').focus();
+                    return false;
+                }
+
+                 if(!$.trim($("#emailId").val()) == ''){
+                            var regex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                                testValue = regex.test($("#emailId").val());
+                                if(!testValue && !$.trim($("#emailId").val()) == ''){
+                                alert("E mail should adhere to proper format");
+                                $('#emailId').focus();
+                                return false;
+                                }
+                            }
+
+                          if(!$.trim($("#mobile").val()) == ''){
+                            if($("#mobile").val().length < 10 && !$.trim($("#mobile").val()) == '') {
+                                alert("Please enter 10 digit mobile number");
+                                $('#mobile').focus();
+                                return false;
+                                }
+                            }
+
                 if(agree < 1){
                 alert("Please accept the Terms and Conditions to proceed")
                 return false;
                 }
-                var address = $('#address').val();
+
+
+
                          $.ajax({
                                     url: "/spring-mongodb-tutorial/saveBlogger",
                                     type: "POST",
@@ -619,6 +714,24 @@ testButton();
                             });
           });
 
+
+           $('#submitPasswordReset').click(function(){
+             var passwordEmail =  $('#passwordEmail').val();
+              $.ajax({
+                   url: "/spring-mongodb-tutorial/forgotPassword",
+                   type: "POST",
+                   data: "passwordEmail=" + passwordEmail ,
+                   //dataType: "json",
+                   //contentType: "application/json",
+                   success: function(response) {
+                       alert(response.success);
+                   },
+                   error: function(xhr) {
+                       //alert(xhr)
+                   }
+           });
+
+           });
 
           $('#submitLogin').click(function(){
                           var userName =$('#userName').val();
@@ -749,6 +862,31 @@ testButton();
                 $('#plotNumber').focus();
                 return false;
             }
+
+            if($.trim($('#pinCode').val()).length < 6){
+                alert("Please enter a valid PinCode");
+                $('#pinCode').focus();
+                return false;
+            }
+
+            if(!$.trim($("#email").val()) == ''){
+            var regex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                testValue = regex.test($("#email").val());
+                if(!testValue && !$.trim($("#email").val()) == ''){
+                alert("E mail should adhere to proper format");
+                $('#email').focus();
+                return false;
+                }
+            }
+
+          if(!$.trim($("#mobile").val()) == ''){
+            if($("#mobile").val().length < 10 && !$.trim($("#mobile").val()) == '') {
+                alert("Please enter 10 digit mobile number");
+                $('#mobile').focus();
+                return false;
+                }
+            }
+
             });
 
 });

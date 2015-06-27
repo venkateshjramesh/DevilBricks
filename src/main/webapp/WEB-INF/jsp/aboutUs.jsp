@@ -102,7 +102,7 @@
                 <ul id="accounts-menu" class="nav nav-list collapse in">
                   <li ><a href="#loginModal" data-toggle="modal">Sign In</a></li>
                   <li ><a href="signUp" target="_blank">Sign Up</a></li>
-                  <li ><a href="resetPassword" target="_blank">Forgot Password</a></li>
+                  <li ><a href="#forgotPasswordModal" data-toggle="modal">Forgot Password</a></li>
                 </ul>
 
 
@@ -184,6 +184,26 @@
  	  </div>
  	</div>
  	<!-- end of modal -->
+
+
+ 	 <!-- Modal -->
+     	<div id="forgotPasswordModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     	  <div class="modal-header">
+     	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+     	    <h3 id="myModalLabel">Forgot Password</h3>
+     	  </div>
+     	  <div class="modal-body">
+     	  <h6>Please enter your registered E-Mail Id</h6>
+     	     <label>E-mail Id</label>
+             <input id="passwordEmail" type="text" class='input-xlarge'>
+
+         </div>
+     	  <div class="modal-footer">
+             <button id="submitPasswordReset" class="btn btn-primary" id="submitLogin">Submit</button>
+     	    <button id="passwordModelClose" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+     	  </div>
+     	</div>
+     	<!-- end of modal -->
 
 
 

@@ -14,6 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
+
+
 @Service
 public class DevilBrickService {
 
@@ -44,6 +54,14 @@ public class DevilBrickService {
     @Autowired
     private CityZipRepository cityZipRepository;
 
+    @Autowired
+    private SimpleMailMessage emailTemplate;
+
+    @Autowired
+    private JavaMailSenderImpl javaMailSender;
+
+
+
     public Owner create(Owner owner) {
         if(owner.getId()!=null && owner.getId().equals(""))
         owner.setId(UUID.randomUUID().toString());
@@ -63,6 +81,11 @@ public class DevilBrickService {
     public Blogger createBlogger(Blogger blogger) {
         blogger.setId(UUID.randomUUID().toString());
         return bloggerRepository.save(blogger);
+    }
+
+
+    public Blogger findByEmail(String passwordEmail){
+        return bloggerRepository.findByEmail(passwordEmail);
     }
 
     public List<Blogger> checkBlogger(Blogger blogger) {
@@ -137,14 +160,46 @@ public class DevilBrickService {
         //mongoDBOwnerRepository.
         //return ownerRepository.findByPinCodeAndFirstName(owner.getPinCode(),owner.getFirstName());
 
-
-
-
-
     }
 
     public List<RatingHistory> findByParameters(String userId,String targetId) {
         return ratingHistoryRepository.findByUserIdAndTargetId(userId,targetId);
+    }
+
+
+    public void sendMail(String dear, String content,String passwordEmail,Blogger blogger) {
+
+        String[] emailList = new String[1];
+        emailList[0] = passwordEmail;
+        String fromEmail = emailTemplate.getFrom();
+        String[] toEmail = emailList;
+        String emailSubject = "Password Details - DevilBricks.com";
+        //String emailBody = String.format("Please note your password : " + blogger.getPassword(), blogger.getUserName(), content);
+        String emailBody = "Hi "  + blogger.getUserName() +  "\n\tPlease note your password: " + blogger.getPassword()
+                + "\n\nThanks and Regards,\nDevilBricksTeam";
+
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        try {
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+
+            helper.setFrom(fromEmail);
+            helper.setTo(toEmail);
+            helper.setSubject(emailSubject);
+            helper.setText(emailBody);
+
+			/*
+			  uncomment the following lines for attachment FileSystemResource
+			  file = new FileSystemResource("attachment.jpg");
+			  helper.addAttachment(file.getFilename(), file);
+			 */
+
+            javaMailSender.send(mimeMessage);
+            System.out.println("Mail sent successfully.");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 }

@@ -174,7 +174,7 @@
                 <input name="city" id="city" type="text" class="input-xlarge">
                   <span style="display:none" id="cityMsg"><font color="Blue" size="2"><b>Only alphabets and space allowed</b></font></span>
                 <label>PinCode &nbsp;<i class="icon-asterisk" style="color:red"></i></label>
-                <input name="pinCode" id="pinCode" type="text" class="input-xlarge">
+                <input name="pinCode" id="pinCode" type="text" class="input-xlarge" maxlength=6>
                   <span style="display:none" id="pinCodeMsg"><font color="Blue" size="2"><b>Only 6 digit numbers allowed</b></font></span>
                 <label>Taluk</label>
                 <input name="taluk" id="taluk" type="text" class="input-xlarge">
@@ -280,7 +280,7 @@
             <input id="password" type="password" class='input-xlarge'>
             <label class="remember-me"><input type="checkbox"> Remember me</label>
             <p><a href="signUp" target="_blank">Sign Up</a></p
-            <p><a href="resetPassword" target="_blank">Forgot Password</a></p>
+
         </div>
     	  <div class="modal-footer">
             <button class="btn btn-primary" id="submitLogin">Submit</button>

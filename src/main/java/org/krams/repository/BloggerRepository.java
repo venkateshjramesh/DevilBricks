@@ -10,4 +10,6 @@ import java.util.List;
 public interface BloggerRepository extends MongoRepository<Blogger, String> {
     @Query("{ userName: ?0 , password : ?1}")
     List<Blogger> findByParameters(String userName, String password);
+
+    Blogger findByEmail(String email);
 }

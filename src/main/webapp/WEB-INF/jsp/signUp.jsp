@@ -81,32 +81,33 @@
         <div class="block">
             <div class="block-heading">Sign Up</div>
             <div class="block-body">
-                    <label>First Name</label>
+            <h6><i style="color:red" class="icon-asterisk"></i>&nbsp;&nbsp;&nbsp;The fields marked with this symbol are mandatory</h6>
+                    <label>First Name&nbsp;&nbsp;<i style="color:red" class="icon-asterisk"></i></label>
                     <input id="firstName" type="text" class="span12">
                     <span style="display:none;" id="firstNameMsg"><font size="2" color="Blue"><b>Only alphabets and space allowed.</b></font></span>
-                    <label>Last Name</label>
+                    <label>Last Name&nbsp;&nbsp;<i style="color:red" class="icon-asterisk"></i></label>
                     <input id="lastName" type="text" class="span12">
                     <span style="display:none;" id="lastNameMsg"><font size="2" color="Blue"><b>Only alphabets and space allowed.</b></font></span>
-                    <label>Email Address</label>
+                    <label>Email Address&nbsp;&nbsp;<i style="color:red" class="icon-asterisk"></i></label>
                     <input id="emailId" type="text" class="span12">
                     <span style="display:none;" id="emailIdMsg"><font size="2" color="red"><b>E mail should adhere to proper email format.</b></font></span>
                     <label class="remember-me"><input type="checkbox" id="showEmail">Show my Email Id to Public</label>
                     <label style="font-size:80%"><b>NOTE:</b> By clicking this option your email id is visible to public</label>
                     <br>
-                    <label>Mobile No</label>
+                    <label>Mobile No&nbsp;&nbsp;<i style="color:red" class="icon-asterisk"></i></label>
                     <input id="mobile" type="text" class="span12" maxlength=10>
                     <span style="display:none;" id="mobileMsg"><font size="2" color="Blue"><b>Only 10 digit Indian Mobile Numbers allowed.</b></font></span>
                     <label class="remember-me"><input type="checkbox" id="showMobile">Show my Mobile No to Public</label>
                     <label style="font-size:80%"><b>NOTE:</b> By clicking this option your mobile-no is visible to public</label>
 
-                    <label>Address</label>
+                    <label>Address&nbsp;&nbsp;<i style="color:red" class="icon-asterisk"></i></label>
                     <input id="address" type="text" class="span12">
                     <label class="remember-me"><input type="checkbox" id="showAddress">Show my Address to Public</label>
                     <label style="font-size:80%"><b>NOTE:</b> By clicking this option your address is visible to public</label>
-                    <label>Username</label>
+                    <label>Username&nbsp;&nbsp;<i style="color:red" class="icon-asterisk"></i></label>
                     <input id="userName" type="text" class="span12">
                     <span style="display:none;" id="userNameMsg"><font size="2" color="Blue"><b>Only alphabets allowed. Space not allowed</b></font></span>
-                    <label>Password</label>
+                    <label>Password&nbsp;&nbsp;<i style="color:red" class="icon-asterisk"></i></label>
                     <input id="password" type="password" class="span12">
                     <a id="signUpButton" class="btn btn-primary pull-right">Sign Up!</a>
                     <label class="remember-me"><input type="checkbox" id="agree"> I agree with the <a href="termsAndConditions" target="_blank">Terms and Conditions</a></label>
