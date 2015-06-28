@@ -23,6 +23,15 @@ public class Blogger {
     private String showMobile ;
     private String showAddress ;
     private String address;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getShowAddress() {
         return showAddress;

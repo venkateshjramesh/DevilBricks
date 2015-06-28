@@ -53,12 +53,13 @@ public class SaveBloggerController {
         blogger.setShowEmail(showEmail.equals("0") ? "N" : "Y");
         blogger.setShowMobile(showMobile.equals("0") ? "N" : "Y");
         blogger.setShowAddress(showAddress.equals("0") ? "N" : "Y");
+        blogger.setStatus("IN");
 
 
         service.createBlogger(blogger);
 
         Map<String, Object> model = new HashMap<String, Object>();
-        model.put("status","user created successfully. happy blogging. You will be automatically redirected to Blog");
+        model.put("status","User created successfully. Happy Blogging. Please login to your E-Mail Id to activate your account");
         return model;
 
     }

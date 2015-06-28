@@ -8,8 +8,8 @@ import org.springframework.data.mongodb.repository.Query;
 import java.util.List;
 
 public interface BloggerRepository extends MongoRepository<Blogger, String> {
-    @Query("{ userName: ?0 , password : ?1}")
+    @Query("{ userName: ?0 , password : ?1 , status : 'A'}")
     List<Blogger> findByParameters(String userName, String password);
 
-    Blogger findByEmail(String email);
+    Blogger findByEmailAndStatus(String email,String status);
 }

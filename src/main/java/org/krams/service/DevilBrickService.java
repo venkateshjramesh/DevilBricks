@@ -85,7 +85,7 @@ public class DevilBrickService {
 
 
     public Blogger findByEmail(String passwordEmail){
-        return bloggerRepository.findByEmail(passwordEmail);
+        return bloggerRepository.findByEmailAndStatus(passwordEmail,"A");
     }
 
     public List<Blogger> checkBlogger(Blogger blogger) {
