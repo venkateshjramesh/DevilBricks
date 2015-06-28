@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/krams/domain/Blogger.java" afterPath="$PROJECT_DIR$/src/main/java/org/krams/domain/Blogger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/krams/repository/BloggerRepository.java" afterPath="$PROJECT_DIR$/src/main/java/org/krams/repository/BloggerRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/verifyEmail.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/krams/service/DevilBrickService.java" afterPath="$PROJECT_DIR$/src/main/java/org/krams/service/DevilBrickService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/krams/controller/SaveBloggerController.java" afterPath="$PROJECT_DIR$/src/main/java/org/krams/controller/SaveBloggerController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -11,13 +10,13 @@
     <ignored path="spring-mongodb-tutorial.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/a.dummy" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435420555029" ignored="false" />
-    <file path="/fragment.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435404431485" ignored="false" />
+    <file path="/fragment.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435503973914" ignored="false" />
     <file path="/aboutUs.jsp" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435417114759" ignored="false" />
     <file path="/writeReview.jsp" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434801717065" ignored="false" />
     <file path="/Dummy.txt" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435494542704" ignored="false" />
     <file path="/WriteReviewController.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1431191662688" ignored="false" />
     <file path="/Owner.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1429029259131" ignored="false" />
-    <file path="/DevilBrickService.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435419832433" ignored="false" />
+    <file path="/DevilBrickService.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435509551375" ignored="false" />
     <file path="/DevilBrickRepository.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1425319439422" ignored="false" />
     <file path="/DevilBrick.js" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435421743132" ignored="false" />
     <file path="/custom.js" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1425208958282" ignored="false" />
@@ -32,7 +31,7 @@
     <file path="/SaveReplyController.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434724753289" ignored="false" />
     <file path="/Blogger.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435495608917" ignored="false" />
     <file path="/signUp.jsp" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435402474699" ignored="false" />
-    <file path="/SaveBloggerController.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435495759885" ignored="false" />
+    <file path="/SaveBloggerController.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435508980593" ignored="false" />
     <file path="/BloggerRepository.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435495692922" ignored="false" />
     <file path="/LoginController.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1430590055939" ignored="false" />
     <file path="/ViewReviewController.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1431247934499" ignored="false" />
@@ -47,6 +46,9 @@
     <file path="/CityZipRepository.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434819163840" ignored="false" />
     <file path="/import.txt" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1434821888011" ignored="false" />
     <file path="/PasswordController.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435418714141" ignored="false" />
+    <file path="/AboutUsController.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435503324855" ignored="false" />
+    <file path="/EmailVerificationController.java" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435509684993" ignored="false" />
+    <file path="/verifyEmail.jsp" changelist="7671608e-53b2-4a21-ac1d-c6d7d9f01e6c" time="1435507959105" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,17 +112,28 @@
       <file leaf-file-name="DevilBrick.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="717" column="71" selection-start="27372" selection-end="27372" vertical-scroll-proportion="0.0">
+            <state line="717" column="51" selection-start="27243" selection-end="27372" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DevilBrickService.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DevilBrickService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/service/DevilBrickService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="32" selection-start="2736" selection-end="2753" vertical-scroll-proportion="0.6605042">
+            <state line="88" column="32" selection-start="2516" selection-end="2529" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmailVerificationController.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/EmailVerificationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="61" selection-start="1354" selection-end="1354" vertical-scroll-proportion="1.1787709">
+              <folding>
+                <element signature="e#873#889#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,25 +141,16 @@
       <file leaf-file-name="SaveBloggerController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/SaveBloggerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="29" selection-start="2138" selection-end="2138" vertical-scroll-proportion="0.0">
+            <state line="59" column="55" selection-start="2314" selection-end="2314" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Blogger.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/domain/Blogger.java">
+      <file leaf-file-name="verifyEmail.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/verifyEmail.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="31" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BloggerRepository.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/repository/BloggerRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="32" selection-start="468" selection-end="488" vertical-scroll-proportion="0.0">
+            <state line="79" column="47" selection-start="3397" selection-end="3397" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -170,9 +174,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signUp.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/aboutUs.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/krams/controller/PasswordController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/searchReview.jsp" />
@@ -181,11 +182,14 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/viewReview.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/termsAndConditions.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/writeReview.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js" />
         <option value="$PROJECT_DIR$/src/main/java/org/krams/domain/Blogger.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/krams/repository/BloggerRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/krams/service/DevilBrickService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/krams/controller/AboutUsController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/verifyEmail.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/org/krams/controller/SaveBloggerController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/krams/service/DevilBrickService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/krams/controller/EmailVerificationController.java" />
       </list>
     </option>
   </component>
@@ -333,6 +337,10 @@
               <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -356,7 +364,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-mongodb-tutorial" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring-mongodb-tutorial" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -531,11 +565,11 @@
       <recent name="org.krams.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/lib" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/images" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/javascripts" />
       <recent name="$PROJECT_DIR$/src/main/webapp/resources/css" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp" />
     </key>
   </component>
   <component name="RunManager">
@@ -669,20 +703,20 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4279211" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33532935" sideWeight="0.6145675" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33532935" sideWeight="0.6145675" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2865697" sideWeight="0.5720789" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38543248" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2865697" sideWeight="0.6145675" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38543248" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -751,101 +785,119 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/String.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/SaveReplyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2790" column="25" selection-start="111291" selection-end="111291" vertical-scroll-proportion="0.33139536" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="89" selection-start="1961" selection-end="1979" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/PasswordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="87" selection-start="1293" selection-end="1347" vertical-scroll-proportion="0.5687204">
-          <folding>
-            <element signature="e#1213#1229#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/aboutUs.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="212" column="43" selection-start="10144" selection-end="11371" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/searchReview.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="274" column="50" selection-start="13605" selection-end="13605" vertical-scroll-proportion="-9.76" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/faq.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="240" column="8" selection-start="15846" selection-end="15846" vertical-scroll-proportion="0.7996661" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/privacyPolicy.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="188" column="0" selection-start="10422" selection-end="10422" vertical-scroll-proportion="0.83064514" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/viewReview.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="244" column="0" selection-start="11677" selection-end="11677" vertical-scroll-proportion="0.9516129" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/termsAndConditions.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="191" column="0" selection-start="11627" selection-end="11627" vertical-scroll-proportion="0.8235294" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/writeReview.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="384" column="24" selection-start="22442" selection-end="22442" vertical-scroll-proportion="0.0">
+        <state line="17" column="13" selection-start="555" selection-end="555" vertical-scroll-proportion="-0.0900474">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/SaveReportController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="717" column="71" selection-start="27372" selection-end="27372" vertical-scroll-proportion="0.0">
+        <state line="21" column="13" selection-start="745" selection-end="745" vertical-scroll-proportion="0.1421801">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/domain/Blogger.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/SaveReviewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="31" selection-start="666" selection-end="666" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/repository/BloggerRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="32" selection-start="468" selection-end="488" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/SaveBloggerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="29" selection-start="2138" selection-end="2138" vertical-scroll-proportion="0.0">
+        <state line="27" column="38" selection-start="787" selection-end="813" vertical-scroll-proportion="0.33175355">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/SearchOwnerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="350" column="46" selection-start="13753" selection-end="13753" vertical-scroll-proportion="0.19866444">
+        <state line="42" column="13" selection-start="1519" selection-end="1519" vertical-scroll-proportion="0.7741935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/SearchReviewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="13" selection-start="363" selection-end="363" vertical-scroll-proportion="0.1421801">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="13" selection-start="635" selection-end="635" vertical-scroll-proportion="-0.81042653">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/SignUpController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="41" selection-start="293" selection-end="293" vertical-scroll-proportion="0.36764705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/ViewReviewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="7" selection-start="554" selection-end="665" vertical-scroll-proportion="0.5509182">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/writeReview.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="338" column="113" selection-start="0" selection-end="22504" vertical-scroll-proportion="-7.64">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/javascripts/DevilBrick.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="717" column="51" selection-start="27243" selection-end="27372" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/viewReview.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="79" selection-start="4142" selection-end="4142" vertical-scroll-proportion="-0.25375625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signUp.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="54" selection-start="575" selection-end="575" vertical-scroll-proportion="0.30050084">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/verifyEmail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="47" selection-start="3397" selection-end="3397" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/SaveBloggerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="55" selection-start="2314" selection-end="2314" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/service/DevilBrickService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="32" selection-start="2736" selection-end="2753" vertical-scroll-proportion="0.6605042">
+        <state line="88" column="32" selection-start="2516" selection-end="2529" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/krams/controller/EmailVerificationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="61" selection-start="1354" selection-end="1354" vertical-scroll-proportion="1.1787709">
+          <folding>
+            <element signature="e#873#889#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

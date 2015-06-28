@@ -17,11 +17,14 @@ import java.util.UUID;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 
 @Service
@@ -83,9 +86,13 @@ public class DevilBrickService {
         return bloggerRepository.save(blogger);
     }
 
+    public Blogger updateBlogger(Blogger blogger) {
+        return bloggerRepository.save(blogger);
+    }
+
 
     public Blogger findByEmail(String passwordEmail){
-        return bloggerRepository.findByEmailAndStatus(passwordEmail,"A");
+        return bloggerRepository.findByEmailAndStatus(passwordEmail, "A");
     }
 
     public List<Blogger> checkBlogger(Blogger blogger) {
@@ -196,6 +203,41 @@ public class DevilBrickService {
 
             javaMailSender.send(mimeMessage);
             System.out.println("Mail sent successfully.");
+
+
+
+    }
+
+    public void sendVerificationMail(Blogger blogger, StringBuffer url) throws MessagingException {
+
+        String[] emailList = new String[1];
+        emailList[0] = blogger.getEmail();
+        String fromEmail = emailTemplate.getFrom();
+        String[] toEmail = emailList;
+        String emailSubject = "User Verification - DevilBricks.com";
+        //String emailBody = String.format("Please note your password : " + blogger.getPassword(), blogger.getUserName(), content);
+        int endIndex = url.lastIndexOf("/");
+        String emailBody = "Hi "  + blogger.getUserName() +  "<br>     Please click or copy and paste in a browser the following URL mentioned below to activate your acount."
+                +"<br><br><html><body><table border=1><tr><td>URL</td><td>"+url.substring(0, endIndex) + "/verifyEmail/" + blogger.getId()+"</td></tr></table></body></html>"
+                + "<br><br>Thanks and Regards,<br>DevilBricksTeam";
+
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+
+        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+
+        helper.setFrom(fromEmail);
+        helper.setTo(toEmail);
+        helper.setSubject(emailSubject);
+        helper.setText(emailBody,true);
+
+			/*
+			  uncomment the following lines for attachment FileSystemResource
+			  file = new FileSystemResource("attachment.jpg");
+			  helper.addAttachment(file.getFilename(), file);
+			 */
+
+        javaMailSender.send(mimeMessage);
+        System.out.println("Mail sent successfully.");
 
 
 

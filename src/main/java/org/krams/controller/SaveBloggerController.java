@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
@@ -40,7 +41,7 @@ public class SaveBloggerController {
             @ModelAttribute("showMobile") String showMobile,
             @ModelAttribute("showAddress") String showAddress,
             @ModelAttribute("address") String address
-    ) {
+    ) throws MessagingException {
 
         Blogger blogger = new Blogger();
         blogger.setFirstName(firstName);
@@ -55,8 +56,9 @@ public class SaveBloggerController {
         blogger.setShowAddress(showAddress.equals("0") ? "N" : "Y");
         blogger.setStatus("IN");
 
+        Blogger b = service.createBlogger(blogger);
+        service.sendVerificationMail(b,request.getRequestURL());
 
-        service.createBlogger(blogger);
 
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("status","User created successfully. Happy Blogging. Please login to your E-Mail Id to activate your account");
