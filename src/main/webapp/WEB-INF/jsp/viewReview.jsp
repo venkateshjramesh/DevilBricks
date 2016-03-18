@@ -290,30 +290,7 @@
     	</div>
     	<!-- end of modal -->
 
-
-<!-- Modal -->
-	<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
-	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	    <h3 id="myModalLabel">Sign In</h3>
-	  </div>
-	  <div class="modal-body">
-	     <label>Username</label>
-        <input id="userName" type="text" class='input-xlarge'>
-        <label>Password</label>
-        <input id="password" type="password" class='input-xlarge'>
-        <label class="remember-me"><input type="checkbox"> Remember me</label>
-        <p><a href="${pageContext.request.contextPath}/signUp" target="_blank">Sign Up</a></p
-
-    </div>
-	  <div class="modal-footer">
-        <button class="btn btn-primary" id="submitLogin">Submit</button>
-	    <button id="loginModelClose" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
-	  </div>
-	</div>
-	<!-- end of modal -->
-
-	<!--Rating Modal -->
+<!--Rating Modal -->
     	<div id="ratingModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     	  <div class="modal-header">
     	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -353,6 +330,30 @@
               </div>
             </div>
             <!-- end of modal -->
+
+
+<!-- Modal -->
+	<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel">Sign In</h3>
+	  </div>
+	  <div class="modal-body">
+	     <label>Username</label>
+        <input id="userName" type="text" class='input-xlarge'>
+        <label>Password</label>
+        <input id="password" type="password" class='input-xlarge'>
+        <label class="remember-me"><input type="checkbox"> Remember me</label>
+        <p><a href="${pageContext.request.contextPath}/signUp" target="_blank">Sign Up</a></p
+
+    </div>
+	  <div class="modal-footer">
+        <button class="btn btn-primary" id="submitLogin">Submit</button>
+	    <button id="loginModelClose" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+	  </div>
+	</div>
+	<!-- end of modal -->
+
 
 
 
